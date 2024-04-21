@@ -1,4 +1,11 @@
-# Welcome!
+---
+permalink: /
+title: "Welcome!"
+author_profile: true
+redirect_from: 
+  - /about/
+  - /about.html
+---
 
 I'm Evan, a quantitative researcher and developer at the ![Abu Dhabi Investment Authority (ADIA)](https://www.adia.ae/) here in sunny Abu Dhabi.
 
