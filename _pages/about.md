@@ -34,3 +34,7 @@ I studied an MSc at the London School of Economics ([LSE MSc EME](https://www.ls
 ## Other
 
 I am a lifelong classically trained musician (classical and jazz pianist) and so you may also find some quant-music explorations here.
+
+**Disclaimer**: The views expressed on this personal website are mine and do not necessarily reflect the official policy or position of any institutions I am affiliated with or have been affiliated with.
+{: .notice}
+
