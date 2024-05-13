@@ -15,9 +15,14 @@ I'm Evan, a quantitative researcher and developer at the [Abu Dhabi Investment A
 
 My primary work at ADIA focuses on mobilizing alternative data for systematic strategies & quantamental investments, both for research prototypes and production pipelines for systematic strategies.
 
-This is a full-stack financial data science job: sourcing and evaluating datasets, understanding their informational and statistical content, preparing them for trading and portfolio optimization, and ultimately running the production pipelines. Areas of focus include complex networks, industrial economics and transportation; as well as (to a lesser extent) corporate filings, fundamentals, job postings data, news, and more.
+This is a full-stack quant research & development role:
 
-I have also contributed to signal development and portfolio optimization in production as well.
+- sourcing and evaluating datasets
+- understanding their informational and statistical content
+- preparing features and signals for trading and portfolio optimization
+- building and running the production pipelines
+
+I work on complex networks, industrial economics and transportation, and also contributed systematic work involving corporate filings, fundamentals, job postings data, news, and other alternative data.
 
 Since my role is within a scientific investing team, I have also run a number of industry-academic projects via [ADIA Lab](https://www.adialab.ae/), the scientific institution of ADIA. These have primarily been in the form of MSc-level capstone projects:
 
