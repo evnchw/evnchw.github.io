@@ -34,7 +34,11 @@ Since my role is within a scientific investing team, I have also run a number of
 
 Previously in the technology sector, I worked as a data scientist and research scientist at Snap Inc. (2017-2020), primarily on causal inference and econometric analysis to drive product and engineering strategy. Before that I worked briefly at Uber (2016-2017) on optimal driver-rider matching algorithms and engineering.
 
-I studied an MSc at the London School of Economics ([LSE MSc EME](https://www.lse.ac.uk/study-at-lse/Graduate/degree-programmes-2024/MSc-Econometrics-and-Mathematical-Economics), the most mathematical econometric MSc in Europe) and before that an undergrad in economics, statistics & machine learning at Princeton.
+I studied the [MSc EME](https://www.lse.ac.uk/study-at-lse/Graduate/degree-programmes-2024/MSc-Econometrics-and-Mathematical-Economics) program at the London School of Economics:
+
+> The technical level of the material covered is perhaps higher than for any other master's degree in the area, and the programme has a long-standing international reputation, with many distinguished economists and econometricians among its graduates.
+
+and before that an undergrad in economics, statistics & machine learning at Princeton.
 
 ## Other
 
