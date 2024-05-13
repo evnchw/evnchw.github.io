@@ -7,7 +7,13 @@ main:
     # url: /talks/    
 
   - title: "Teaching"
-    url: /teaching/    
+    url: /teaching/
+
+  - title: "Quant"
+    url: /quant/
+
+  - title: "Music"
+    url: /music/
     
   # - title: "Portfolio"
     # url: /portfolio/
