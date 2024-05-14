@@ -36,7 +36,7 @@ Previously in the technology sector, I worked as a data scientist and research s
 
 I studied the [MSc EME](https://www.lse.ac.uk/study-at-lse/Graduate/degree-programmes-2024/MSc-Econometrics-and-Mathematical-Economics) program at the London School of Economics:
 
-> The technical level of the material covered is perhaps higher than for any other master's degree in the area, and the programme has a long-standing international reputation, with many distinguished economists and econometricians among its graduates.
+> The programme has a long-standing international reputation, with many distinguished economists and econometricians among its graduates.
 
 and before that an undergrad in economics, statistics & machine learning at Princeton.
 
