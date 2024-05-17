@@ -2,7 +2,6 @@
 title: "How to Measure Your App: A Couple of Pitfalls and Remedies in Measuring App Performance in Online Controlled Experiments"
 collection: publications
 permalink: /publication/xie_et_al_2020
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
 date: 2020-11-29
 venue: 'WSDM 2021: Proceedings of the 14th ACM International Conference on Web Search and Data Mining'
 paperurl: 'https://dl.acm.org/doi/abs/10.1145/3437963.3441742'
