@@ -1,16 +1,14 @@
 # https://elizabethmcd.github.io/github-pages-intro/02-ghpages-personalize/
 main:
-  - title: "Research"
-    url: /publications/
 
   # - title: "Talks"
     # url: /talks/    
 
-  - title: "Teaching"
-    url: /teaching/
+  # - title: "Teaching"
+  #   url: /teaching/
         
-  - title: "Blog"
-    url: /year-archive/
+  # - title: "Blog"
+  #   url: /year-archive/
 
   - title: "Quant"
     url: /quant/
@@ -21,8 +19,11 @@ main:
   # - title: "Portfolio"
     # url: /portfolio/
     
-  # - title: "CV"
-    # url: /cv/
+  - title: "Research"
+    url: /publications/
+    
+  - title: "CV"
+    url: /cv/
     
   # - title: "Guide"
     # url: /markdown/
