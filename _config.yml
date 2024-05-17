@@ -10,7 +10,7 @@
 locale                   : "en-US"
 title                    : "Evan Chow / Quantitative research & development"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Evan Chow"
 description              : &description "The research and development site of Evan Chow."
 url                      : https://evnchw.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
