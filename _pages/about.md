@@ -7,24 +7,25 @@ redirect_from:
   - /about.html
 ---
 
-I'm Evan, a quantitative researcher and developer at the [Abu Dhabi Investment Authority (ADIA)](https://www.adia.ae/) here in sunny Abu Dhabi.
+I'm Evan, a quantitative researcher and developer at the [Abu Dhabi Investment Authority (ADIA)](https://www.adia.ae/) here in sunny Abu Dhabi. Originally from the San Francisco Bay Area.
 
 ## My current work
 
 [Risk.net - our scientific investing team](https://www.risk.net/investing/quant-investing/7929061/adia-wealth-fund-is-building-supergroup-of-quant-investing)
 
-My primary work at ADIA focuses on mobilizing alternative data for systematic strategies & quantamental investments, both for research prototypes and production pipelines for systematic strategies.
+My primary work at ADIA focuses on mobilizing alternative data for systematic strategies & quantamental investments, from research proof-of-concepts to final production pipelines for systematic strategies.
 
-This is a full-stack quant research & development role:
+This is a full-stack quant research & development role, with a specialization in **financial data science**.
 
-- sourcing and evaluating datasets
-- understanding their informational and statistical content
-- preparing features and signals for trading and portfolio optimization
-- building and running the production pipelines
+- **Data sourcing**: sourcing datasets, talking to vendors, trialing and evaluating potential investment alpha
+- **Data curation**: understanding the information content of datasets, their statistical properties and biases
+- **Data science**: constructing useful features and signals, and preparing them for trading and portfolio optimization
+- **Research**: developing and presenting strategies to the wider group for feedback and robustness
+- **Production**: building and monitoring production data pipelines, monitoring anomalies and investigating outages
 
-I work on complex networks, industrial economics and transportation, and also contributed systematic work involving corporate filings, fundamentals, job postings data, news, and other alternative data.
+Domain-wise, I work on industrial economics, transportation, and complex networks. I have also contributed systematic work involving corporate filings, fundamentals, job postings data, news, and other alternative data.
 
-Since my role is within a scientific investing team, I have also run a number of industry-academic projects via [ADIA Lab](https://www.adialab.ae/), the scientific institution of ADIA. These have primarily been in the form of MSc-level capstone projects:
+Since my role is within a scientific investing team, I have also run a number of industry-academic projects via [ADIA Lab](https://www.adialab.ae/), the scientific institution of ADIA. These have primarily been in the form of MSc-level capstone projects, and some examples include:
 
 - UCL/Oxford (MSc MCF): Nowcasting global trade with time series signatures & shipping data (2024)
 - University of Toronto (MFRM): Nowcasting inflation with the Baltic indices (2023)
