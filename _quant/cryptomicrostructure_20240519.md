@@ -16,8 +16,6 @@ Each Sunday post will have 2 sections, covering happenings during the previous c
 Disclaimers: this will stay fairly high-level and is non-exhaustive. To keep things simple for now, I focus on BTC/USD trading on Coinbase. That said, I plan to add other pairs and exchanges in the future.
 
 Many thanks for swinging by and I hope you will enjoy this series! All feedback welcome.
-
-Thanks,
 Evan
 
 ## 1. Events
