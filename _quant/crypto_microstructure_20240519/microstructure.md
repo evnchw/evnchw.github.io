@@ -14,7 +14,7 @@ Each Sunday post will have two sections, covering happenings during the previous
 2. **Hot off the press**
     - any new crypto microstructure papers (academic, whitepapers etc.)
 
-Disclaimers: this will stay fairly high-level and is non-exhaustive. To keep things simple for now, I focus on **BTC/USD trading on Coinbase**. That said, I plan to add other pairs and exchanges in the near future.
+This will stay fairly high-level and is non-exhaustive. To keep things simple for now, I focus on **BTC/USD trading on Coinbase, using L2 order book data**. That said, I plan to add other pairs and exchanges in the near future.
 
 Many thanks for swinging by and I hope you will enjoy this series! All feedback welcome.
 Evan
