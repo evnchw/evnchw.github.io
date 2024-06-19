@@ -174,11 +174,11 @@ Simple analytical results are often not feasible, and moreover, this has assumed
 
 ### Hamilton-Jacobi-Bellman, stochastic
 
-Here we reformulate the above in the presence of stochasticity.
+Now, we reformulate the problem in a textbook way with stochastic drift and diffusion.
 
 #### The agent's control problem
 
-The agent now controls their 
+The agent now controls thri 
 
 ### Linking this to the backward equation
 
