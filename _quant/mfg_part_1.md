@@ -10,7 +10,7 @@ date: 2024-06-21
 
 While brushing up on mean field game theory ("MFG") I wanted to write a brief refresher to solidify the key ideas.
 
-In this blog series I aim present the key formulation and ideas of MFG in a concise, informal and practical way.
+In this blog series I aim present the key formulation and ideas of mean field games in a concise, informal and practical way.
 
 - I prioritize intuition/readability linking to references where appropriate.
 - We will not go deeply into proofs here.
