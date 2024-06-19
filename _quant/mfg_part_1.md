@@ -45,7 +45,7 @@ In this part, we will concisely build up the agent's optimal control problem, st
 Copying the backward equation from above:
 
 $$
--\partial_t u - \nu \Delta u + H(x, Du) &= f(x, m(x,t)) & \in \mathbb{R}^d \times (0, T) & \hspace{0.5cm} \text{backward Hamilton-Jacobi (agent's optimization)}
+-\partial_t u - \nu \Delta u + H(x, Du) = f(x, m(x,t)) \in \mathbb{R}^d \times (0, T) \hspace{0.5cm} \text{backward Hamilton-Jacobi (agent's optimization)}
 $$
 
 ### Hamilton-Jacobi-Bellman, deterministic
