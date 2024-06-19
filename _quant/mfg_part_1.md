@@ -33,7 +33,7 @@ The first equation represents the expression for each agent's optimal control pr
 
 The unusual features are that we have coupled two equations that are solved opposite directions in time, and also that each agent optimizes against a distribution of which they are a part of (the "mean field"). Let's dive in to understand these equations.
 
-## The forward equation
+## The backward equation
 
 In this part, we will concisely build up the agent's optimal control problem, starting from a purely deterministic version, to a stochastic version, to finally the stochastic version with the mean field.
 
@@ -161,11 +161,7 @@ $$
 
 Simple analytical results are often not feasible, and moreover, this has assumed smoothness for the value function and controls.
 
-
-
-### From HJB to Euler-Lag
-
-
+## 
 
 
 
