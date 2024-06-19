@@ -1,8 +1,13 @@
 # Mean field games, part 1 (intro + backward equation)
 
-While brushing up on mean field game theory ("MFG") I wanted to write a brief refresher to solidify the key ideas, even if only for myself.
+While brushing up on mean field game theory ("MFG") I wanted to write a brief refresher to solidify the key ideas.
 
-In this blog series I aim present the key formulation and ideas of MFG in a concise, informal and practical way. I prioritize intuition/readability over intense proofs, linking to references where appropriate. All feedback and corrections are welcome.
+In this blog series I aim present the key formulation and ideas of MFG in a concise, informal and practical way.
+
+- I prioritize intuition/readability linking to references where appropriate.
+- We will not go deeply into proofs here.
+- We may skip over some parts for brevity (e.g. asymptotics of non-MFG, textbook differential games).
+- All feedback and corrections are welcome.
 
 The fundamental idea of MFG is to model (differential) game-theoretic equilibria where there are a very large number of agents. The key characteristic is that each agent optimizes decisions against the *distribution* of everyone else's decisions (the "mean field"), and where agents are identical to some degree. This allows one to obtain asymptotic equilibria by surmounting the usual combinatorial (agent-to-agent) complexity of differential game theory. Applications of include modeling traffic congestion, pedestrian foot traffic, financial markets, and more.
 
@@ -37,11 +42,17 @@ The unusual features are that we have coupled two equations that are solved oppo
 
 In this part, we will concisely build up the agent's optimal control problem, starting from a purely deterministic version, to a stochastic version, to finally the stochastic version with the mean field.
 
+Copying the backward equation from above:
+
+$$
+-\partial_t u - \nu \Delta u + H(x, Du) &= f(x, m(x,t)) & \in \mathbb{R}^d \times (0, T) & \hspace{0.5cm} \text{backward Hamilton-Jacobi (agent's optimization)}
+$$
+
 ### Hamilton-Jacobi-Bellman, deterministic
 
 Here we formulate the simplest, deterministic version of the agent's optimal control problem.
 
-<p align="center"><strong>THE AGENT'S CONTROL PROBLEM</strong></p>
+#### The agent's control problem
 
 An agent faces the following deterministic optimal control problem:
 
@@ -68,7 +79,7 @@ At each time step $t=0,\dots,T$, the mechanics are as follows:
 
 Although this sequence of events occur forward in time, each step depends strictly on the previous step. So from the agent's perspective, it is best to consider the whole sequence and *optimize this sequence of events (costs, states, controls) backward*. This is encapsulated in the principle of dynamic programming.
 
-<p align="center"><strong>THE VALUE FUNCTION</strong></p>
+#### The value function
 
 Define $u(x_t,t)$ as the *value function*, aka, the optimal (best-achievable) cost starting from a particular time $t$ and a particular state $x_t$ [*].
 
@@ -82,7 +93,7 @@ It is notable that $u(.)$, as the loose minimum (infinimum), no longer depends o
 
 [*] A small abuse of notation: $x_t$ is the state at time $t$ but is not *defined* by $t$. That is, we could write $u(x,t)$ as in the original reference [4] and it would mean the same thing: (states X time).
 
-<p align="center"><strong>DYNAMIC PROGRAMMING</strong></p>
+#### Dynamic programming
 
 Consider a value function $u(x_t,t)$ at $(x,t)$. The principle of dynamic programming says, for any incremental time $\tau: t < \tau \leq T$, the value function only needs to be computed incrementally from $t \to \tau$, and thereafter will simply be $u(x_\tau,\tau)$.
 
@@ -96,7 +107,7 @@ Intuitively, suppose we are at $(x,t)$. If we know the optimal running cost $\in
 
 So, if we choose the optimal path at any $(x,t)$, we will stay on the optimal path.
 
-<p align="center"><strong>HAMILTON-JACOBI-BELLMAN</strong></p>
+#### The Hamilton-Jacobi-Bellman equation
 
 So far we have formulated the optimal control problem in terms of (costs, states, controls), and we have introduced the idea of a optimal cost path (value function) that can be computed recursively backward-in-time. The next step will be to examine the dynamics of the value function. Then, we can optimize the controls and compute the resulting states trajectory, giving us the optimal (costs, states, controls) and therefore solving the control problem.
 
@@ -147,7 +158,7 @@ u(x_T, T) &= G(x_T) &\text{recall: terminal condition}
 \end{align}
 $$
 
-Intuitively, the Hamiltonian is ([Wiki](https://en.wikipedia.org/wiki/Hamiltonian_(control_theory)))
+Intuitively, the Hamiltonian can be interpreted as the instantaneous version of the Lagrangian from static optimization ([Wiki](https://en.wikipedia.org/wiki/Hamiltonian_(control_theory))), combining your running cost from being in a state with the sensitivity to the changes in your state. This can be thought of as a tradeoff between your current cost vs. your (near-)future cost, which by the equation must match the change in the optimal cost (value function) at equilibrium.
 
 The optimal controls ($a^*_t$) and optimal trajectory of states ($x^*_t$) are given indirectly as the solution to the following set of partial differential equations:
 
@@ -161,7 +172,17 @@ $$
 
 Simple analytical results are often not feasible, and moreover, this has assumed smoothness for the value function and controls.
 
-## 
+### Hamilton-Jacobi-Bellman, stochastic
+
+Here we reformulate the above in the presence of stochasticity.
+
+#### The agent's control problem
+
+The agent now controls their 
+
+### Linking this to the backward equation
+
+
 
 
 
