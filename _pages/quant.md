@@ -7,21 +7,6 @@ author_profile: true
 
 Here you can find my writings on a range of quant topics, mostly informal and less academic.
 
-DEBUG:
-
-(1) 
-
-{{ site }}
-
-(2)
-
-{{ site.quant }}
-
-(3)
-
-{{ site.publications }}
-
-
 {% include base_path %}
 
 {% for post in site.quant reversed %}
