@@ -170,7 +170,7 @@ The optimal controls ($a^*_t$) and optimal trajectory of states ($x^*_t$) are gi
 
 $$
 \begin{align*}
-    a^*_t &= \underset{a \in \mathcal{A}}{\argmin} \left[L(x_t^*, a_t) + f(x_t^*, a_t) \frac{\partial u(x_t^*, t)}{\partial x}\right] & \text{optimal controls} \\
+    a^*_t &= \underset{a \in \mathcal{A}}{\text{argmin}} \left[L(x_t^*, a_t) + f(x_t^*, a_t) \frac{\partial u(x_t^*, t)}{\partial x}\right] & \text{optimal controls} \\
     \textbf{s.t. } \hspace{0.5cm}& \frac{\partial x_t^*}{\partial t} = f(x_t^*, a_t) & \text{optimal state dynamics} \\
     \hspace{0.5cm}& x_0^* = x & \text{initial state condition} \\
 \end{align*}
@@ -184,11 +184,11 @@ Now, we reformulate the problem in a textbook way with stochastic drift and diff
 
 #### The agent's control problem
 
-The agent now controls thri 
+TODO
 
 ### Linking this to the backward equation
 
-
+TODO
 
 
 
