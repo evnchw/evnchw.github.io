@@ -154,7 +154,7 @@ $$
 \end{align}
 $$
 
-The $o(h)/h$ term goes to zero, hence plugging this and rearranging we obtain the famous **Hamilton-Jacobi-Bellman** equation which gives the dynamics of the value function.
+The $$o(h)/h$$ term goes to zero, hence plugging this and rearranging we obtain the famous **Hamilton-Jacobi-Bellman** equation which gives the dynamics of the value function.
 
 $$
 \begin{align}
