@@ -5,12 +5,10 @@ permalink: /music/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+Here you can find my writings on a range of music topics, from music itself to quantitative work in music.
 
 {% include base_path %}
 
-{% for post in site.publications reversed %}
+{% for post in site.quant reversed %}
   {% include archive-single.html %}
 {% endfor %}
