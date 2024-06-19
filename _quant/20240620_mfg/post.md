@@ -1,8 +1,6 @@
 # A brief refresher on mean field games
 
-While brushing up on mean field game theory ("MFG") I wanted to write a brief refresher to solidify the key ideas, even if only for myself. Hence in this blog post I aim to present the key formulation and ideas of MFG in a concise, informal and practical way.
-
-In favor of accessibility there will be some imprecisions in this exposition: all feedback and corrections are welcome.
+While brushing up on mean field game theory ("MFG") I wanted to write a brief refresher to solidify the key ideas, even if only for myself. Hence in this blog post I aim to present the key formulation and ideas of MFG in a concise, informal and practical way, favoring intuition/readability over intense proofs. All feedback and corrections are welcome.
 
 The fundamental idea of MFG is to model (differential) game-theoretic equilibria where there are a very large number of agents. The key characteristic is that each agent optimizes decisions against the *distribution* of everyone else's decisions (the "mean field"), and where agents are identical to some degree. This allows one to obtain asymptotic equilibria by surmounting the usual combinatorial (agent-to-agent) complexity of differential game theory. Applications of include modeling traffic congestion, pedestrian foot traffic, financial markets, and more.
 
@@ -25,7 +23,7 @@ $$
 \end{align}
 $$
 
-**This looks daunting, but essentially this says: each agent optimizes its payoff against everyone else who optimize in the same way, and we reach an equilibrium in finite time.**
+**This may look daunting, but essentially this says: every identical agent optimizes its behavior against what the population distribution does, yielding a fixed point in equilibrium.**
 
 Why is it useful to think this way? In "normal" game theory each agent has to make decisions in light of everyone else, which becomes computationally infeasible (and unrealistic) for very large populations. As an example, if you're searching to find an exit out of Shibuya Station in Tokyo, which has millions of commuters each day [(Wiki)](https://en.wikipedia.org/wiki/Shibuya_Station), you have to navigate your way against the general mass of commuters as a whole and not really against any specific individuals. Moreover, everyone uses the same entrances and exits (more or less), so to some extent each person faces the same problem.
 
@@ -41,9 +39,9 @@ In this part, we will concisely build up the agent's optimal control problem, st
 
 Here we formulate the simplest, deterministic version of the agent's optimal control problem.
 
-<p align="center"><strong>FORMULATION</strong></p>
+<p align="center"><strong>THE AGENT'S CONTROL PROBLEM</strong></p>
 
-An agent faces the following optimal control problem:
+An agent faces the following deterministic optimal control problem:
 
 $$
 \begin{align}
@@ -93,13 +91,28 @@ $$
 
 Intuitively, suppose we are at $(x,t)$. If we know the optimal running cost $\int_t^\tau L(x_s, a_s) ds$ of moving from $(x,t) \to (x_\tau, \tau)$, and the subsequent optimal cost (value function) thereafter $u(x_\tau, \tau)$, the *sum* of these give us our optimal cost $u(x,t)$ that can be achieved at $(x,t)$. Hence, the value function can be efficiently computed backward-in-time: given $u(x_\tau, \tau)$, we proceed backward to $(x_\tau, \tau)$ to compute the running cost from $(x,t) \to (x_\tau, \tau)$, and this yields $u(x, t)$.
 
+So, if we choose the optimal path at any $(x,t)$, we will stay on the optimal path.
+
 <p align="center"><strong>HAMILTON-JACOBI-BELLMAN</strong></p>
 
-Assume the value function $u(x,t)$ is continuous and differentiable in both $x,t$, and that the optimal control $a^*_t$ is continuous in time. As above, let's explicitly write $\tau := t + h$ for some $h > 0$. 
+So far we have formulated the optimal control problem in terms of (costs, states, controls), and we have introduced the idea of a optimal cost path (value function) that can be computed recursively backward-in-time. The next step will be to examine the dynamics of the value function. Then, since we will know the dynamics of both the states and the costs (value function), the only free variable left will be the controls, which we can just maximize to obtain the **optimal controls**.
 
+Assume the value function $u(x,t)$ is continuous and differentiable in both $x,t$, and now also, that an *optimal control* $a^*_t$ exists for all $t$ and is continuous in time. As above, let's explicitly write $\tau := t + h$ for some $h > 0$. The value function is hence:
 
+$$
+\begin{align*}
+    u(x,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^{t + h} L(x_s, a_s) ds + u(x_{t+h}, t+h) \right]
+\end{align*}
+$$
 
+By continuity of $u(x,t)$, we can expand $u(x_{t+h},t+h)$ via its Taylor series w/the chain rule for $x_{t+h}$, noting $h \equiv \Delta t$:
 
+$$
+\begin{align*}
+u(x_{t+h}, t+h) &= u(x_t, t) + \frac{\partial u(x_t, t)}{\partial x_t} \frac{\partial x_t}{\partial t} h + \frac{\partial u(x_t, t)}{\partial t} h + o(h) \\
+&= u(x_t, t) + 
+\end{align*}
+$$
 
 
 ### From HJB to Euler-Lagrange
