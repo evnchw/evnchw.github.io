@@ -205,6 +205,12 @@ collections:
   publications:
     output: true
     permalink: /:collection/:path/
+  quant:
+    output: true
+    permalink: /:collection/:path/
+  music:
+    output: true
+    permalink: /:collection/:path/
   portfolio:
     output: true
     permalink: /:collection/:path/
