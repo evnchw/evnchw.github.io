@@ -1,11 +1,9 @@
 ---
 title: "Mean field games, part 1 (intro + backward equation)"
 collection: quant
+type: "Post"
 permalink: /quant/mfg_part_1
 date: 2024-06-21
-# venue: 'WSDM 2021: Proceedings of the 14th ACM International Conference on Web Search and Data Mining'
-# paperurl: 'https://dl.acm.org/doi/abs/10.1145/3437963.3441742'
-# citation: 'Xie, Yuxiang, et al. "How to measure your app: a couple of pitfalls and remedies in measuring app performance in online controlled experiments." Proceedings of the 14th ACM International Conference on Web Search and Data Mining. 2021.'
 ---
 
 While brushing up on mean field game theory ("MFG") I wanted to write a brief refresher to solidify the key ideas.

@@ -9,6 +9,6 @@ Here you can find my writings on a range of music topics, from music itself to q
 
 {% include base_path %}
 
-{% for post in site.quant reversed %}
+{% for post in site.music reversed %}
   {% include archive-single.html %}
 {% endfor %}
