@@ -107,7 +107,7 @@ $$
 \end{align}
 $$
 
-Since we have assumed $a_t$ is continuous in time, let $h \to 0$. Note first the running cost term converges as follows ([Limit of average integral - StackExchange](https://math.stackexchange.com/questions/3790721/limit-of-average-value-on-interval-as-it-shrinks)):
+Since we have assumed $$a_t$$ is continuous in time, let $$h \to 0$$. Note first the running cost term converges as follows ([Limit of average integral - StackExchange](https://math.stackexchange.com/questions/3790721/limit-of-average-value-on-interval-as-it-shrinks)):
 
 $$
 \begin{align}
@@ -145,14 +145,14 @@ Now, we reformulate the problem in a textbook way with stochastic drift and diff
 
 ### The agent's control problem
 
-Now the agent faces the following stochastic optimal control problem:
+Now the agent faces the following stochastic optimal control problem, defined over some time period $[t, T]$:
 
 $$
 \begin{align}
-    \underset{a \in \mathcal{A}}{\min} \hspace{0.5cm}& \mathcal{J} := \left[\int_0^T L(x_s, a_s)ds + G(x_T) \right] & \text{cost functional} \\
-    \textbf{s.t. } \hspace{0.5cm}& \frac{\partial x_t}{\partial t} = f(x_t, a_t) & \text{state dynamics} \\
-    \hspace{0.5cm}& x_0 = x & \text{initial state condition} \\
-    \hspace{0.5cm}& \forall t \in [0, T]: x_t \in \mathbb{R}^d, a_t \in \mathcal{A} \subset \mathbb{R}^m & \text{states and controls} \\
+    \underset{a_{t,T} \in \mathcal{A}}{\min} \hspace{0.5cm}& \mathcal{J} := \mathbb{E}\left[\int_t^T L(x_s, a_s, t)ds + G(x_T) \right] & \text{cost functional} \\
+    \textbf{s.t. } \hspace{0.5cm}& d x_s = f(x_s, a_s, s) ds + \sigma(x_s, a_s, s) dB_s & \text{state dynamics} \\
+    \hspace{0.5cm}& x_t = x & \text{initial state condition} \\
+    \hspace{0.5cm}& \forall t \in [t, T]: x_t \in \mathbb{R}^d, a_t \in \mathcal{A} \subset \mathbb{R}^m & \text{states and controls} \\
     f &: \mathcal{R}^d \times \mathcal{R}^m \to \mathcal{R}^d & \text{$f$ is deterministic}
 \end{align}
 $$
