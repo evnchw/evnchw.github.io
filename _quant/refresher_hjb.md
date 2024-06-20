@@ -145,7 +145,17 @@ Now, we reformulate the problem in a textbook way with stochastic drift and diff
 
 ### The agent's control problem
 
-TODO
+Now the agent faces the following stochastic optimal control problem:
+
+$$
+\begin{align}
+    \underset{a \in \mathcal{A}}{\min} \hspace{0.5cm}& \mathcal{J} := \left[\int_0^T L(x_s, a_s)ds + G(x_T) \right] & \text{cost functional} \\
+    \textbf{s.t. } \hspace{0.5cm}& \frac{\partial x_t}{\partial t} = f(x_t, a_t) & \text{state dynamics} \\
+    \hspace{0.5cm}& x_0 = x & \text{initial state condition} \\
+    \hspace{0.5cm}& \forall t \in [0, T]: x_t \in \mathbb{R}^d, a_t \in \mathcal{A} \subset \mathbb{R}^m & \text{states and controls} \\
+    f &: \mathcal{R}^d \times \mathcal{R}^m \to \mathcal{R}^d & \text{$f$ is deterministic}
+\end{align}
+$$
 
 # References
 
