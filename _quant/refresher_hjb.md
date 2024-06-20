@@ -68,7 +68,7 @@ Consider a value function $$u(x_t,t)$$ at $$(x,t)$$. The principle of dynamic pr
 
 $$
 \begin{align}
-    u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \left[\int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau) \right]
+    u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \left[\int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau) \right] & \text{dynamic programming principle}
 \end{align}
 $$
 
@@ -76,7 +76,7 @@ Intuitively, suppose we are at $$(x,t)$$. If we know the optimal running cost $$
 
 So, if we choose the optimal path at any $$(x,t)$$, we will stay on the optimal path.
 
-### The Hamilton-Jacobi-Bellman equation
+### The HJB equation
 
 So far we have formulated the optimal control problem in terms of (costs, states, controls), and we have introduced the idea of a optimal cost path (value function) that can be computed recursively backward-in-time. The next step will be to examine the dynamics of the value function. Then, we can optimize the controls and compute the resulting states trajectory, giving us the optimal (costs, states, controls) and therefore solving the control problem.
 
@@ -151,7 +151,7 @@ Now the agent faces the following stochastic optimal control problem, defined ov
 
 $$
 \begin{align}
-    \underset{a_{t,T} \in \mathcal{A}}{\min} \hspace{0.5cm}& \mathcal{J} := \mathbb{E}\left[\int_t^T L(x_s, a_s, t)ds + G(x_T) \right] & \text{cost functional} \\
+    \underset{a \in \mathcal{A}}{\min} \hspace{0.5cm}& \mathcal{J} := \mathbb{E}\left[\int_t^T L(x_s, a_s, t)ds + G(x_T) \right] & \text{cost functional} \\
     \textbf{s.t. } \hspace{0.5cm}& d x_s = \underbrace{f(x_s, a_s, s) ds}_{\text{drift}} + \underbrace{\sigma(x_s, a_s, s) dB_s}_{\text{diffusion}} & \text{state dynamics} \\
     &\hspace{1cm} f(.): [t,T] \times \mathbb{R}^d \times \mathbb{R}^m \to \mathbb{R}^{d} \\
     &\hspace{1cm} \sigma(.): [t,T] \times \mathbb{R}^d \times \mathbb{R}^m \to \mathbb{R}^{d \times n} \\
@@ -190,7 +190,19 @@ u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathcal{J} := \underset{a \in \m
 \end{align}
 $$
 
-#### 
+#### Dynamic programming
+
+Following this logic, the dynamic programming relation is given by:
+
+$$
+\begin{align}
+    u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau) \right] & \text{dynamic programming principle}
+\end{align}
+$$
+
+for $t < \tau$ of course.
+
+#### The HJB equation
 
 # References
 
