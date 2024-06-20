@@ -6,7 +6,7 @@ permalink: /quant/refresher_hjb
 date: 2024-06-21
 ---
 
-This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Belmman in optimal control, including value functions and dynamic programming.
+This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Belmman in optimal control, including value functions and dynamic programming for both deterministic and stochastic formulations.
 
 - I prioritize intuition/readability linking to references where appropriate.
 - We will not go deeply into proofs here.
