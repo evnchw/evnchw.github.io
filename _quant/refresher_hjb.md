@@ -29,7 +29,7 @@ $$
     \textbf{s.t. } \hspace{0.5cm}& \frac{\partial x_t}{\partial t} = f(x_t, a_t) & \text{state dynamics} \\
     \hspace{0.5cm}& x_0 = x & \text{initial state condition} \\
     \hspace{0.5cm}& \forall t \in [0, T]: x_t \in \mathbb{R}^d, a_t \in \mathcal{A} \subset \mathbb{R}^m & \text{states and controls} \\
-    f &: \mathcal{R}^d \times \mathcal{R}^m \to \mathcal{R}^d & \text{$f$ is deterministic}
+    f &: \mathbb{R}^d \times \mathbb{R}^m \to \mathbb{R}^d & \text{$f$ is deterministic} 
 \end{align}
 $$
 
@@ -43,6 +43,7 @@ At each time step $$t=0,\dots,T$$, the mechanics are as follows:
 - Then, given the states $$x_t$$ and the controls decided upon $$a_t$$, this generates:
     - The running cost $$\mathcal{L}(x_t, a_t)$$.
     - The incremental change to the state vector $$\dot{x}_t=f(x_t, a_t)$$, and therefore the state vector $$x_{t+\varepsilon}$$ for the next period $$t+\varepsilon$$.
+- Alternatively upon completion, this yields the terminal cost $$G(x_T)$$.
 
 Although this sequence of events occur forward in time, each step depends strictly on the previous step. So from the agent's perspective, it is best to consider the whole sequence and *optimize this sequence of events (costs, states, controls) backward*. This is encapsulated in the principle of dynamic programming.
 
@@ -145,17 +146,40 @@ Now, we reformulate the problem in a textbook way with stochastic drift and diff
 
 ### The agent's control problem
 
-Now the agent faces the following stochastic optimal control problem, defined over some time period $[t, T]$:
+Now the agent faces the following stochastic optimal control problem, defined over some time period $[t, T]$.
 
 $$
 \begin{align}
     \underset{a_{t,T} \in \mathcal{A}}{\min} \hspace{0.5cm}& \mathcal{J} := \mathbb{E}\left[\int_t^T L(x_s, a_s, t)ds + G(x_T) \right] & \text{cost functional} \\
-    \textbf{s.t. } \hspace{0.5cm}& d x_s = f(x_s, a_s, s) ds + \sigma(x_s, a_s, s) dB_s & \text{state dynamics} \\
+    \textbf{s.t. } \hspace{0.5cm}& d x_s = \underbrace{f(x_s, a_s, s) ds}_{\text{drift}} + \underbrace{\sigma(x_s, a_s, s) dB_s}_{\text{diffusion}} & \text{state dynamics} \\
+    &\hspace{1cm} f(.): [t,T] \times \mathbb{R}^d \times \mathbb{R}^m \to \mathbb{R}^{d} \\
+    &\hspace{1cm} \sigma(.): [t,T] \times \mathbb{R}^d \times \mathbb{R}^m \to \mathbb{R}^{d \times n} \\
+    &\hspace{1cm} B_s: \text{Brownian on } \left(\Omega, \mathcal{F}, \{\mathcal{F}_s\}_{s \geq t}, P\right) \\
     \hspace{0.5cm}& x_t = x & \text{initial state condition} \\
-    \hspace{0.5cm}& \forall t \in [t, T]: x_t \in \mathbb{R}^d, a_t \in \mathcal{A} \subset \mathbb{R}^m & \text{states and controls} \\
-    f &: \mathcal{R}^d \times \mathcal{R}^m \to \mathcal{R}^d & \text{$f$ is deterministic}
+    \hspace{0.5cm}& a_s (\omega):  [t, T] \times \Omega \to \mathbb{R}^m \hspace{0.5cm} \text{ adapted to } \{\mathcal{F_s}\}_{s\geq t} & \text{controls} \\
+    \hspace{0.5cm}& x_s (\omega):  [t, T] \times \Omega \to \mathbb{R}^d & \text{states}
 \end{align}
 $$
+
+Immediately, we see the cost functional is now stochastic (and expressed *in expectation*). We also observe that the agent now controls the state dynamics via a non-stochastic "drift" $$f(.)ds$$, and a stochastic "diffusion" $$\sigma(.)dB_s$$.
+
+**As a stochastic process.** In the deterministic case, if we chose the optimal control we would know (mechanically) how everything would unfold thereafter. However, in this case there is randomness following each time step, and so in considering a control $a_s$ at time $$s$$ we do not know exactly how the future will unfold. Therefore, it is important that our control process only use information available at the time ("point-in-time"). More formally, define the *filtration* of the control process as the (montonically expanding) set of information we acquire over time: $$\{\mathcal{F_s}\}_{s \geq t} = \{ \mathcal{F}_t \subseteq \mathcal{F}_{t+1} \subseteq \dots \}$$. Hence, we say that our control process $$a_s$$ is *adapted* to this filtration in that it only uses $$\mathcal{F}_s$$, the set of information known up to time $$s$$ (no peeking into the future!).
+
+Now, the randomness comes from $$B_s$$, a Brownian on the probability space $$\left(\Omega, \mathcal{F}, \{\mathcal{F}_s\}_{s \geq t}, P\right)$$. At each time step $$s$$ it takes on the realization of a random outcome $$\omega \in \Omega$$ ("possible outcomes," specifically a sigma-algebra), according to the probability measure $$P$$ and respecting the current filtration $$\mathcal{F}_s$$. This (realized) random draw $$\omega \in \Omega$$ impacts the states and controls thereafter, hence we write $$x_s(\omega)$$ and $$a_x(\omega)$$ to indicate they depend on this randomness.
+
+Therefore, the sequence of events of time $s$ proceeds as follows:
+
+- The agent begins with a vector of states $$x_s(\omega) \in \mathcal{R}^d$$ as well as that realized Brownian draw $$\omega \in \Omega$$.
+- On observing those the agent decides which actions to take, aka the vector of controls $$a_s(\omega) \in \mathcal{R}^m$$.
+    - This only uses the set of information known up to $s$, aka $$\{\mathcal{F_s}\}_{s \geq t}$$.
+- Then, given the states $$x_t$$ and the controls decided upon $$a_t$$, this generates:
+    - The running cost $$\mathcal{L}(x_s, a_t, s)$$.
+    - A new realization $$\omega \in \Omega$$ of the Brownian $$B_s$$.
+    - Subsequently, the incremental change to the state vector $$\dot{x}_s=f(.) ds + \sigma(.)dB_s$$.
+    - This yields the state vector $$x_{s+\varepsilon}$$ for the next period $$s+\varepsilon$$, as well as $$\omega$$.
+- Alternatively upon completion, this yields the terminal cost $$G(x_T)$$.
+
+
 
 # References
 
