@@ -13,42 +13,11 @@ This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-
 - We may skip over some parts for brevity (e.g. asymptotics of non-MFG, textbook differential games).
 - All feedback and corrections are welcome.
 
-Much of these notes and notation is adapted from [1], with additional notes from [2] and [3].
-
-## Specification of a mean field game
-
-As described in [4], a mean field game consists of two coupled equations plus boundary conditions.
-
-$$
-\begin{align}
-    -\partial_t u - \nu \Delta u + H(x, Du) &= f(x, m(x,t)) & \in \mathbb{R}^d \times (0, T) & \hspace{0.5cm} \text{backward Hamilton-Jacobi (agent's optimization)} \\
-    \partial_t m - \nu \Delta m - \text{div}(D_pH(x,Du)m) &= 0 & \in \mathbb{R}^d \times (0, T) & \hspace{0.5cm} \text{forward Fokker-Planck (evolution of state distribution)} \\
-    u(x_t,t) &= G(x) & & \hspace{0.5cm} \text{backward boundary: terminal payoff} \\
-    m(0,x) &= m_0(x) & & \hspace{0.5cm} \text{forward boundary: initial distribution of states}
-\end{align}
-$$
-
-**This may look daunting, but essentially this says: every identical agent optimizes its behavior against what the population distribution does, yielding a fixed point in equilibrium.**
-
-Why is it useful to think this way? In "normal" game theory each agent has to make decisions in light of everyone else, which becomes computationally infeasible (and unrealistic) for very large populations. As an example, if you're searching to find an exit out of Shibuya Station in Tokyo, which has millions of commuters each day [(Wiki)](https://en.wikipedia.org/wiki/Shibuya_Station), you have to navigate your way against the general mass of commuters as a whole and not really against any specific individuals. Moreover, everyone uses the same entrances and exits (more or less), so to some extent each person faces the same problem.
-
-The first equation represents the expression for each agent's optimal control problem. Each agent optimizes the stream of future payoffs backward-in-time, and agents identically face this same problem. The second equation represents the expression for how the distribution of agents (their states) evolves forward-in-time. Lastly, the boundary conditions must be satisfied: we must have a terminal payoff (as usual per control problems), and we must have an initial distribution of agents.
-
-The unusual features are that we have coupled two equations that are solved opposite directions in time, and also that each agent optimizes against a distribution of which they are a part of (the "mean field"). Let's dive in to understand these equations.
-
-## The backward equation
-
-In this part, we will concisely build up the agent's optimal control problem, starting from a purely deterministic version, to a stochastic version, to finally the stochastic version with the mean field.
-
-Copying the backward equation from above:
-
-$$
--\partial_t u - \nu \Delta u + H(x, Du) = f(x, m(x,t)) \in \mathbb{R}^d \times (0, T) \hspace{0.5cm} \text{backward Hamilton-Jacobi (agent's optimization)}
-$$
+Much of these notes and notation is adapted from [1], with additional notes from [2] and [3]. (We keep mean field game theory in mind for down the road.)
 
 ### Hamilton-Jacobi-Bellman, deterministic
 
-Here we formulate the simplest, deterministic version of the agent's optimal control problem.
+Here we formulate the simplest, deterministic version of an agent's optimal control problem.
 
 #### The agent's control problem
 
@@ -177,16 +146,6 @@ Now, we reformulate the problem in a textbook way with stochastic drift and diff
 #### The agent's control problem
 
 TODO
-
-### Linking this to the backward equation
-
-TODO
-
-
-
-
-
-
 
 ## References
 
