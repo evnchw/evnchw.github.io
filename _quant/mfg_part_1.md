@@ -101,7 +101,7 @@ It is notable that $$u(.)$$, as the loose minimum (infinimum), no longer depends
 
 #### Dynamic programming
 
-Consider a value function $u(x_t,t)$ at $(x,t)$. The principle of dynamic programming says, for any incremental time $\tau: t < \tau \leq T$, the value function only needs to be computed incrementally from $t \to \tau$, and thereafter will simply be $u(x_\tau,\tau)$.
+Consider a value function $$u(x_t,t)$$ at $$(x,t)$$. The principle of dynamic programming says, for any incremental time $$\tau: t < \tau \leq T$$, the value function only needs to be computed incrementally from $$t \to \tau$$, and thereafter will simply be $$u(x_\tau,\tau)$$.
 
 $$
 \begin{align}
@@ -109,15 +109,15 @@ $$
 \end{align}
 $$
 
-Intuitively, suppose we are at $(x,t)$. If we know the optimal running cost $\int_t^\tau L(x_s, a_s) ds$ of moving from $(x,t) \to (x_\tau, \tau)$, and the subsequent optimal cost (value function) thereafter $u(x_\tau, \tau)$, the *sum* of these give us our optimal cost $u(x_t,t)$ that can be achieved at $(x,t)$. Hence, the value function can be efficiently computed backward-in-time: given $u(x_\tau, \tau)$, we proceed backward to $(x_\tau, \tau)$ to compute the running cost from $(x,t) \to (x_\tau, \tau)$, and this yields $u(x, t)$.
+Intuitively, suppose we are at $$(x,t)$$. If we know the optimal running cost $$\int_t^\tau L(x_s, a_s) ds$$ of moving from $$(x,t) \to (x_\tau, \tau)$$, and the subsequent optimal cost (value function) thereafter $$u(x_\tau, \tau)$$, the *sum* of these give us our optimal cost $$u(x_t,t)$$ that can be achieved at $$(x,t)$$. Hence, the value function can be efficiently computed backward-in-time: given $$u(x_\tau, \tau)$$, we proceed backward to $$(x_\tau, \tau)$$ to compute the running cost from $$(x,t) \to (x_\tau, \tau)$$, and this yields $$u(x, t)$$.
 
-So, if we choose the optimal path at any $(x,t)$, we will stay on the optimal path.
+So, if we choose the optimal path at any $$(x,t)$$, we will stay on the optimal path.
 
 #### The Hamilton-Jacobi-Bellman equation
 
 So far we have formulated the optimal control problem in terms of (costs, states, controls), and we have introduced the idea of a optimal cost path (value function) that can be computed recursively backward-in-time. The next step will be to examine the dynamics of the value function. Then, we can optimize the controls and compute the resulting states trajectory, giving us the optimal (costs, states, controls) and therefore solving the control problem.
 
-Assume the value function $u(x_t,t)$ is continuous and differentiable in both $x,t$, and now also, that an *optimal control* $a^*_t$ exists for all $t$ and is continuous in time. As above, let's explicitly write $\tau := t + h$ for some $h > 0$. The value function is hence:
+Assume the value function $$u(x_t,t)$$ is continuous and differentiable in both $$x,t$$, and now also, that an *optimal control* $$a^*_t$$ exists for all $$t$$ and is continuous in time. As above, let's explicitly write $$\tau := t + h$$ for some $$h > 0$$. The value function is hence:
 
 $$
 \begin{align}
@@ -125,7 +125,7 @@ $$
 \end{align}
 $$
 
-By continuity of $u(x_t,t)$, we can expand $u(x_{t+h},t+h)$ via its Taylor series w/the chain rule for $x_{t+h}$, noting $h \equiv \Delta t$:
+By continuity of $$u(x_t,t)$$, we can expand $$u(x_{t+h},t+h)$$ via its Taylor series w/the chain rule for $$x_{t+h}$$, noting $$h \equiv \Delta t$$:
 
 $$
 \begin{align}
@@ -166,7 +166,7 @@ $$
 
 Intuitively, the Hamiltonian can be interpreted as the instantaneous version of the Lagrangian from static optimization ([Wiki](https://en.wikipedia.org/wiki/Hamiltonian_(control_theory))), combining your running cost from being in a state with the sensitivity to the changes in your state. This can be thought of as a tradeoff between your current cost vs. your (near-)future cost, which by the equation must match the change in the optimal cost (value function) at equilibrium.
 
-The optimal controls ($a^*_t$) and optimal trajectory of states ($x^*_t$) are given indirectly as the solution to the following set of partial differential equations:
+The optimal controls ($$a^*_t$$) and optimal trajectory of states ($$x^*_t$$) are given indirectly as the solution to the following set of partial differential equations:
 
 $$
 \begin{align*}
