@@ -1,27 +1,19 @@
 ---
-title: "Mean field games, part 1 (intro + backward equation)"
+title: "Quick refresher on Hamilton-Jacobi-Bellman"
 collection: quant
 type: "Post"
-permalink: /quant/mfg_part_1
+permalink: /quant/refresher_hjb
 date: 2024-06-21
 ---
 
-While brushing up on mean field game theory ("MFG") I wanted to write a brief refresher to solidify the key ideas.
-
-In this blog series I aim present the key formulation and ideas of mean field games in a concise, informal and practical way.
+This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Belmman in optimal control, including value functions and dynamic programming.
 
 - I prioritize intuition/readability linking to references where appropriate.
 - We will not go deeply into proofs here.
 - We may skip over some parts for brevity (e.g. asymptotics of non-MFG, textbook differential games).
 - All feedback and corrections are welcome.
 
-The fundamental idea of MFG is to model (differential) game-theoretic equilibria where there are a very large number of agents. The key characteristic is that each agent optimizes decisions against the *distribution* of everyone else's decisions (the "mean field"), and where agents are identical to some degree. This allows one to obtain asymptotic equilibria by surmounting the usual combinatorial (agent-to-agent) complexity of differential game theory. Applications of include modeling traffic congestion, pedestrian foot traffic, financial markets, and more.
-
-The idea was originally presented in [1]. Introductory notes to this were compiled in [2] and [3], and upon those even more introductory notes were compiled at Stanford [4]. I base this brief refresher upon several excellent resources.
-
-- The core of this material and notation is primarily drawn and restated from [4].
-- For optimal control I refer to [5].
-- For Fokker-Planck and drift-diffusion stochastic differential equations I refer to [6].
+Much of these notes and notation is adapted from [1], with additional notes from [2] and [3].
 
 ## Specification of a mean field game
 
@@ -198,14 +190,8 @@ TODO
 
 ## References
 
-[1] Lasry, Jean-Michel, and Pierre-Louis Lions. "Mean field games." Japanese journal of mathematics 2.1 (2007): 229-260.
+[1] https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf
 
-[2] Cardaliaguet, Pierre. Notes on mean field games. Technical report, 2010.
+[2] QING, YUTONG. "INTRODUCTION TO THE OPTIMAL CONTROL THEORY AND SOME APPLICATIONS." (2019).
 
-[3] Achdou, Yves, et al. "An introduction to mean field game theory." Mean Field Games: Cetraro, Italy 2019 (2020): 1-158.
-
-[4] https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf
-
-[5] QING, YUTONG. "INTRODUCTION TO THE OPTIMAL CONTROL THEORY AND SOME APPLICATIONS." (2019).
-
-[6] https://math.nyu.edu/~goodman/teaching/StochCalc2011/SDE.pdf
+[3] https://math.nyu.edu/~goodman/teaching/StochCalc2011/SDE.pdf
