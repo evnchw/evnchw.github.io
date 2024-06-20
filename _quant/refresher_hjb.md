@@ -147,7 +147,7 @@ Now, we reformulate the problem in a textbook way with stochastic drift and diff
 
 ### The agent's control problem
 
-Now the agent faces the following stochastic optimal control problem, defined over some time period $[t, T]$.
+Now the agent faces the following stochastic optimal control problem, defined over some time period $$[t, T]$$.
 
 $$
 \begin{align}
@@ -168,7 +168,7 @@ Immediately, we see the cost functional is now stochastic (and expressed *in exp
 
 Now, the randomness comes from $$B_s$$, a Brownian on the probability space $$\left(\Omega, \mathcal{F}, \{\mathcal{F}_s\}_{s \geq t}, P\right)$$. At each time step $$s$$ it takes on the realization of a random outcome $$\omega \in \Omega$$ ("possible outcomes," specifically a sigma-algebra), according to the probability measure $$P$$ and respecting the current filtration $$\mathcal{F}_s$$. This (realized) random draw $$\omega \in \Omega$$ impacts the states and controls thereafter, hence we write $$x_s(\omega)$$ and $$a_x(\omega)$$ to indicate they depend on this randomness.
 
-Therefore, the sequence of events of time $s$ proceeds as follows:
+Therefore, the sequence of events of time $$s$$ proceeds as follows:
 
 - The agent begins with a vector of states $$x_s(\omega) \in \mathcal{R}^d$$ as well as that realized Brownian draw $$\omega \in \Omega$$.
 - On observing those the agent decides which actions to take, aka the vector of controls $$a_s(\omega) \in \mathcal{R}^m$$.
@@ -180,7 +180,17 @@ Therefore, the sequence of events of time $s$ proceeds as follows:
     - This yields the state vector $$x_{s+\varepsilon}$$ for the next period $$s+\varepsilon$$, as well as $$\omega$$.
 - Alternatively upon completion, this yields the terminal cost $$G(x_T)$$.
 
+#### The value function
 
+As in the deterministic case, we can define the *value function*, noting that we must express it in expectation:
+
+$$
+\begin{align}
+u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathcal{J} := \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^T L(x_s, a_s) ds + G(x_T) \right] & \text{value function}
+\end{align}
+$$
+
+#### 
 
 # References
 
