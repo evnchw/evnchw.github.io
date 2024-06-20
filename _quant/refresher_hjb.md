@@ -59,7 +59,7 @@ $$
 
 It is notable that $$u(.)$$, as the loose minimum (infinimum), no longer depends on the controls. Moreover, it is defined from a particular time $$t$$. Hence, from any particular starting time $$t$$ and starting state $$x$$, we can compute the optimal cost (bound).
 
-[+] A small abuse of notation: $$x_t$$ is the state at time $$t$$ but is not *defined* by $$t$$. That is, we could write $u(x,t)$ as in the original reference [4] and it would mean the same thing: (states X time).
+[+] A small abuse of notation: $$x_t$$ is the state at time $$t$$ but is not *defined* by $$t$$. That is, we could write $$u(x,t)$$ as in the original reference [4] and it would mean the same thing: (states X time).
 
 ### Dynamic programming
 
