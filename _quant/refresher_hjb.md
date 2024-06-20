@@ -164,7 +164,7 @@ $$
 
 Immediately, we see the cost functional is now stochastic (and expressed *in expectation*). We also observe that the agent now controls the state dynamics via a non-stochastic "drift" $$f(.)ds$$, and a stochastic "diffusion" $$\sigma(.)dB_s$$.
 
-*As a stochastic process.* In the deterministic case, if we chose the optimal control we would know (mechanically) how everything would unfold thereafter. However, in this case there is randomness following each time step, and so in considering a control $a_s$ at time $$s$$ we do not know exactly how the future will unfold. Therefore, it is important that our control process only use information available at the time ("point-in-time"). More formally, define the *filtration* of the control process as the (montonically expanding) set of information we acquire over time: $$\{\mathcal{F_s}\}_{s \geq t} = \{ \mathcal{F}_t \subseteq \mathcal{F}_{t+1} \subseteq \dots \}$$. Hence, we say that our control process $$a_s$$ is *adapted* to this filtration in that it only uses $$\mathcal{F}_s$$, the set of information known up to time $$s$$ (no peeking into the future!).
+*As a stochastic process.* In the deterministic case, if we chose the optimal control we would know (mechanically) how everything would unfold thereafter. However, in this case there is randomness following each time step, and so in considering a control $$a_s$$ at time $$s$$ we do not know exactly how the future will unfold. Therefore, it is important that our control process only use information available at the time ("point-in-time"). More formally, define the *filtration* of the control process as the (montonically expanding) set of information we acquire over time: $$\{\mathcal{F_s}\}_{s \geq t} = \{ \mathcal{F}_t \subseteq \mathcal{F}_{t+1} \subseteq \dots \}$$. Hence, we say that our control process $$a_s$$ is *adapted* to this filtration in that it only uses $$\mathcal{F}_s$$, the set of information known up to time $$s$$ (no peeking into the future!).
 
 *A note on randomness.* Now, the randomness comes from $$B_s$$, a Brownian on the probability space $$\left(\Omega, \mathcal{F}, \{\mathcal{F}_s\}_{s \geq t}, P\right)$$. At each time step $$s$$ it takes on the realization of a random outcome $$\omega \in \Omega$$ ("possible outcomes," specifically a sigma-algebra), according to the probability measure $$P$$ and respecting the current filtration $$\mathcal{F}_s$$. This (realized) random draw $$\omega \in \Omega$$ impacts the states and controls thereafter, hence we write $$x_s(\omega)$$ and $$a_x(\omega)$$ to indicate they depend on this randomness.
 
@@ -180,7 +180,7 @@ Immediately, we see the cost functional is now stochastic (and expressed *in exp
     - This yields the state vector $$x_{s+\varepsilon}$$ for the next period $$s+\varepsilon$$, as well as $$\omega$$.
 - Alternatively upon completion, this yields the terminal cost $$G(x_T)$$.
 
-#### The value function
+### The value function
 
 As in the deterministic case, we can define the *value function*, noting that we must express it in expectation:
 
@@ -190,7 +190,7 @@ u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathcal{J} := \underset{a \in \m
 \end{align}
 $$
 
-#### Dynamic programming
+### Dynamic programming
 
 Following this logic, the dynamic programming relation is given by:
 
@@ -200,10 +200,8 @@ $$
 \end{align}
 $$
 
-for $$t < \tau$$ of course.
-
-#### The HJB equation
-
+for $$t < \tau$$ of c# The HJB equation
+ 
 Here we proceed in a similar way as in the deterministic case, except that instead of the chain rule, we need to use [Ito's Lemma](https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma), and specifically for our state dynamics which is a multivariate drift-diffusion process.
 
 <p style="text-align: center; font-weight: bold; font-family: Serif">Itô's lemma for a multivariate drift-diffusion process</p>
