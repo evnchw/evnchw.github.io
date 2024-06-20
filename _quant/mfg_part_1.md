@@ -72,22 +72,22 @@ $$
 \end{align}
 $$
 
-The explanation is as follows. Over the finite time horizon $t=0, \dots, T$, the agent wants to minimize the cost functional $\mathcal{J}$, which consists of a "running" cost $L(.)$ at each time $t$, and then a "terminal" cost $G(.)$ at the last time period $T$.
+The explanation is as follows. Over the finite time horizon $$t=0, \dots, T$$, the agent wants to minimize the cost functional $$\mathcal{J}$$, which consists of a "running" cost $$L(.)$$ at each time $$t$$, and then a "terminal" cost $$G(.)$$ at the last time period $$T$$.
 
-At each time step $t=0,\dots,T$, the mechanics are as follows:
+At each time step $$t=0,\dots,T$$, the mechanics are as follows:
 
-- The agent begins with a vector of states $x_t \in \mathcal{R}^d$.
-- Subsequently the agent decides which actions to take, aka the vector of controls $a_t \in \mathcal{R}^m$.
-    - This vector $a_t$ takes a measurable value within of a compact space $\mathcal{A}$, called the set of admissible controls.
-- Then, given the states $x_t$ and the controls decided upon $a_t$, this generates:
-    - The running cost $\mathcal{L}(x_t, a_t)$.
-    - The incremental change to the state vector $\dot{x}_t=f(x_t, a_t)$, and therefore the state vector $x_{t+\varepsilon}$ for the next period $t+\varepsilon$.
+- The agent begins with a vector of states $$x_t \in \mathcal{R}^d$$.
+- Subsequently the agent decides which actions to take, aka the vector of controls $$a_t \in \mathcal{R}^m$$.
+    - This vector $$a_t$$ takes a measurable value within of a compact space $$\mathcal{A}$$, called the set of admissible controls.
+- Then, given the states $$x_t$$ and the controls decided upon $$a_t$$, this generates:
+    - The running cost $$\mathcal{L}(x_t, a_t)$$.
+    - The incremental change to the state vector $$\dot{x}_t=f(x_t, a_t)$$, and therefore the state vector $$x_{t+\varepsilon}$$ for the next period $$t+\varepsilon$$.
 
 Although this sequence of events occur forward in time, each step depends strictly on the previous step. So from the agent's perspective, it is best to consider the whole sequence and *optimize this sequence of events (costs, states, controls) backward*. This is encapsulated in the principle of dynamic programming.
 
 #### The value function
 
-Define $u(x_t,t)$ as the *value function*, aka, the optimal (best-achievable) cost starting from a particular time $t$ and a particular state $x_t$ [*].
+Define $$u(x_t,t)$$ as the *value function*, aka, the optimal (best-achievable) cost starting from a particular time $$t$$ and a particular state $$x_t$ [+].
 
 $$
 \begin{align}
@@ -95,9 +95,9 @@ u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathcal{J} := \underset{a \in \m
 \end{align}
 $$
 
-It is notable that $u(.)$, as the loose minimum (infinimum), no longer depends on the controls. Moreover, it is defined from a particular time $t$. Hence, from any particular starting time $t$ and starting state $x$, we can compute the optimal cost (bound).
+It is notable that $$u(.)$$, as the loose minimum (infinimum), no longer depends on the controls. Moreover, it is defined from a particular time $$t$$. Hence, from any particular starting time $$t$$ and starting state $$x$$, we can compute the optimal cost (bound).
 
-[*] A small abuse of notation: $x_t$ is the state at time $t$ but is not *defined* by $t$. That is, we could write $u(x,t)$ as in the original reference [4] and it would mean the same thing: (states X time).
+[+] A small abuse of notation: $$x_t$$ is the state at time $$t$$ but is not *defined* by $$t$$. That is, we could write $u(x,t)$ as in the original reference [4] and it would mean the same thing: (states X time).
 
 #### Dynamic programming
 
