@@ -10,16 +10,16 @@ This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-
 
 - I prioritize intuition/readability linking to references where appropriate.
 - We will not go deeply into proofs here.
-- We may skip over some parts for brevity (e.g. asymptotics of non-MFG, textbook differential games).
+- We may skip over some parts for brevity
 - All feedback and corrections are welcome.
 
 Much of these notes and notation is adapted from [1], with additional notes from [2] and [3]. (We keep mean field game theory in mind for down the road.)
 
-### Hamilton-Jacobi-Bellman, deterministic
+## Hamilton-Jacobi-Bellman, deterministic
 
 Here we formulate the simplest, deterministic version of an agent's optimal control problem.
 
-#### The agent's control problem
+### The agent's control problem
 
 An agent faces the following deterministic optimal control problem:
 
@@ -46,7 +46,7 @@ At each time step $$t=0,\dots,T$$, the mechanics are as follows:
 
 Although this sequence of events occur forward in time, each step depends strictly on the previous step. So from the agent's perspective, it is best to consider the whole sequence and *optimize this sequence of events (costs, states, controls) backward*. This is encapsulated in the principle of dynamic programming.
 
-#### The value function
+### The value function
 
 Define $$u(x_t,t)$$ as the *value function*, aka, the optimal (best-achievable) cost starting from a particular time $$t$$ and a particular state $$x_t$ [+].
 
@@ -60,7 +60,7 @@ It is notable that $$u(.)$$, as the loose minimum (infinimum), no longer depends
 
 [+] A small abuse of notation: $$x_t$$ is the state at time $$t$$ but is not *defined* by $$t$$. That is, we could write $u(x,t)$ as in the original reference [4] and it would mean the same thing: (states X time).
 
-#### Dynamic programming
+### Dynamic programming
 
 Consider a value function $$u(x_t,t)$$ at $$(x,t)$$. The principle of dynamic programming says, for any incremental time $$\tau: t < \tau \leq T$$, the value function only needs to be computed incrementally from $$t \to \tau$$, and thereafter will simply be $$u(x_\tau,\tau)$$.
 
@@ -74,7 +74,7 @@ Intuitively, suppose we are at $$(x,t)$$. If we know the optimal running cost $$
 
 So, if we choose the optimal path at any $$(x,t)$$, we will stay on the optimal path.
 
-#### The Hamilton-Jacobi-Bellman equation
+### The Hamilton-Jacobi-Bellman equation
 
 So far we have formulated the optimal control problem in terms of (costs, states, controls), and we have introduced the idea of a optimal cost path (value function) that can be computed recursively backward-in-time. The next step will be to examine the dynamics of the value function. Then, we can optimize the controls and compute the resulting states trajectory, giving us the optimal (costs, states, controls) and therefore solving the control problem.
 
@@ -139,15 +139,15 @@ $$
 
 Simple analytical results are often not feasible, and moreover, this has assumed smoothness for the value function and controls.
 
-### Hamilton-Jacobi-Bellman, stochastic
+## Hamilton-Jacobi-Bellman, stochastic
 
 Now, we reformulate the problem in a textbook way with stochastic drift and diffusion.
 
-#### The agent's control problem
+### The agent's control problem
 
 TODO
 
-## References
+# References
 
 [1] https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf
 
