@@ -9,7 +9,7 @@ date: 2024-06-21
 This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Bellman in optimal control, including value functions and dynamic programming for both deterministic and stochastic formulations.
 
 - I prioritize intuition/readability linking to references where appropriate.
-- We will not go deeply into proofs here and may skip some parts for brevity.
+- We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
 Much of these notes and notation is adapted from [1], with additional notes from [2] and [3]. (We keep mean field game theory in mind for down the road.)
@@ -200,9 +200,16 @@ $$
 \end{align}
 $$
 
-for $t < \tau$ of course.
+for $$t < \tau$$ of course.
 
 #### The HJB equation
+
+Here we proceed in a similar way as in the deterministic case, except that instead of the chain rule, we need to use [Ito's Lemma](https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma), and specifically for our state dynamics which is a multivariate drift-diffusion process.
+
+<p style="text-align: center; font-weight: bold; font-family: Serif">Itô's lemma for a multivariate drift-diffusion process</p>
+
+
+## Summary
 
 # References
 
