@@ -237,6 +237,8 @@ x_t &= x & \text{initial state condition} \\
 \end{align}
 $$
 
+As before, our strategy is to obtain the dynamics of the value function $$u(.)$$, which indirectly defines the optimal controls and trajectory of states. 
+
 ## Summary
 
 # References
