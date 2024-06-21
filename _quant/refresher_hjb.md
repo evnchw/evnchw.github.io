@@ -3,7 +3,7 @@ title: "Quick refresher on Hamilton-Jacobi-Bellman"
 collection: quant
 type: "Post"
 permalink: /quant/refresher_hjb
-date: 2024-06-21
+# date: 2024-06-30
 ---
 
 This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Bellman in optimal control, including value functions and dynamic programming for both deterministic and stochastic formulations.
@@ -227,13 +227,12 @@ $$
 
 where $$\nabla_X f$$ is the gradient of $$f$$ wrt. X, $$H_x f$$ is the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ is the trace operator. $$\square$$
 
-To apply this to find a stochastic HJB equation, let's recall our state dynamics and dynamic programming relation:
+*Applying this to find a stochastic HJB equation.* Let's recall our state dynamics and dynamic programming relation, and label each component so it corresponds to the above format of Itô's lemma.
 
 $$
 \begin{align}
-% \underset{a \in \mathcal{A}}{\min} \hspace{0.5cm}& \mathcal{J} := \mathbb{E}\left[\int_t^T L(x_s, a_s, t)ds + G(x_T) \right] & \text{cost functional} \\
-d x_s &= \underbrace{f(x_s, a_s, s) ds}_{\text{drift}} + \underbrace{\sigma(x_s, a_s, s) dB_s}_{\text{diffusion}} & \text{state dynamics} \\
-\hspace{0.5cm}& x_t = x & \text{initial state condition} \\
+d x_s &= f(x_s, a_s, s) ds + \sigma(x_s, a_s, s) dB_s & \text{state dynamics} \\
+x_t &= x & \text{initial state condition} \\
 u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau) \right] & \text{dynamic programming principle}
 \end{align}
 $$
