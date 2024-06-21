@@ -50,7 +50,7 @@ Although this sequence of events occur forward in time, each step depends strict
 
 ### The value function
 
-Define $$u(x_t,t)$$ as the *value function*, aka, the optimal (best-achievable) cost starting from a particular time $$t$$ and a particular state $$x_t$ [+].
+Define $$u(x_t,t)$$ as the *value function*, aka, the optimal (best-achievable) cost starting from a particular time $$t$$ and a particular state $$x_t$$ [+].
 
 $$
 \begin{align}
@@ -204,7 +204,7 @@ for $$t < \tau$$ of c
 
 ### The HJB equation
  
-Here we proceed in a similar way as in the deterministic case, except that instead of the chain rule, we need to use Ito's Lemma, and specifically for our state dynamics which is a multivariate drift-diffusion process. Copied from verbatim from [Wikipedia]((https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma)):
+Here we proceed in a similar way as in the deterministic case, except that instead of the chain rule, we need to use Ito's Lemma, and specifically for our state dynamics which is a multivariate drift-diffusion process. Copied from verbatim from [Wikipedia](https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma):
 
 <p style="text-align: center; font-weight: bold; font-family: Serif">Itô's lemma for a multivariate drift-diffusion process</p>
 
@@ -225,7 +225,9 @@ d f(t, X_t) &= \frac{\partial f}{\partial t} dt + (\nabla_X f)^T dX_t + \frac{1}
 \end{align}
 $$
 
-with $$\nabla_X f$$ as the gradient of $$f$$ wrt. X, $$H_xFf$$ the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ as the trace operator. $$\square$$
+with $$\nabla_X f$$ as the gradient of $$f$$ wrt. X, $$H_x f$$ the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ as the trace operator. $$\square$$
+
+To derive the HJB equation, take the dynamic programming formulation and proceed similarly as we did in the deterministic case.
 
 ## Summary
 
