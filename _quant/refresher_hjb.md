@@ -227,13 +227,13 @@ $$
 
 where $$\nabla_X f$$ is the gradient of $$f$$ wrt. X, $$H_x f$$ is the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ is the trace operator. $$\square$$
 
-*Applying this to find a stochastic HJB equation.* Let's recall our state dynamics and dynamic programming relation, and label each component so it corresponds to the above format of Itô's lemma.
+*Applying this to find a stochastic HJB equation.* Let's recall our state dynamics and dynamic programming relation, and label each component so it corresponds to the above format of Itô's lemma. (Recall $$x_s, a_s, G_s, \dots$$ are all vector and matrix quantities).
 
 $$
 \begin{align}
-d x_s &= f(x_s, a_s, s) ds + \sigma(x_s, a_s, s) dB_s & \text{state dynamics} \\
+d x_s &= \overbrace{f(x_s, a_s, s)}^{\mu_s} ds + \overbrace{\sigma(x_s, a_s, s)}^{G_s} dB_s & \text{state dynamics} \\
 x_t &= x & \text{initial state condition} \\
-u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau) \right] & \text{dynamic programming principle}
+\underbrace{u(x_t,t)}_{f} &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s) ds + \underbrace{u(x_\tau, \tau)}_{f} \right] & \text{dynamic programming principle}
 \end{align}
 $$
 
