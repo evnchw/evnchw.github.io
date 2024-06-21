@@ -117,6 +117,8 @@ $$
 \end{align}
 $$
 
+noting for the StackExchange answer this follows the same format $$\lim_{b \to a} \frac{1}{b-a} \int_a^b q(x) dx$$, with $$b=t+h$$ and $$a=t$$.
+
 The $$o(h)/h$$ term goes to zero, hence plugging this and rearranging we obtain the famous **Hamilton-Jacobi-Bellman** equation which gives the dynamics of the value function.
 
 $$
