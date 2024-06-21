@@ -147,7 +147,7 @@ Now, we reformulate the problem in a textbook way with stochastic drift and diff
 
 ### The agent's control problem
 
-Now the agent faces the following stochastic optimal control problem, defined over some time period $$[t, T]$$.
+Now the agent faces the following stochastic optimal control problem, defined over some time period $$[t, T]$$, and where $$s \in [t,T]$$.
 
 $$
 \begin{align}
@@ -204,30 +204,39 @@ for $$t < \tau$$ of c
 
 ### The HJB equation
  
-Here we proceed in a similar way as in the deterministic case, except that instead of the chain rule, we need to use Ito's Lemma, and specifically for our state dynamics which is a multivariate drift-diffusion process. Copied from verbatim from [Wikipedia](https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma):
+Here we proceed in a similar way as in the deterministic case, except that instead of the chain rule, we need to use Ito's Lemma, and specifically for our state dynamics which is a multivariate drift-diffusion process. Adapted for our notation from [Wikipedia](https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma):
 
 <p style="text-align: center; font-weight: bold; font-family: Serif">Itô's lemma for a multivariate drift-diffusion process</p>
 
-Let $$X_t=(X_t^1, \dots, X_t^n)^T$$ be a vector of Ito processes, following:
+For any time $$s \in [t, \tau]$$, let $$X_s=(X_s^1, \dots, X_s^n)^T$$ be a real-valued vector of Itô processes, following:
 
 $$
 \begin{align}
-dX_t &= \mu_t dt + G_t dB_t
+dX_s &= \mu_s ds + G_s dB_s
 \end{align}
 $$
 
-for a vector $$\mu_t$$, matrix $$G_t$$ and Brownian $$B_t$$. The lemma states:
+for a vector $$\mu_s$$, matrix $$G_s$$ and Brownian $$B_s$$. Moreover, let $$f(s, X_s)$$ be a twice differentiable function in both arguments. Then the lemma states:
 
 $$
 \begin{align}
-d f(t, X_t) &= \frac{\partial f}{\partial t} dt + (\nabla_X f)^T dX_t + \frac{1}{2} (dX_t)^T (H_X f) dX_t \\
-&= \left( \frac{\partial f}{\partial t} + (\nabla_X f)^T \mu_t + \frac{1}{2} \text{Tr}\left[G_t^T (H_x f) G_t\right] \right) dt + (\nabla_X f)^T G_t dB_t
+d f(s, X_s) &= \frac{\partial f}{\partial s} ds + (\nabla_X f)^T dX_s + \frac{1}{2} (dX_s)^T (H_X f) dX_s \\
+&= \left( \frac{\partial f}{\partial s} + (\nabla_X f)^T \mu_s + \frac{1}{2} \text{Tr}\left[G_s^T (H_x f) G_s\right] \right) ds + (\nabla_X f)^T G_s dB_s
 \end{align}
 $$
 
-with $$\nabla_X f$$ as the gradient of $$f$$ wrt. X, $$H_x f$$ the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ as the trace operator. $$\square$$
+where $$\nabla_X f$$ is the gradient of $$f$$ wrt. X, $$H_x f$$ is the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ is the trace operator. $$\square$$
 
-To derive the HJB equation, take the dynamic programming formulation and proceed similarly as we did in the deterministic case.
+To apply this to find a stochastic HJB equation, let's recall our state dynamics and dynamic programming relation:
+
+$$
+\begin{align}
+% \underset{a \in \mathcal{A}}{\min} \hspace{0.5cm}& \mathcal{J} := \mathbb{E}\left[\int_t^T L(x_s, a_s, t)ds + G(x_T) \right] & \text{cost functional} \\
+d x_s &= \underbrace{f(x_s, a_s, s) ds}_{\text{drift}} + \underbrace{\sigma(x_s, a_s, s) dB_s}_{\text{diffusion}} & \text{state dynamics} \\
+\hspace{0.5cm}& x_t = x & \text{initial state condition} \\
+u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau) \right] & \text{dynamic programming principle}
+\end{align}
+$$
 
 ## Summary
 
