@@ -202,10 +202,28 @@ $$
 
 for $$t < \tau$$ of c# The HJB equation
  
-Here we proceed in a similar way as in the deterministic case, except that instead of the chain rule, we need to use [Ito's Lemma](https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma), and specifically for our state dynamics which is a multivariate drift-diffusion process.
+Here we proceed in a similar way as in the deterministic case, except that instead of the chain rule, we need to use Ito's Lemma, and specifically for our state dynamics which is a multivariate drift-diffusion process. Copied from verbatim from [Wikipedia]((https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma)):
 
 <p style="text-align: center; font-weight: bold; font-family: Serif">Itô's lemma for a multivariate drift-diffusion process</p>
 
+Let $$X_t=(X_t^1, \dots, X_t^n)^T$$ be a vector of Ito processes, following:
+
+$$
+\begin{align}
+dX_t &= \mu_t dt + G_t dB_t
+\end{align}
+$$
+
+for a vector $$\mu_t$$, matrix $$G_t$$ and Brownian $$B_t$$. The lemma states:
+
+$$
+\begin{align}
+d f(t, X_t) &= \frac{\partial f}{\partial t} dt + (\nabla_X f)^T dX_t + \frac{1}{2} (dX_t)^T (H_X f) dX_t \\
+&= \left( \frac{\partial f}{\partial t} + (\nabla_X f)^T \mu_t + \frac{1}{2} \text{Tr}\left[G_t^T (H_x f) G_t\right] \right) dt + (\nabla_X f)^T G_t dB_t
+\end{align}
+$$
+
+with $$\nabla_X f$$ as the gradient of $$f$$ wrt. X, $$H_xFf$$ the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ as the trace operator.
 
 ## Summary
 
