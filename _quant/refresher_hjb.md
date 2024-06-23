@@ -2,7 +2,7 @@
 title: "Quick refresher on Hamilton-Jacobi-Bellman"
 collection: quant
 type: "Post"
-permalink: /quant/refresher_hjb
+permalink: /quant/refresher_hjb_20240630
 date: 2024-06-30 # TODO: update
 ---
 
