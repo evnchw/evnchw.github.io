@@ -12,7 +12,7 @@ These are my quick refresher notes on the Fokker-Planck equation for the evoluti
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
-There are more specific ways to look at Fokker-Planck (e.g. [master equation](https://www.sciencedirect.com/topics/chemistry/fokker-planck-equation) approach), but we are going to work through the results in [1] in the context of mean field game theory.
+There are more specific ways to look at Fokker-Planck (e.g. [master equation](https://www.sciencedirect.com/topics/chemistry/fokker-planck-equation) approach), but we are going to work through the view of Fokker-Planck sketched in [1] in the context of mean field game theory.
 
 # In a nutshell: the FP equation is a way to model the evolution of a probability density over time
 
@@ -22,7 +22,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
 ## The main result we want to show
 
-Given a 
+The Fokker-Planck 
 
 ## Links to the Kolmogorov Forward/Backward Equations
 
