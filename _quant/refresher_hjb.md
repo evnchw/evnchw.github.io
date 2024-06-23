@@ -246,6 +246,7 @@ As before, our strategy is to obtain the dynamics of the value function $$u(.)$$
 $$
 \begin{align}
     \underbrace{u(x_\tau, \tau) - u(x,t)}_{d f(s, X_s)} = &
+            %% --
             \underbrace{\int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
             \frac{1}{2} \text{Tr}(D^2 u(x_s, s) \sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s)) \right) ds
             }_{
@@ -258,7 +259,13 @@ $$
                 \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s
             }_{
                 (\nabla_X f)^T G_s dB_s
-            }
+            } \\
+            %% -- 
+            = &
+            \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds +
+                \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s \\
+            &\text{where } \mathcal{L}^\alpha u = \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
+            \frac{1}{2} \text{Tr}(D^2 u(x_s, s) \sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s))
 \end{align}
 $$
 
