@@ -7,9 +7,15 @@ redirect_from:
   - /about.html
 ---
 
-I'm Evan, a quantitative researcher and data scientist at the [Abu Dhabi Investment Authority (ADIA)](https://www.adia.ae/) here in sunny Abu Dhabi. Originally from the San Francisco Bay Area.
+It's great to meet you, and thanks for swinging by. I'm Evan.
 
-Also a lifelong classical & jazz pianist, so you may find musical explorations here as well: [Spotify](https://open.spotify.com/artist/5DJAcFDVsRpCEzH0Nw9j6J).
+- quantitative researcher & data scientist at the [Abu Dhabi Investment Authority (ADIA)](https://www.adia.ae/), previously in tech
+- lifelong classical & jazz pianist: [Spotify](https://open.spotify.com/artist/5DJAcFDVsRpCEzH0Nw9j6J)
+- originally from the San Francisco Bay Area
+
+Here you can find my informal explorations and sojournings into quantitative sciences, music, and more.
+
+![Xenakis](images/xenakis_graphic.png)
 
 ## My current work
 
