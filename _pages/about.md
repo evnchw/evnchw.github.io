@@ -15,7 +15,7 @@ I'm Evan, a quantitative researcher and developer at the [Abu Dhabi Investment A
 
 My primary work at ADIA focuses on mobilizing alternative data for systematic strategies & semi-systematic investments. This spans the full range, from research proof-of-concepts, to final production pipelines that feed investment algorithms and processes
 
-*Research \& development.* This is a full-stack quant research role, with a specialization in **financial data science**.
+*Research & development.* This is a full-stack quant research role, with a specialization in **financial data science**.
 
 - **Data sourcing**: sourcing datasets, talking to vendors, trialing and evaluating potential investment alpha
 - **Data curation**: understanding the information content of datasets, their statistical properties and biases
