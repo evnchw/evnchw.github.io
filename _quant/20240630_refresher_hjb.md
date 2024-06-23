@@ -8,11 +8,11 @@ date: 2024-06-30 # TODO: update
 
 This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Bellman in optimal control, including value functions and dynamic programming for both deterministic and stochastic formulations.
 
+The notes and notation here are adapted from [1], with additional notes from [2] and [3]. (We keep mean field game theory in mind for down the road.) I go into much more detail to understand each aspect.
+
 - I prioritize intuition/readability linking to references where appropriate.
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
-
-Much of these notes and notation is adapted from [1], with additional notes from [2] and [3]. (We keep mean field game theory in mind for down the road.)
 
 Lastly, this focuses solely understanding HJB through the dynamic programming perspective. Later topics around the calculus of variations, Euler-Lagrange, viscosity solutions, etc. will be covered in future posts.
 
@@ -265,11 +265,11 @@ $$
             \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds +
                 \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s & \text{rewriting} \\
             &\text{where } \mathcal{L}^\alpha (u) = \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
-            \frac{1}{2} \text{Tr}(D^2 u(x_s, s) \sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s))
+            \frac{1}{2} \text{Tr}( H_x u(x_s, s)\sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s))
 \end{align}
 $$
 
-Note that the increment $$t \to \tau$$ functions as the "differential change in time" here: We could mirror the chain rule formulation directly and write $$u(x_\tau, \tau) = u(x, t) + \dots$$
+where $$H_x u(x_s, s)$$ is the Hessian of $$u$$ wrt. $$x$$. Note also that the increment $$t \to \tau$$ functions as the "differential change in time" here: we could mirror the chain rule formulation directly and write $$u(x_\tau, \tau) = u(x, t) + \dots$$
 
 Now plug this into the dynamic programming formulation above:
 
@@ -313,8 +313,13 @@ This yields our desired HJB equation:
 
 $$
 \begin{align}
-    \frac{\partial u(x,t)}{\partial t} + \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
-
+    0 &= \frac{\partial u(x,t)}{\partial t} + \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+        L(x_t, a_t, t) + \mathcal{L}^a(u)
+        \right] \\
+    \frac{\partial u(x,t)}{\partial t} &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+        L(x_t, a_t, t) +
+        \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
+        \frac{1}{2} \text{Tr}(D^2 u(x_s, s) \sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s))
     \right]
 \end{align}
 $$
