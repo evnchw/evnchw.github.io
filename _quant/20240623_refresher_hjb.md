@@ -334,7 +334,7 @@ $$
 \end{align}
 $$
 
-The interpretation is that at optimum, the instantaneous change in today's cost can be decomposed into the incremental (running) cost to tomorrow plus tomorrow's cost. The Hamiltonian $$\mathcal{H}$$ captures the tradeoff between "current" and "future" costs, which must be determined by the controls.
+The interpretation is that at optimum, the instantaneous change in today's cost can be decomposed into the incremental (running) cost to tomorrow plus tomorrow's cost. As before, the Hamiltonian $$\mathcal{H}$$ captures the tradeoff between "current" and "future" costs, which must be determined by the controls.
 
 Lastly, to tie this back to the optimal controls and trajectory of states, we summarize our system dynamics as before to define the optimal controls and states indirectly:
 
