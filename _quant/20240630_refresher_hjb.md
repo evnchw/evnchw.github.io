@@ -2,8 +2,8 @@
 title: "Quick refresher on Hamilton-Jacobi-Bellman"
 collection: quant
 type: "Post"
-permalink: /quant/20240630_refresher_hjb
-date: 2024-06-30 # TODO: update
+permalink: /quant/20240623_refresher_hjb
+date: 2024-06-23
 ---
 
 This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Bellman ("HJB") in optimal control, including value functions and dynamic programming for both deterministic and stochastic formulations.
