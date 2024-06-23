@@ -20,7 +20,7 @@ This is a full-stack quant research & development role, with a specialization in
 - **Data sourcing**: sourcing datasets, talking to vendors, trialing and evaluating potential investment alpha
 - **Data curation**: understanding the information content of datasets, their statistical properties and biases
 - **Data science**: constructing useful features and signals, and preparing them for trading and portfolio optimization
-- **Research**: developing and presenting strategies to the wider group for feedback and robustness
+- **Research**: developing, analyzing and presenting strategies to the wider group for feedback and robustness
 - **Production**: building and monitoring production data pipelines, monitoring anomalies and investigating outages
 
 Domain-wise, I work on industrial economics, transportation, and complex networks. I have also contributed systematic work involving corporate filings, fundamentals, job postings data, news, and other alternative data.
