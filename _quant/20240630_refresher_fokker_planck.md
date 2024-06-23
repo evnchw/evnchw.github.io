@@ -12,7 +12,12 @@ These are my quick refresher notes on Fokker-Planck equation(s) for the evolutio
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
-There are various ways to look at Fokker-Planck (e.g. [master equation](https://www.sciencedirect.com/topics/chemistry/fokker-planck-equation) approach), but we are going to work through the view of Fokker-Planck sketched in [1] in the context of mean field games (MFG). Specifically, we want to understand a forward Fokker-Planck equation that arises in MFG and figure out 
+There are various ways to look at Fokker-Planck (e.g. [master equation](https://www.sciencedirect.com/topics/chemistry/fokker-planck-equation) approach), but we are going to work through the view of Fokker-Planck sketched in [1] in the context of mean field games (MFG). Specifically:
+
+1. We want to understand a particular forward Fokker-Planck equation that appears in mean field games
+2. We want to characterise and understand the solution(s) to this equation
+
+In other words, we go backward: we have the the FP equation for how a probability density evolves, and then we want to understand which probability densities can satisfy this. This is important because it tells us what our theoretical (distributional) boundaries are for modeling many-agent behavior in MFG and what is required to take advantage of MFG results.
 
 # In a nutshell: the FP equation is a way to model the evolution of a probability density over time
 
