@@ -271,6 +271,30 @@ $$
 
 Note that the increment $$t \to \tau$$ functions as the "differential change in time" here: We could mirror the chain rule formulation directly and write $$u(x_\tau, \tau) = u(x, t) + \dots$$
 
+Now plug this into the dynamic programming formulation above:
+
+$$
+\begin{align}
+    u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau)\right] & \text{dynamic programming} \\
+    0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+        \int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau) - u(x_t, t)
+    \right] & \text{subtract } u(x_t, t) \\
+    0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+        \int_t^\tau L(x_s, a_s) ds +
+            \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds +
+            \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s
+    \right] & \text{substitute lemma result} & \text{Brownian has zero mean} \\
+    &\text{note } 
+        \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[ \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s \right] = 0 \\
+    0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+        \int_t^\tau L(x_s, a_s) ds +
+            \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds
+    \right] & \text{substitute lemma result}
+\end{align}
+$$
+
+noting the subtraction goes into the expectation because $$u(x_t, t)$$ is an infimum.
+
 
 
  
