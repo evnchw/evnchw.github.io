@@ -13,9 +13,12 @@ It's great to meet you, and thanks for swinging by. I'm Evan.
 - lifelong classical & jazz pianist, and amateur producer: [Spotify](https://open.spotify.com/artist/5DJAcFDVsRpCEzH0Nw9j6J)
 - originally from the San Francisco Bay Area, but lived in various places
 
-Here you can find my informal explorations and sojournings into quantitative sciences, music, and other fields. Enjoy!
+Here you can find my informal sojournings into quantitative sciences, music, and more. Enjoy!
 
-*Evan*
+<p>
+  <strong style="font-family: Serif">Warm regards,</strong><br>
+  <strong style="font-family: Serif">Evan</strong><br>
+</p>
 
 <p align="center">
 <img src="images/xenakis_graphic.png" alt="music-math" width="50%"/>
