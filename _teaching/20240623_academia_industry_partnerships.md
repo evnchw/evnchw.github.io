@@ -8,8 +8,6 @@ date: 2024-06-23
 location: "Abu Dhabi, UAE"
 ---
 
-# Academic-industry research partnerships
-
 Under [ADIA Lab](https://www.adialab.ae/), the scientific research institution of ADIA, I have supervised a number of short-term research projects in data science for various university programmes and departments, usually MSc-level capstones. Below is a running list:
 
 - LSE (2024-Present): *Mean field congestion in dry bulk shipping.* PhD Economics.
