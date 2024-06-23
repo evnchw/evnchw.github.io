@@ -6,7 +6,7 @@ permalink: /quant/20240630_refresher_hjb
 date: 2024-06-30 # TODO: update
 ---
 
-This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Bellman in optimal control, including value functions and dynamic programming for both deterministic and stochastic formulations.
+This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Bellman ("HJB") in optimal control, including value functions and dynamic programming for both deterministic and stochastic formulations.
 
 The notes and notation here are adapted from [1], with additional notes from [2] and [3]. (We keep mean field game theory in mind for down the road.) I go into much more detail to understand each aspect.
 
@@ -15,6 +15,14 @@ The notes and notation here are adapted from [1], with additional notes from [2]
 - All feedback and corrections are welcome.
 
 Lastly, this focuses solely understanding HJB through the dynamic programming perspective. Later topics around the calculus of variations, Euler-Lagrange, viscosity solutions, etc. will be covered in future posts.
+
+## In a nutshell: the HJB equation defines the optimal control
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Hamilton%E2%80%93Jacobi%E2%80%93Bellman_equation):
+
+> The Hamilton-Jacobi-Bellman (HJB) equation is a nonlinear partial differential equation that provides necessary and sufficient conditions for optimality of a control with respect to a loss function. Its solution is the value function of the optimal control problem which, once known, can be used to obtain the optimal control by taking the maximizer (or minimizer) of the Hamiltonian involved in the HJB equation.
+
+where the *value function* is the optimal cost.
 
 ## Hamilton-Jacobi-Bellman, deterministic
 
