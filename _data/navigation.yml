@@ -2,10 +2,7 @@
 main:
 
   # - title: "Talks"
-    # url: /talks/    
-
-  # - title: "Teaching"
-  #   url: /teaching/
+    # url: /talks/
         
   # - title: "Blog"
   #   url: /year-archive/
@@ -21,6 +18,9 @@ main:
     
   - title: "Research"
     url: /publications/
+
+  - title: "Teaching"
+    url: /teaching/
     
   - title: "CV"
     url: /cv/
