@@ -15,7 +15,7 @@ I'm Evan, a quantitative researcher and developer at the [Abu Dhabi Investment A
 
 My primary work at ADIA focuses on mobilizing alternative data for systematic strategies & semi-systematic investments. This spans the full range, from research proof-of-concepts, to final production pipelines that feed investment algorithms and processes
 
-*Research & development.* This is a full-stack quant research role, with a specialization in **financial data science**.
+***Research & development.** This is a full-stack quant research role, with a specialization in *financial data science*.
 
 - **Data sourcing**: sourcing datasets, talking to vendors, trialing and evaluating potential investment alpha
 - **Data curation**: understanding the information content of datasets, their statistical properties and biases
@@ -24,9 +24,9 @@ My primary work at ADIA focuses on mobilizing alternative data for systematic st
 - **Research**: developing, analyzing and presenting strategies to the wider group for feedback and robustness
 - **Production**: building and monitoring production data pipelines, monitoring anomalies and investigating outages
 
-*Domain.* I focus on industrial economics, transportation, and complex networks. I have also contributed to other systematic/semi-systematic work involving a variety of useful alternative data.
+**Domain.** I focus on industrial economics, transportation, and complex networks. I have also contributed to other systematic/semi-systematic work involving a variety of useful alternative data.
 
-*Teaching.* Since my role is within a scientific investing team, I have also run a number of industry-academic projects via [ADIA Lab](https://www.adialab.ae/), the scientific institution of ADIA. These have primarily been in the form of MSc-level capstone projects, and some examples include:
+**Teaching.** Since my role is within a scientific investing team, I have also run a number of industry-academic projects via [ADIA Lab](https://www.adialab.ae/), the scientific institution of ADIA. These have primarily been in the form of MSc-level capstone projects, and some examples include:
 
 - UCL/Oxford (MSc MCF): Nowcasting global trade with time series signatures & shipping data (2024)
 - University of Toronto (MFRM): Nowcasting inflation with the Baltic indices (2023)
