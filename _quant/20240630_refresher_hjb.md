@@ -243,7 +243,7 @@ $$
 
 As before, our strategy is to obtain the dynamics of the value function $$u(.)$$, which indirectly defines the optimal controls and trajectory of states. Consistent for the lemma, we require the $$u(.)$$ to be twice differentiable in its arguments. With $$\tau$$ analogous to $$t+h$$ above, write out the expansion of $$u(x_\tau, \tau)$$ via the lemma:
 
-<!-- $$
+$$
 \begin{align}
     \underbrace{u(x_\tau, \tau) - u(x,t)}_{d f(s, X_s)} = &
             \underbrace{\int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
@@ -265,7 +265,7 @@ As before, our strategy is to obtain the dynamics of the value function $$u(.)$$
             &\text{where } \mathcal{L}^\alpha (u) = \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
             \frac{1}{2} \text{Tr}( H_x u(x_s, s)\sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s))
 \end{align}
-$$ -->
+$$
 
 where $$H_x u(x_s, s)$$ is the Hessian of $$u$$ wrt. $$x$$. Note also that the increment $$t \to \tau$$ functions as the "differential change in time" here: we could mirror the chain rule formulation directly and write $$u(x_\tau, \tau) = u(x, t) + \dots$$
 
