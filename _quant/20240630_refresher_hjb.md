@@ -349,8 +349,6 @@ Note that the HJB equation is a second-order differential equation via the Hamil
  
 # References
 
-[1] https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf
+[1] [Ryzhik (2018)](https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf)
 
 [2] QING, YUTONG. "INTRODUCTION TO THE OPTIMAL CONTROL THEORY AND SOME APPLICATIONS." (2019).
-
-[3] https://math.nyu.edu/~goodman/teaching/StochCalc2011/SDE.pdf
