@@ -253,7 +253,9 @@ $$
 \end{align}
 $$
 
-Note that the increment $$t \to \tau$$ functions as the "differential change in time" here. (We could also mirror the chain rule formulation directly and write $$u(x_\tau, \tau) = u(x, t) + \dots$$.)
+Note that the increment $$t \to \tau$$ functions as the "differential change in time" here: We could mirror the chain rule formulation directly and write $$u(x_\tau, \tau) = u(x, t) + \dots$$.
+
+
 
 
  
