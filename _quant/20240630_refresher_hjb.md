@@ -223,11 +223,11 @@ for a vector $$\mu_s$$, matrix $$G_s$$ and Brownian $$B_s$$. Moreover, let $$f(s
 $$
 \begin{align}
 d f(s, X_s) &= \frac{\partial f}{\partial s} ds + (\nabla_X f)^T dX_s + \frac{1}{2} (dX_s)^T (H_X f) dX_s \\
-&= \left( \frac{\partial f}{\partial s} + (\nabla_X f)^T \mu_s + \frac{1}{2} \text{Tr}\left[G_s^T (H_x f) G_s\right] \right) ds + (\nabla_X f)^T G_s dB_s
+&= \left( \frac{\partial f}{\partial s} + (\nabla_x f)^T \mu_s + \frac{1}{2} \text{Tr}\left[G_s^T (H_x f) G_s\right] \right) ds + (\nabla_x f)^T G_s dB_s
 \end{align}
 $$
 
-where $$\nabla_X f$$ is the gradient of $$f$$ wrt. X, $$H_x f$$ is the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ is the trace operator. In essence, this lemma says: given the dynamics of random vector $$X_s$$ that changes over time ($$s$$), we can find the dynamics of a transformation $$f(X_s, s)$$. Note here in the case of drift-diffusion, the dynamics of the transformation also take on a drift-diffusion form. $$\square$$
+where $$\nabla_x f$$ is the gradient of $$f$$ wrt. X, $$H_x f$$ is the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ is the trace operator. In essence, this lemma says: given the dynamics of random vector $$X_s$$ that changes over time ($$s$$), we can find the dynamics of a transformation $$f(X_s, s)$$. Note here in the case of drift-diffusion, the dynamics of the transformation also take on a drift-diffusion form. $$\square$$
 
 *Applying this to find a stochastic HJB equation.* As before, our strategy is to obtain the dynamics of the value function $$u(.)$$, which is a function of states $$X_s$$ and time $$s$$. These resulting dynamics (the stochastic HJB equation) will indirectly define the optimal controls and trajectory of states. Note we require $$u(.)$$ to be twice differentiable in its arguments.
 
@@ -314,19 +314,39 @@ $$
     0 &= \frac{\partial u(x,t)}{\partial t} + \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
         L(x_t, a_t, t) + \mathcal{L}^a(u)
         \right] \\
-    \frac{\partial u(x,t)}{\partial t} &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
-        L(x_t, a_t, t) +
-        \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
-        \frac{1}{2} \text{Tr}(D^2 u(x_s, s) \sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s))
-    \right]
+    0 &= \frac{\partial u(x,t)}{\partial t} +
+        \underbrace{
+            \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+            L(x_t, a_t, t) +
+            \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
+            \frac{1}{2} \text{Tr}(H_xu(x_s, s) \sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s))
+        \right]
+        }_{\text{The Hamiltonian } \mathcal{H}(H_x(u), \nabla_x(u), x_t, t)} \\
+    & \text{note this is of form } \hspace{0.25cm} 0 = \frac{\partial u}{\partial t} + \mathcal{H}(H_x(u), \nabla_x(u), x_t, t) \hspace{0.25cm} \text{with Hessian } H_x(u) \text{, vector of derivatives } \nabla_x(u)
 \end{align}
 $$
 
+The interpretation is that at optimum, the instantaneous change in today's cost can be decomposed into the incremental (running) cost to tomorrow plus tomorrow's cost. The Hamiltonian $$\mathcal{H}$$ captures the tradeoff between "current" and "future" costs, which must be determined by the controls.
 
+Lastly, to tie this back to the optimal controls and trajectory of states, we summarize our system dynamics as before to define the optimal controls and states indirectly:
 
+$$
+\begin{align}
+    0 &= \frac{\partial u(x,t)}{\partial t} + \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+            L(x_t, a_t, t) +
+            \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
+            \frac{1}{2} \text{Tr}(D^2 u(x_s, s) \sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s))
+        \right] & \text{HJB equation} \\
+        &= \frac{\partial u}{\partial t} + \mathcal{H}(H_x(u), \nabla_x(u), x_t, t) & \text{(HJB equation, simplified)} \\
+    d x_s &= f(x_s, a_s, s) ds + \sigma(x_s, a_s, s) dB_s & \text{state dynamics} \\
+    x_t &= x & \text{initial state condition}
+\end{align}
+$$
+
+where optimal controls and trajectory of states $$(x_t^{*}, a_t^{*})$$ satisfy the above system to yield the optimal cost $$u_t$$. $$\square$$.
+
+Note that the HJB equation is a second-order differential equation via the Hamiltonian $$\mathcal{H}$$, and so can be infeasible if not impossible to solve analytically. This motivates the idea of the *Legendre transform* to find a feasible solution via an extremal-preserving conjugate transformation, which we may cover in a future post.
  
-## Summary
-
 # References
 
 [1] https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf
