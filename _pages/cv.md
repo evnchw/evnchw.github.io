@@ -9,56 +9,20 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+Brief summary of my experience below. Full CV to be available at a future time.
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+### Education
+* MSc in [Econometrics and Mathematical Economics](https://www.lse.ac.uk/study-at-lse/Graduate/degree-programmes-2024/MSc-Econometrics-and-Mathematical-Economics), London School of Economics, 2021
+* A.B. Economics, statistics & machine learning, Princeton University, 2016
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+### Work experience
+* Abu Dhabi Investment Authority (10/2021-Present)
+  * Quantitative researcher / financial data scientist
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Snap Inc. (9/2017-7/2020)
+  * Research scientist
+  * Data scientist
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+* Uber Technologies Inc. (8/2016-6/2017)
+  * Software engineer, intelligent dispatch
   
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
