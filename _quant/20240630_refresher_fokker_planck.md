@@ -6,13 +6,13 @@ permalink: /quant/20240630_refresher_fokker_planck
 date: 2024-06-30
 ---
 
-These are my quick refresher notes on the Fokker-Planck equation for the evolution of a probability density over time. Like my notes on [Hamilton-Jacobi-Bellman](https://evnchw.github.io/quant/20240623_refresher_hjb), I focus on the main analytical aspects and intuitive understanding rather than the detailed proofs. I follow a similar format as well.
+These are my quick refresher notes on Fokker-Planck equation(s) for the evolution of a probability density over time. Like my notes on [Hamilton-Jacobi-Bellman](https://evnchw.github.io/quant/20240623_refresher_hjb), I focus on the main analytical aspects and intuitive understanding rather than the detailed proofs. I follow a similar format as well.
 
 - I prioritize intuition/readability linking to references where appropriate.
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
-There are more specific ways to look at Fokker-Planck (e.g. [master equation](https://www.sciencedirect.com/topics/chemistry/fokker-planck-equation) approach), but we are going to work through the view of Fokker-Planck sketched in [1] in the context of mean field game theory.
+There are various ways to look at Fokker-Planck (e.g. [master equation](https://www.sciencedirect.com/topics/chemistry/fokker-planck-equation) approach), but we are going to work through the view of Fokker-Planck sketched in [1] in the context of mean field game theory. Specifically, we want to understand 
 
 # In a nutshell: the FP equation is a way to model the evolution of a probability density over time
 
