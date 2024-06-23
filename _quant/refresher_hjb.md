@@ -245,16 +245,30 @@ As before, our strategy is to obtain the dynamics of the value function $$u(.)$$
 
 $$
 \begin{align}
-    \underbrace{u(x_\tau, \tau) - u(x,t)}_{d f(x_s, s)} = &
-            \underbrace{\int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + L(x_t, a_t, t) \frac{\partial u(x_s, s)}{\partial x} \right) +
-            \frac{1}{2} \sum_k \sum_{i,j} u_{x_i, x_j}(x_s, s) \sigma^{jk}(x_s, a_s, s)\sigma^{ik}(x_s, a_x, s) ds}_{f(x_s, a_s, s) ds} \\
+    \underbrace{u(x_\tau, \tau) - u(x,t)}_{d f(s, X_s)} = &
+            \underbrace{\int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + f(x_t, a_t, t) \frac{\partial u(x_s, s)}{\partial x} \right) +
+            \frac{1}{2} \sum_k \sum_{i,j} u_{x_i, x_j}(x_s, s) \sigma^{jk}(x_s, a_s, s)\sigma^{ik}(x_s, a_x, s) ds}_{
+                \left(\frac{\partial f}{\partial s} + (\nabla_X f)^T \mu_s + \frac{1}{2} \text{Tr} \left[ G_s^T (H_x f) G_s \right] \right) ds
+            } \\
             &+
-            \underbrace{\int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s}_{\sigma(x_s, a_s, s) dB_s}
+            \underbrace{
+                \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s
+            }_{
+                (\nabla_X f)^T G_s dB_s
+            } \\
+            = &
+            \underbrace{\int_t^\tau \frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u ds
+            } \\
+            &+
+            \underbrace{
+                \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s
+            }_{
+                (\nabla_X f)^T G_s dB_s
+            }
 \end{align}
 $$
 
-Note that the increment $$t \to \tau$$ functions as the "differential change in time" here: We could mirror the chain rule formulation directly and write $$u(x_\tau, \tau) = u(x, t) + \dots$$.
-
+Note that the increment $$t \to \tau$$ functions as the "differential change in time" here: We could mirror the chain rule formulation directly and write $$u(x_\tau, \tau) = u(x, t) + \dots$$
 
 
 
