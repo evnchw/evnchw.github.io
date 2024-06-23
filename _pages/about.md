@@ -9,6 +9,8 @@ redirect_from:
 
 I'm Evan, a quantitative researcher and data scientist at the [Abu Dhabi Investment Authority (ADIA)](https://www.adia.ae/) here in sunny Abu Dhabi. Originally from the San Francisco Bay Area.
 
+Also a lifelong classical & jazz pianist, so you may find musical explorations here as well: [Spotify](https://open.spotify.com/artist/5DJAcFDVsRpCEzH0Nw9j6J).
+
 ## My current work
 
 [Risk.net - Adia wealth fund is building supergroup of quant investing](https://www.risk.net/investing/quant-investing/7929061/adia-wealth-fund-is-building-supergroup-of-quant-investing)
