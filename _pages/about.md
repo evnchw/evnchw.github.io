@@ -13,7 +13,7 @@ I'm Evan, a quantitative researcher and developer at the [Abu Dhabi Investment A
 
 [Risk.net - Adia wealth fund is building supergroup of quant investing](https://www.risk.net/investing/quant-investing/7929061/adia-wealth-fund-is-building-supergroup-of-quant-investing)
 
-My primary work at ADIA focuses on mobilizing alternative data for systematic strategies & quantamental investments, from research proof-of-concepts to final production pipelines for systematic strategies.
+My primary work at ADIA focuses on mobilizing alternative data for systematic strategies & semi-systematic investments, from research proof-of-concepts to final production pipelines.
 
 *Research \& development.* This is a full-stack quant research role, with a specialization in **financial data science**.
 
@@ -24,7 +24,7 @@ My primary work at ADIA focuses on mobilizing alternative data for systematic st
 - **Research**: developing, analyzing and presenting strategies to the wider group for feedback and robustness
 - **Production**: building and monitoring production data pipelines, monitoring anomalies and investigating outages
 
-*Domain.* I focus on industrial economics, transportation, and complex networks. I have also contributed to other systematic work involving a variety of useful alternative data.
+*Domain.* I focus on industrial economics, transportation, and complex networks. I have also contributed to other systematic/semi-systematic work involving a variety of useful alternative data.
 
 *Teaching.* Since my role is within a scientific investing team, I have also run a number of industry-academic projects via [ADIA Lab](https://www.adialab.ae/), the scientific institution of ADIA. These have primarily been in the form of MSc-level capstone projects, and some examples include:
 
