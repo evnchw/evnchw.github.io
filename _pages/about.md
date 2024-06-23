@@ -19,7 +19,8 @@ My primary work at ADIA focuses on mobilizing alternative data for systematic st
 
 - **Data sourcing**: sourcing datasets, talking to vendors, trialing and evaluating potential investment alpha
 - **Data curation**: understanding the information content of datasets, their statistical properties and biases
-- **Data science**: constructing useful features and signals, and preparing them for trading and portfolio optimization
+- **Data science**: constructing and evaluating useful features and signals for investment
+- **Alpha research**: contributions to backtesting and portfolio optimization
 - **Research**: developing, analyzing and presenting strategies to the wider group for feedback and robustness
 - **Production**: building and monitoring production data pipelines, monitoring anomalies and investigating outages
 
