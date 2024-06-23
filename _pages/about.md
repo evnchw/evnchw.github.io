@@ -18,7 +18,9 @@ Here you can find my informal explorations and sojournings into quantitative sci
 Hope you enjoy!
 Ev
 
+<p align="center">
 <img src="images/xenakis_graphic.png" alt="music-math" width="50%"/>
+</p>
 
 ## My current work
 
