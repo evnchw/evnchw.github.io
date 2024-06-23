@@ -12,7 +12,7 @@ These are my quick refresher notes on the Fokker-Planck equation for the evoluti
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
-I will draw on notation from [1] as well as other resources. (As you can tell: this is with an eye toward mean field game theory which we will cover down the line.)
+There are a variety of ways to look at Fokker-Planck (e.g. through the [master equation](https://courses.physics.ucsd.edu/2015/Fall/physics210b/LECTURES/CH04.pdf)), but we are going to work through the results in [1] in the context of mean field game theory.
 
 # In a nutshell: the FP equation is a way to model the evolution of a probability density over time
 
