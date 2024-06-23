@@ -188,7 +188,7 @@ As in the deterministic case, we can define the *value function*, noting that we
 
 $$
 \begin{align}
-u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathcal{J} := \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^T L(x_s, a_s) ds + G(x_T) \right] & \text{value function}
+u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathcal{J} := \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^T L(x_s, a_s, s) ds + G(x_T) \right] & \text{value function}
 \end{align}
 $$
 
@@ -198,7 +198,7 @@ Following this logic, the dynamic programming relation is given by:
 
 $$
 \begin{align}
-    u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau) \right] & \text{dynamic programming principle}
+    u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s, s) ds + u(x_\tau, \tau) \right] & \text{dynamic programming principle}
 \end{align}
 $$
 
@@ -237,7 +237,7 @@ $$
 \begin{align}
 d x_s &= \overbrace{f(x_s, a_s, s)}^{\mu_s} ds + \overbrace{\sigma(x_s, a_s, s)}^{G_s} dB_s & \text{state dynamics} \\
 x_t &= x & \text{initial state condition} \\
-\underbrace{u(x_t,t)}_{f} &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s) ds + \underbrace{u(x_\tau, \tau)}_{f} \right] & \text{dynamic programming principle}
+\underbrace{u(x_t,t)}_{f} &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s, s) ds + \underbrace{u(x_\tau, \tau)}_{f} \right] & \text{dynamic programming principle}
 \end{align}
 $$
 
@@ -264,7 +264,7 @@ $$
             = &
             \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds +
                 \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s & \text{rewriting} \\
-            &\text{where } \mathcal{L}^\alpha u = \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
+            &\text{where } \mathcal{L}^\alpha (u) = \frac{\partial u(x_s, s)}{\partial x} f(x_t, a_t, t) +
             \frac{1}{2} \text{Tr}(D^2 u(x_s, s) \sigma(x_s, a_s, s)\sigma^T(x_s, a_s, s))
 \end{align}
 $$
@@ -275,19 +275,19 @@ Now plug this into the dynamic programming formulation above:
 
 $$
 \begin{align}
-    u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau)\right] & \text{dynamic programming} \\
+    u(x_t,t) &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[\int_t^\tau L(x_s, a_s, s) ds + u(x_\tau, \tau)\right] & \text{dynamic programming} \\
     0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
-        \int_t^\tau L(x_s, a_s) ds + u(x_\tau, \tau) - u(x_t, t)
+        \int_t^\tau L(x_s, a_s, s) ds + u(x_\tau, \tau) - u(x_t, t)
     \right] & \text{subtract } u(x_t, t) \\
     0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
-        \int_t^\tau L(x_s, a_s) ds +
+        \int_t^\tau L(x_s, a_s, s) ds +
             \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds +
             \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s
     \right] & \text{substitute lemma result} \\
     &\text{note } 
         \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[ \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s \right] = 0 & \text{martingale has zero mean} \\
     0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
-        \int_t^\tau L(x_s, a_s) ds +
+        \int_t^\tau L(x_s, a_s, s) ds +
             \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds
     \right] & \text{substitute lemma result}
 \end{align}
@@ -297,9 +297,24 @@ Note the subtraction goes into the expectation because $$u(x_t, t)$$ is an infim
 
 $$
 \begin{align}
-0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
-        \int_t^\tau L(x_s, a_s) ds +
-            \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds
+    0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+            \frac{1}{h} \int_t^{t+h} L(x_s, a_s, s) ds +
+            \frac{1}{h} \int_t^{t+h} \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds
+        \right] \\
+    &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+        \frac{1}{h} \int_t^{t+h} \frac{\partial u(x_s, s)}{\partial t} ds + 
+        \frac{1}{h} \int_t^{t+h} L(x_s, a_s, s) ds +
+        \frac{1}{h} \int_t^{t+h} \mathcal{L}^\alpha (u) ds
+    \right]
+\end{align}
+$$
+
+This yields our desired HJB equation:
+
+$$
+\begin{align}
+    \frac{\partial u(x,t)}{\partial t} + \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+
     \right]
 \end{align}
 $$
