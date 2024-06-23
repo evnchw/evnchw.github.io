@@ -12,7 +12,7 @@ These are my quick refresher notes on Fokker-Planck equation(s) for the evolutio
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
-There are various ways to look at Fokker-Planck (e.g. [master equation](https://www.sciencedirect.com/topics/chemistry/fokker-planck-equation) approach), but we are going to work through the view of Fokker-Planck sketched in [1] in the context of mean field games (MFG). Specifically:
+There are various ways to look at Fokker-Planck (see [1] for a fairly recent survey), but we are going to work through the view of Fokker-Planck sketched in [2] in the context of mean field games (MFG). Specifically:
 
 1. We want to understand a particular forward Fokker-Planck equation that appears in mean field games
 2. We want to characterise and understand the solution(s) to this equation
@@ -37,4 +37,6 @@ The Fokker-Planck
 
 # References
 
-[1] [Ryzhik (2018)](https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf)
+[1] Bogachev, Vladimir I., et al. Fokker–Planck–Kolmogorov Equations. Vol. 207. American Mathematical Society, 2022.
+
+[2] [Ryzhik (2018)](https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf)
