@@ -28,7 +28,7 @@ Here you can find my informal sojournings into quantitative sciences, music, and
 
 [Risk.net - Adia wealth fund is building supergroup of quant investing](https://www.risk.net/investing/quant-investing/7929061/adia-wealth-fund-is-building-supergroup-of-quant-investing)
 
-My primary work at ADIA focuses on mobilizing alternative data for systematic strategies & semi-systematic investments. This spans the full range, from research proof-of-concepts, to final production pipelines that feed investment algorithms and processes
+My primary work at ADIA focuses on mobilizing alternative data for systematic strategies & semi-systematic investments. This spans the full range, from research proof-of-concepts, to final production pipelines that feed investment algorithms and processes.
 
 **Research & development.** This is a full-stack quant research role, with a specialization in *financial data science*.
 
