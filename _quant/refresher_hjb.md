@@ -229,7 +229,7 @@ $$
 
 where $$\nabla_X f$$ is the gradient of $$f$$ wrt. X, $$H_x f$$ is the Hessian of $$f$$ wrt. $$X$$, and $$\text{Tr}$$ is the trace operator. In essence, this lemma says: given the dynamics of random vector $$X_s$$ that changes over time ($$s$$), we can find the dynamics of a transformation $$f(X_s, s)$$. Note here in the case of drift-diffusion, the dynamics of the transformation also take on a drift-diffusion form. $$\square$$
 
-*Applying this to find a stochastic HJB equation.* As before, our strategy is to obtain the dynamics of the value function $$u(.)$$ (stochastic HJB equation), which is a function of states and time. Note we require $$u(.)$$ to be twice differentiable in its arguments.
+*Applying this to find a stochastic HJB equation.* As before, our strategy is to obtain the dynamics of the value function $$u(.)$$, which is a function of states $$X_s$$ and time $$s$$. These resulting dynamics (the stochastic HJB equation) will indirectly define the optimal controls and trajectory of states. Note we require $$u(.)$$ to be twice differentiable in its arguments.
 
 Let's recall our state dynamics and dynamic programming relation, and label each component so it corresponds to the above format of Itô's lemma. (Recall $$x_s, a_s, G_s, \dots$$ are all vector and matrix quantities).
 
@@ -241,10 +241,22 @@ x_t &= x & \text{initial state condition} \\
 \end{align}
 $$
 
-As before, our strategy is to obtain the dynamics of the value function $$u(.)$$, which indirectly defines the optimal controls and trajectory of states. Consistent for the lemma, we require the $$u(.)$$ to be twice differentiable in its arguments, which often may not hold.
+As before, our strategy is to obtain the dynamics of the value function $$u(.)$$, which indirectly defines the optimal controls and trajectory of states. Consistent for the lemma, we require the $$u(.)$$ to be twice differentiable in its arguments. With $$\tau$$ analogous to $$t+h$$ above, write out the expansion of $$u(x_\tau, \tau)$$ via the lemma:
+
+$$
+\begin{align}
+    \underbrace{u(x_\tau, \tau) - u(x,t)}_{d f(x_s, s)} = &
+            \underbrace{\int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + L(x_t, a_t, t) \frac{\partial u(x_s, s)}{\partial x} \right) +
+            \frac{1}{2} \sum_k \sum_{i,j} u_{x_i, x_j}(x_s, s) \sigma^{jk}(x_s, a_s, s)\sigma^{ik}(x_s, a_x, s) ds}_{f(x_s, a_s, s) ds} \\
+            &+
+            \underbrace{\int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s}_{\sigma(x_s, a_s, s) dB_s}
+\end{align}
+$$
+
+Note that the increment $$t \to \tau$$ functions as the "differential change in time" here. (We could also mirror the chain rule formulation directly and write $$u(x_\tau, \tau) = u(x, t) + \dots$$.)
 
 
-
+ 
 ## Summary
 
 # References
