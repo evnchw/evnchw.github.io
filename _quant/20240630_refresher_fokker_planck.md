@@ -12,7 +12,7 @@ These are my quick refresher notes on Fokker-Planck equation(s) for the evolutio
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
-There are various ways to look at Fokker-Planck (see [1] for a fairly recent survey), but we are going to work through the view of Fokker-Planck sketched in [2] in the context of mean field games (MFG). Specifically:
+There are various ways to look at Fokker-Planck (see [1] for a relatively recent introduction, and [2] for a control-oriented treatment), but we are going to work through the view of Fokker-Planck sketched in [3] in the context of mean field games (MFG). Specifically:
 
 1. We want to understand a particular forward Fokker-Planck equation that appears in mean field games
 2. We want to characterise and understand the solution(s) to this equation
@@ -39,4 +39,7 @@ The Fokker-Planck
 
 [1] Bogachev, Vladimir I., et al. Fokker–Planck–Kolmogorov Equations. Vol. 207. American Mathematical Society, 2022.
 
-[2] [Ryzhik (2018)](https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf)
+[2] Sharma, Shambhu N., and Hiren G. Patel. "The Fokker-Planck equation." Stochastic Control. Rijeka: IntechOpen, 2010. 1-20.
+
+[3] [Ryzhik (2018)](https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf)
+
