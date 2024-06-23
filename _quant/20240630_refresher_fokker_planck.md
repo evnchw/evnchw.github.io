@@ -1,5 +1,5 @@
 ---
-title: "Quick refresher on Fokker-Planck"
+title: "[in-progress] Quick refresher on Fokker-Planck"
 collection: quant
 type: "Post"
 permalink: /quant/20240630_refresher_fokker_planck
