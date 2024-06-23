@@ -15,7 +15,7 @@ It's great to meet you, and thanks for swinging by. I'm Evan.
 
 Here you can find my informal explorations and sojournings into quantitative sciences, music, and other fields.
 
-Hope you enjoy!
+Enjoy!
 Ev
 
 <p align="center">
