@@ -21,7 +21,7 @@ Here you can find my informal explorations and sojournings into quantitative sci
 <img src="images/xenakis_graphic.png" alt="music-math" width="50%"/>
 </p>
 
-## My current work
+## My current position
 
 [Risk.net - Adia wealth fund is building supergroup of quant investing](https://www.risk.net/investing/quant-investing/7929061/adia-wealth-fund-is-building-supergroup-of-quant-investing)
 
