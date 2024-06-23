@@ -23,7 +23,7 @@ My primary work at ADIA focuses on mobilizing alternative data for systematic st
 - **Research**: developing, analyzing and presenting strategies to the wider group for feedback and robustness
 - **Production**: building and monitoring production data pipelines, monitoring anomalies and investigating outages
 
-*Domain.* I focus on industrial economics, transportation, and complex networks. I have also contributed systematic work involving corporate filings, fundamentals, job postings data, news, and other alternative data.
+*Domain.* I focus on industrial economics, transportation, and complex networks. I have also contributed to other systematic work involving a variety of useful alternative data.
 
 *Teaching.* Since my role is within a scientific investing team, I have also run a number of industry-academic projects via [ADIA Lab](https://www.adialab.ae/), the scientific institution of ADIA. These have primarily been in the form of MSc-level capstone projects, and some examples include:
 
