@@ -283,9 +283,9 @@ $$
         \int_t^\tau L(x_s, a_s) ds +
             \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds +
             \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s
-    \right] & \text{substitute lemma result} & \text{Brownian has zero mean} \\
+    \right] & \text{substitute lemma result} \\
     &\text{note } 
-        \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[ \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s \right] = 0 \\
+        \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[ \int_t^\tau \frac{\partial u(x_s, s)}{\partial x}^T \sigma(x_s, a_x, s) dB_s \right] = 0 & \text{martingale has zero mean} \\
     0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
         \int_t^\tau L(x_s, a_s) ds +
             \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds
@@ -293,7 +293,16 @@ $$
 \end{align}
 $$
 
-noting the subtraction goes into the expectation because $$u(x_t, t)$$ is an infimum.
+Note the subtraction goes into the expectation because $$u(x_t, t)$$ is an infimum. Now, let $$\tau := t+h$$, divide by $$h$$ and let $$h \to 0$$:
+
+$$
+\begin{align}
+0 &= \underset{a \in \mathcal{A}}{\inf} \mathbb{E} \left[
+        \int_t^\tau L(x_s, a_s) ds +
+            \int_t^\tau \left(\frac{\partial u(x_s, s)}{\partial t} + \mathcal{L}^\alpha u \right) ds
+    \right]
+\end{align}
+$$
 
 
 
