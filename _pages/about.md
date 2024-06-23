@@ -10,12 +10,12 @@ redirect_from:
 It's great to meet you, and thanks for swinging by. I'm Evan.
 
 - quantitative researcher & data scientist at the [Abu Dhabi Investment Authority (ADIA)](https://www.adia.ae/), previously in tech
-- lifelong classical & jazz pianist: [Spotify](https://open.spotify.com/artist/5DJAcFDVsRpCEzH0Nw9j6J)
-- originally from the San Francisco Bay Area
+- lifelong classical & jazz pianist, and amateur producer: [Spotify](https://open.spotify.com/artist/5DJAcFDVsRpCEzH0Nw9j6J)
+- originally from the San Francisco Bay Area, but lived in various places
 
 Here you can find my informal explorations and sojournings into quantitative sciences, music, and more.
 
-![Xenakis](images/xenakis_graphic.png)
+<img src="images/xenakis_graphic.png" alt="music-math" width="50%"/>
 
 ## My current work
 
