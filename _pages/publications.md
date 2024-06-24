@@ -11,9 +11,9 @@ author_profile: true
 
 In progress:
 
-<li>
+<ul>
     <li><i>Mean field congestion in dry bulk shipping</i>, with Sylvia Tian</li>
-</li>
+</ul>
 
 {% include base_path %}
 
