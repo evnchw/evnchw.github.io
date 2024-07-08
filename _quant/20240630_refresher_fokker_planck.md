@@ -31,7 +31,7 @@ From [3] but we present it in a more linear order, from the particular state dyn
 
 ### Setup.
 
-We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$.
+We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ which is Hölder-continuous in space and continuous in time.
 
 ### State dynamics.
 
@@ -81,8 +81,8 @@ Let $$X_t$$ evolve over time according to the state dynamics:
 
 $$
 \begin{align}
-    d X_t &= a(t) dt + b(t) dB_t & \text{state evolution} \\
-    X_0 &= X \\
+    d X_t &= a(t) dt + b(t) dB_t & \text{evolution} \\
+    X_0 &= X & \text{initial} \\
 \end{align}
 $$
 
