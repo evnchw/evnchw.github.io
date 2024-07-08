@@ -53,11 +53,11 @@ TODO:
 - define probability measure on complex unit circle (mathbb T)
 - define the \Delta operator for m
 -->
-Define the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$. Note that since this is a probability density over states, (at each time) it must sum up to 1 and so its domain is **not** $$\mathcal{R}$$^d but rather the $$d$$-dimensional unit circle $$\mathbb{T}$$^d, consistent with functional analysis. (For example, if $$d=2$$, then we can select $$\{x, y \in [0,1]: x^2 + y^2 = 1\}$$.)
+Define the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$. Note that since this is a probability density over states, (at each time) it must sum up to 1 and so its domain is **not** based on $$\mathbb{R}$$^d but rather the $$d$$-dimensional unit circle $$\mathbb{T}$$^d, consistent with functional analysis. (For example, if $$d=2$$, then we can select $$\{x, y \in [0,1]: x^2 + y^2 = 1\}$$.)
 
 ### Evolution of the transformation.
 
-We want to see how this particular drift-diffusion system yields the Fokker-Planck equation:
+We want to see how the above drift-diffusion system yields the Fokker-Planck equation:
 
 $$
 \begin{align}
