@@ -69,7 +69,7 @@ $$
 \end{align}
 $$
 
-Our strategy will be to apply Ito's formula ([see my post on HJB](https://evnchw.github.io/quant/20240623_refresher_hjb)) to obtain the dynamics of this transformation.
+Our strategy will be to apply Ito's formula ([see my post on HJB](https://evnchw.github.io/quant/20240623_refresher_hjb)) to obtain this equation.
 
 ## Derivation of Fokker-Planck
 
