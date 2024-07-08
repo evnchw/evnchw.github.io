@@ -1,5 +1,5 @@
 ---
-title: "[under construction] Quick refresher on Fokker-Planck"
+title: "[under construction] Quick refresher on Fokker-Planck for drift \& diffusion"
 collection: quant
 type: "Post"
 permalink: /quant/20240630_refresher_fokker_planck
@@ -29,21 +29,21 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
 From [3] but we present it in contrary order.
 
-Let $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ be a given vector field. We have a particular stochastic differential equation (SDE):
+We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ be a given vector field. We have a particular stochastic differential equation (SDE):
 
 $$
 \begin{align}
-    d X_t &= -b (X_t, t) dt + \sqrt{2} dB_t & t \in [0, T] \text{state dynamics} \\
+    d X_t &= \overbrace{-b (X_t, t) dt}^{\text{drift}} + \overbrace{\sqrt{2} dB_t}^{\text{diffusion}} & t \in [0, T] \hspace{0.5cm} \text{state evolution} \\
     X_0 &= \mathbb{Z}_0 & \text{initial state}
 \end{align}
 $$
 
-We want to understand the Fokker-Planck equation:
+We want to see how this particular drift-diffusion system yields the Fokker-Planck equation:
 
 $$
 \begin{align}
-    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{T}^d \times (0,T) \\
-    m(0,x) &= m_0 (x)
+    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{T}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
+    m(0,x) &= m_0 (x) & \text{initial density}
 \end{align}
 $$
 
