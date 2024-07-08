@@ -42,7 +42,7 @@ $$
 
 In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time. The idea is that we have many identical agents and so their distribution of states will evolve in the same way. Of course, this means we just want to use a density function of $$X$$, and so Fokker-Planck will tell us what the dynamics of this $$X$$-transformation will be.
 
-Define the density of $$X$$ as $$m \in L^1(\mathbb{T} \times [0,T])$$. 
+Define the density of $$X$$ as $$m \in L^1(\mathbb{R}^d \times [0,T])$$. 
 
 We want to see how this particular drift-diffusion system yields the Fokker-Planck equation:
 
