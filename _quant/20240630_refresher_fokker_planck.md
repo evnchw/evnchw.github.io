@@ -33,8 +33,8 @@ Let $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ be a given vector field. We
 
 $$
 \begin{align}
-    d X_t &= -b (X_t, t) dt + \sqrt{2} dB_t & t \in [0, T] \\
-    X_0 = \mathbb{Z}_0
+    d X_t &= -b (X_t, t) dt + \sqrt{2} dB_t & t \in [0, T] \text{state dynamics} \\
+    X_0 &= \mathbb{Z}_0 & \text{initial state}
 \end{align}
 $$
 
