@@ -182,7 +182,7 @@ Immediately, we see the cost functional is now stochastic (and expressed *in exp
 
 - The agent begins with a vector of states $$x_s(\omega) \in \mathcal{R}^d$$ as well as that realized Brownian draw $$\omega \in \Omega$$.
 - On observing those the agent decides which actions to take, aka the vector of controls $$a_s(\omega) \in \mathcal{R}^m$$.
-    - This only uses the set of information known up to $s$, aka $$\{\mathcal{F_s}\}_{s \geq t}$$.
+    - This only uses the set of information known up to $$s$$, aka $$\{\mathcal{F_s}\}_{s \geq t}$$.
 - Then, given the states $$x_t$$ and the controls decided upon $$a_t$$, this generates:
     - The running cost $$\mathcal{L}(x_s, a_t, s)$$.
     - A new realization $$\omega \in \Omega$$ of the Brownian $$B_s$$.
