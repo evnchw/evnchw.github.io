@@ -27,7 +27,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
 ## The main result we want to show
 
-From [3] but we present it starting from the "solution" (the state dynamics).
+From [3] but we present it in a more linear order, from the particular state dynamics to the final Fokker-Planck equation.
 
 ### Setup.
 
@@ -56,7 +56,7 @@ TODO:
 Define the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$.
 
 - Note that since this is a probability density over states, (at each time) it must sum up to 1 and so its domain is **not** based on $$\mathbb{R}^d$$ but rather restricted to the $$d$$-dimensional unit circle $$\mathbb{T}^d$$, consistent with functional analysis. (For example, if $$d=2$$, then we can select $$\{x, y \in [0,1]: x^2 + y^2 = 1\}$$.)
-- $$L^1$$ means that $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)): informally, the absolute value of $$m$$ is bounded everywhere.
+- The component $$L^1$$ means that $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)): informally, the absolute value of $$m$$ is bounded everywhere.
 
 ### Evolution of the transformation.
 
@@ -71,11 +71,22 @@ $$
 
 Our strategy will be to apply Ito's formula ([see my post on HJB](https://evnchw.github.io/quant/20240623_refresher_hjb)) to obtain the dynamics of this transformation.
 
+## Derivation of Fokker-Planck
+
+Here we restate Ito's lemma for our particular context [(Wikipedia)](https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma).
+
+<p style="text-align: center; font-weight: bold; font-family: Serif">Itô's lemma</p>
+
+Let $$X_t$$ evolve over time according to the state dynamics:
+
+$$
+\begin{align}
+    d X_t &= a(t) dt + b(t) dB_t & \text{state evolution} \\
+    X_0 &= X \\
+\end{align}
+$$
+
 ## Links to the Kolmogorov Forward/Backward Equations
-
-
-
-
 
 # References
 
