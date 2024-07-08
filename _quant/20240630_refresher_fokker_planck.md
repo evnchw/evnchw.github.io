@@ -29,7 +29,9 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
 From [3] but we present it in contrary order.
 
-We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ be a given vector field. We have a particular stochastic differential equation (SDE):
+We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$.
+
+Now consider a particular stochastic differential equation (SDE) for the time evolution of $$X$$:
 
 $$
 \begin{align}
