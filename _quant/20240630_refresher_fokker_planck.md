@@ -31,7 +31,7 @@ From [3] but we present it starting from the "solution" (the state dynamics).
 
 We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$.
 
-Now consider a particular stochastic differential equation (SDE) for the time evolution of $$X$$:
+*State dynamics.* Now consider a particular stochastic differential equation (SDE) for the time evolution of $$X$$:
 
 $$
 \begin{align}
@@ -40,11 +40,16 @@ $$
 \end{align}
 $$
 
-In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time. The idea is that we have many identical agents and so their distribution of states will evolve in the same way. Of course, this means we just want to use a density function of $$X$$, and so Fokker-Planck will tell us what the dynamics of this $$X$$-transformation will be.
+*Probability density (transformation) over the states*. In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time. The idea is that we have many identical agents and so their distribution of states will evolve in the same way. Of course, this means we just want to use a density function of $$X$$, and so Fokker-Planck will tell us what the dynamics of this $$X$$-transformation will be.
 
-Define the density of $$X$$ as $$m \in L^1(\mathbb{R}^d \times [0,T])$$. 
+<!--
+TODO:
+- define probability measure on complex unit circle (mathbb T)
+- define the \Delta operator for m
+-->
+Define the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$. Note that since this is a probability density over states, (at each time) it must sum up to 1 and so its domain is **not** $$\mathcal{R}$$^d but rather the $$d$$-dimensional unit circle $$\mathbb{T}$$^d, consistent with functional analysis. (For example, if $$d=2$$, then we can select $$\{x, y \in [0,1]: x^2 + y^2 = 1\}$$.)
 
-We want to see how this particular drift-diffusion system yields the Fokker-Planck equation:
+*Evolution of the transformation.* We want to see how this particular drift-diffusion system yields the Fokker-Planck equation:
 
 $$
 \begin{align}
