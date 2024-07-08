@@ -27,7 +27,18 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
 ## The main result we want to show
 
-From [3]. Let $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ be a given vector field. We want to understand the Fokker-Planck equation:
+From [3] but we present it in contrary order.
+
+Let $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ be a given vector field. We have a particular stochastic differential equation (SDE):
+
+$$
+\begin{align}
+    d X_t &= -b (X_t, t) dt + \sqrt{2} dB_t & t \in [0, T] \\
+    X_0 = \mathbb{Z}_0
+\end{align}
+$$
+
+We want to understand the Fokker-Planck equation:
 
 $$
 \begin{align}
