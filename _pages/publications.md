@@ -12,7 +12,7 @@ author_profile: true
 In progress:
 
 <ul>
-    <li><i>Mean field congestion in dry bulk shipping</i>, with Sylvia Tian</li>
+    <li><i>Mean field congestion in dry bulk shipping</i>, with <a href="https://sylviatian.github.io/research/">Sylvia Tian</a></li>
 </ul>
 
 {% include base_path %}
