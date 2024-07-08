@@ -19,7 +19,7 @@ There are various ways to look at Fokker-Planck (see [1] for a relatively recent
 
 In other words, we go backward: we have the the FP equation for how a probability density evolves, and then we want to understand which probability densities can satisfy this. This is important because it tells us what our theoretical (distributional) boundaries are for modeling many-agent behavior in MFG and what is required to take advantage of MFG results.
 
-# In a nutshell: the FP equation is a way to model the evolution of a probability density over time
+## In a nutshell: the FP equation is a way to model the evolution of a probability density over time
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
@@ -27,7 +27,13 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
 ## The main result we want to show
 
-The Fokker-Planck 
+From [3]. Let $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ be a given vector field. We want to understand the Fokker-Planck equation:
+
+$$
+\begin{align}
+    \frac{\partial m}{\partial t} - \
+\end{align}
+$$
 
 ## Links to the Kolmogorov Forward/Backward Equations
 
