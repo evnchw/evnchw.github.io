@@ -69,6 +69,8 @@ $$
 \end{align}
 $$
 
+## How do we show the state dynamics produce a solution of Fokker-Planck?
+
 Our strategy will be to apply Ito's formula ([see my post on HJB](https://evnchw.github.io/quant/20240623_refresher_hjb)) to obtain this equation.
 
 ## Derivation of Fokker-Planck
@@ -85,6 +87,13 @@ $$
     X_0 &= X & \text{initial} \\
 \end{align}
 $$
+
+## Interpretation as mass conservation
+
+<!--
+https://math.stackexchange.com/questions/2292544/understanding-the-fokker-planck-equation-for-non-stationary-processes
+https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
+-->
 
 ## Links to the Kolmogorov Forward/Backward Equations
 
