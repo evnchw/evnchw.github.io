@@ -188,7 +188,7 @@ Immediately, we see the cost functional is now stochastic (and expressed *in exp
     - A new realization $$\omega \in \Omega$$ of the Brownian $$B_s$$.
     - Subsequently, the incremental change to the state vector $$\dot{x}_s=f(.) ds + \sigma(.)dB_s$$.
     - This yields the state vector $$x_{s+\varepsilon}$$ for the next period $$s+\varepsilon$$, as well as $$\omega$$.
-- Alternatively upon completion, this yields the terminal cost $$G(x_T)$$.
+- Or upon completion, this yields the terminal cost $$G(x_T)$$.
 
 ### The value function
 
