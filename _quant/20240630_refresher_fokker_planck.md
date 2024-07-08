@@ -27,7 +27,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
 ## The main result we want to show
 
-From [3] but we present it in contrary order.
+From [3] but we present it starting from the "solution" (the state dynamics).
 
 We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$.
 
@@ -39,6 +39,10 @@ $$
     X_0 &= \mathbb{Z}_0 & \text{initial state}
 \end{align}
 $$
+
+In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time. The idea is that we have many identical agents and so their distribution of states will evolve in the same way. Of course, this means we just want to use a density function of $$X$$, and so Fokker-Planck will tell us what the dynamics of this $$X$$-transformation will be.
+
+Define the density of $$X$$ as $$m \in L^1(\mathbb{T} \times [0,T])$$. 
 
 We want to see how this particular drift-diffusion system yields the Fokker-Planck equation:
 
