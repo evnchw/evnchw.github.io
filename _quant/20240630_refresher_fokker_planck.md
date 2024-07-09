@@ -75,7 +75,7 @@ Our strategy will be to apply Ito's formula ([see my post on HJB](https://evnchw
 
 ## Derivation of Fokker-Planck
 
-Here we restate Ito's lemma for our particular context [(Wikipedia)](https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma).
+<!-- Here we restate Ito's lemma for our particular context [(Wikipedia)](https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma).
 
 <p style="text-align: center; font-weight: bold; font-family: Serif">Itô's lemma</p>
 
@@ -86,7 +86,7 @@ $$
     d X_t &= a(t) dt + b(t) dB_t & \text{evolution} \\
     X_0 &= X & \text{initial} \\
 \end{align}
-$$
+$$ -->
 
 ## Interpretation as mass conservation
 
