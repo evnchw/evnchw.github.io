@@ -71,7 +71,7 @@ $$
 
 ## How do we show the state dynamics produce a solution of Fokker-Planck?
 
-Our strategy will be to apply Ito's formula ([see my post on HJB](https://evnchw.github.io/quant/20240623_refresher_hjb)) to obtain this equation.
+Our strategy will be to apply Ito's formula ([see my post on HJB](https://evnchw.github.io/quant/20240623_refresher_hjb)) to obtain a solution that satifies Fokker-Planck.
 
 ## Derivation of Fokker-Planck
 
