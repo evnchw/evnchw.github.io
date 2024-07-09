@@ -12,6 +12,9 @@ main:
 
   - title: "Music"
     url: /music/
+
+  - title: "Other"
+    url: /other/
     
   # - title: "Portfolio"
     # url: /portfolio/
