@@ -27,7 +27,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
 ## The main result we want to show
 
-From [3] but we present it in a more linear order, from the particular state dynamics to the final Fokker-Planck equation.
+This is a result in [3] but we present it in a more linear order, from the particular state dynamics to the final Fokker-Planck equation.
 
 ### Setup.
 
@@ -35,7 +35,7 @@ We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a conti
 
 ### State dynamics.
 
-Now consider a particular stochastic differential equation (SDE) for the time evolution of $$X$$:
+We consider this drift-diffusion stochastic differential equation (SDE) for the time evolution of $$X$$:
 
 $$
 \begin{align}
@@ -74,6 +74,10 @@ $$
     m(0,x) &= m_0 (x) & \text{initial density}
 \end{align}
 $$
+
+Note that $$\Delta m$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator): $$\Delta m = \frac{\partial^2 m}{\partial x^2}$$.
+
+
 
 This says the density $$m(x,t)$$ starts from some initial distribution $$m_0(x)$$. Then, it follows dynamics such that the instantaneous change in $$m$$ ($$\frac{\partial m}{\partial t}$$) is equal to the change wrt. to a state 
 
