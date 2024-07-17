@@ -53,6 +53,7 @@ TODO:
 - define probability measure on complex unit circle (mathbb T)
 - define the \Delta operator for m
 -->
+
 Define the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$.
 
 - That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
@@ -61,16 +62,20 @@ Define the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$.
 
 ### Evolution of the transformation - the Fokker-Planck equation and a (weak) solution
 
+<!--
+https://math.stackexchange.com/questions/2790010/what-does-the-delta-notation-in-this-formula-mean
+-->
+
 We want to see how the above drift-diffusion system satisfies the Fokker-Planck equation:
 
 $$
 \begin{align}
-    \frac{\partial m}{\partial t} - \frac{\partial m}{\partial x} - \text{div} (mb) &= 0 & \text{in } \mathbb{T}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
+    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{T}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
     m(0,x) &= m_0 (x) & \text{initial density}
 \end{align}
 $$
 
-This says the density $$m(x,t)$$ starts from some initial distribution $$m_0(x)$$
+This says the density $$m(x,t)$$ starts from some initial distribution $$m_0(x)$$. Then, it follows dynamics such that the instantaneous change in $$m$$ ($$\frac{\partial m}{\partial t}$$) is equal to the change wrt. to a state 
 
 ## How do we show the state dynamics produce a solution of Fokker-Planck?
 
