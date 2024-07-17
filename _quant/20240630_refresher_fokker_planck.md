@@ -40,7 +40,7 @@ We consider this drift-diffusion stochastic differential equation (SDE) for the 
 $$
 \begin{align}
     d X_t &= \overbrace{-b (X_t, t) dt}^{\text{drift}} + \overbrace{\sqrt{2} dB_t}^{\text{diffusion}} & t \in [0, T] \hspace{0.5cm} \text{state evolution} \\
-    X_0 &= \mathbb{Z}_0 & \text{initial state}
+    X_0 &= Z_0 & \text{initial state}
 \end{align}
 $$
 
@@ -52,6 +52,7 @@ In the MFG world, we are interested in how the *distribution* of $$X$$ evolves o
 TODO:
 - define probability measure on complex unit circle (mathbb T)
 - define the \Delta operator for m
+- https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf
 -->
 
 Define the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$.
