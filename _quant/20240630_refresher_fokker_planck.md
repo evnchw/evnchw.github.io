@@ -55,19 +55,22 @@ TODO:
 -->
 Define the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$.
 
+- That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
 - Note that since this is a probability density over states, (at each time) it must sum up to 1 and so its domain is **not** based on $$\mathbb{R}^d$$ but rather restricted to the $$d$$-dimensional probability simplex $$\mathbb{T}^d$$. (For example, if $$d=2$$, then we can select $$\{x, y \in [0,1]: x + y = 1\}$$.)
 - The component $$L^1$$ means that $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)): informally, the absolute value of $$m$$ is bounded everywhere.
 
-### Evolution of the transformation.
+### Evolution of the transformation - the Fokker-Planck equation and a (weak) solution
 
-We want to see how the above drift-diffusion system yields the Fokker-Planck equation:
+We want to see how the above drift-diffusion system satisfies the Fokker-Planck equation:
 
 $$
 \begin{align}
-    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{T}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
+    \frac{\partial m}{\partial t} - \frac{\partial m}{\partial x} - \text{div} (mb) &= 0 & \text{in } \mathbb{T}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
     m(0,x) &= m_0 (x) & \text{initial density}
 \end{align}
 $$
+
+This says the density $$m(x,t)$$ starts from some initial distribution $$m_0(x)$$
 
 ## How do we show the state dynamics produce a solution of Fokker-Planck?
 
