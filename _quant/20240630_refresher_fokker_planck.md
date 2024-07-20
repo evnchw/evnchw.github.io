@@ -98,14 +98,16 @@ Consider an arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathcal{R}$$ su
 
 $$
 \begin{align}
-    d \phi &= \left[
-        \frac{\partial \phi}{\partial t}
-        - b(X_t, t) \frac{\partial \phi}{\partial X_t}
-        + \frac{(\sqrt{2})^2}{2} \frac{\partial^2 \phi}{\partial X_t^2}
+    d \phi(X_t) &= \left[
+        \frac{\partial \phi(X_t)}{\partial t}
+        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
+        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
     \right] dt +
-    \sqrt{2} \frac{\partial \phi}{\partial X_t} dB_t
+    \sqrt{2} \frac{\partial \phi(X_t)}{\partial X_t} dB_t
 \end{align}
 $$
+
+where the diffusion term $$\sqrt{2}$$ has cancelled out.
 
 <!-- 
 ## Derivation of Fokker-Planck
@@ -130,3 +132,5 @@ https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 [3] [Ryzhik (2018)](https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf)
 
 [4] https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf
+
+[5] https://xl0418.github.io/2018/10/24/2018-10-24-derivingFPequ/
