@@ -94,7 +94,18 @@ $$
 \end{align}
 $$
 
-Consider an arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathcal{R}$$ such that BOUNDEDNESS ETC. (This represents a non-dynamic function of $$X_t$$ at time $$t$$.) We can apply Ito's Lemma to this transformation:
+Now, introduce an arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathcal{R}$$ such that BOUNDEDNESS ETC. (This represents a non-dynamic transformation on $$X$$ only). We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck.
+
+First, directly represent take the expectation of $$\phi$$ wrt. $$X$$ and then its time derivative:
+
+$$
+\begin{align}
+    \frac{d \mathbb{E}[\phi(X_t)]}{d t} &= \frac{d}{d t} \int_{\mathbb{T}^d} \phi(X_t) m(X_t, t) dX_t & \text{def. of expectation wrt.} X \\
+    &= \int_{\mathbb{T}^d} \phi(X_t) \frac{\partial m(X_t, t)}{\partial t} dX_t & \text{Lebesgue integral rule: bounds don't depend on } t
+\end{align}
+$$
+
+To obtain a second representation of this quantity, apply Ito's lemma to $\phi$:
 
 $$
 \begin{align}
@@ -103,11 +114,21 @@ $$
         - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
         + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
     \right] dt +
-    \sqrt{2} \frac{\partial \phi(X_t)}{\partial X_t} dB_t
+    \sqrt{2} \frac{\partial \phi(X_t)}{\partial X_t} dB_t & \text{diffusion coefficient $\sqrt{2}$ cancels out} \\
+    \mathbb{E}[d \phi (X_t)] &= \mathbb{E}\left( \left[
+        \frac{\partial \phi(X_t)}{\partial t}
+        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
+        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
+     \right] dt \right) +
+    \mathbb{E} \left(\sqrt{2} \frac{\partial \phi(X_t)}{\partial X_t} dB_t \right) & \\
+    &= \mathbb{E}\left( \left[
+        \frac{\partial \phi(X_t)}{\partial t}
+        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
+        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
+     \right] dt \right) & \text{expectation of Brownian term is zero}
 \end{align}
 $$
 
-where the diffusion term $$\sqrt{2}$$ has cancelled out.
 
 <!-- 
 ## Derivation of Fokker-Planck
@@ -134,3 +155,5 @@ https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 [4] https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf
 
 [5] https://xl0418.github.io/2018/10/24/2018-10-24-derivingFPequ/
+
+[6] https://www.whoi.edu/cms/files/lecture07_21269.pdf
