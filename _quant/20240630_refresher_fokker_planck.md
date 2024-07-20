@@ -94,8 +94,65 @@ $$
 \end{align}
 $$
 
-where specifically we have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$. Now, introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathbb{R}$$, representing a non-dynamic transformation on $$X$$ only. 
+In the notes we specifically have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$. (Moreover, $$D\phi$$ indicates the vector of first $$X$$-derivatives, and similarly $$\Delta \phi$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator) and indicates the second derivatives.)
 
+Now, introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi(X): \mathbb{R}^d \times [0, T] \to \mathbb{R}$$. We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
+
+$$
+\begin{align}
+    d \phi(X_t, t) &= \left[
+        \frac{\partial \phi(X_t, t)}{\partial t} + \mu \frac{\partial \phi(X_t, t)}{\partial X_t} +
+        \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_t, t)}{\partial X_t^2}
+    \right] dt + \left[
+        \sigma \frac{\partial \phi(X_t, t)}{\partial X_t}
+    \right] dB_t
+\end{align}
+$$
+
+This yields the Ito integral:
+
+$$
+\begin{align}
+    \phi(X_t, t) &= \phi(Z_0, 0) +
+        \int_0^t \left[
+            \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
+            \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
+        \right] ds +
+        \int_0^t \left[
+        \sigma \frac{\partial \phi(X_t, t)}{\partial X_t}
+        \right] dB_s
+\end{align}
+$$
+
+Now, take the expectation wrt. $$X$$ on both sides, noting the Brownian integral has [expectation zero](https://math.stackexchange.com/a/2392039).
+
+$$
+\begin{align}
+    \mathbb{E}[\phi(X_t, t)] &= \mathbb{E}[\phi(Z_0, 0)] +
+        \mathbb{E}\left(
+            \int_0^t \left[
+                \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
+                \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
+            \right] ds
+        \right)
+\end{align}
+$$
+
+Expand the expectation terms to reveal the probability density of $$X$$:
+
+$$
+\begin{align}
+    \int_{\mathbb{T}^d} [\phi(X, t)] m(X, t) dX &=
+        \int_{\mathbb{T}^d} \phi(Z_0, 0) m(X, t) dX
+        +
+        \int_{\mathbb{T}^d} 
+            \int_0^t \left[
+                \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
+                \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
+            \right]
+        m(X_s, s) dX ds
+\end{align}
+$$
 
 
 <!-- We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck. -->
