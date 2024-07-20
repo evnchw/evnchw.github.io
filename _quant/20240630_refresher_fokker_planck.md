@@ -89,12 +89,16 @@ Our state dynamics are (from above):
 
 $$
 \begin{align}
-    d X_t &= -b (X_t, t) dt + \sqrt{2} dB_t & t \in [0, T] \hspace{0.5cm} \text{state evolution} \\
+    d X_t &= \mu(X_t, t) dt + \sigma(X_t, t) dB_t & t \in [0, T] \hspace{0.5cm} \text{state evolution} \\
     X_0 &= Z_0 & \text{initial state}
 \end{align}
 $$
 
-Now, introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathbb{R}$$. (This represents a non-dynamic transformation on $$X$$ only). <!-- We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck. -->
+where specifically we have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$. Now, introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathbb{R}$$, representing a non-dynamic transformation on $$X$$ only. 
+
+
+
+<!-- We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck. -->
 
 <!--
 First, directly represent take the expectation of $$\phi$$ wrt. $$X$$ and then its time derivative:
