@@ -94,7 +94,7 @@ $$
 \end{align}
 $$
 
-Now, introduce an arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathcal{R}$$ such that BOUNDEDNESS ETC. (This represents a non-dynamic transformation on $$X$$ only). We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck.
+Now, introduce an arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathbb{R}$$ such that BOUNDEDNESS ETC. (This represents a non-dynamic transformation on $$X$$ only). We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck.
 
 First, directly represent take the expectation of $$\phi$$ wrt. $$X$$ and then its time derivative:
 
