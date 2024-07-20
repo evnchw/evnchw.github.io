@@ -52,8 +52,8 @@ Our goal is to see how the above drift-diffusion system satisfies the Fokker-Pla
 
 $$
 \begin{align}
-    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{T}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
-    m(0,x) &= m_0 (x) & \text{initial density}
+    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{R}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
+    m(x,0) &= m_0 (x) & \text{initial density}
 \end{align}
 $$
 
@@ -64,9 +64,8 @@ TODO:
 - https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf
 -->
 
-where we have defined the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$. That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
+where we have defined the density of $$X$$ as $$m \in L^1(\mathbb{R}^d \times [0,T])$$. That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
 
-- Note that since this is a probability density over states, (at each time) it must sum up to 1 and so its domain is **not** based on $$\mathbb{R}^d$$ but rather restricted to the $$d$$-dimensional probability simplex $$\mathbb{T}^d$$. (For example, if $$d=2$$, then we can select $$\{x, y \in [0,1]: x + y = 1\}$$.)
 - The component $$L^1$$ means that $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)): informally, the absolute value of $$m$$ is bounded everywhere.
 
 <!--
@@ -82,8 +81,6 @@ This says the density $$m(x,t)$$ starts from some initial distribution $$m_0(x)$
 ## Informal derivation: from the state dynamics to Fokker-Planck
 
 *Follows the derivation in [4].*
-
-Our strategy to obtain the probability density will be indirect. First, we will use Ito's formula ([see my post on HJB](https://evnchw.github.io/quant/20240623_refresher_hjb)) for some arbitrary but well-defined function $$\phi(x)$$. Then, we will take the expectation at a given time to explicitly reveal the density $$m(x,t)$$. Finally, we will draw on the calculus of variations to eliminate the arbitrary test function from our equation, leaving only the dynamics of $$m(x,t)$$.
 
 Our state dynamics are (from above):
 
@@ -142,11 +139,11 @@ Expand the expectation terms to reveal the probability density of $$X$$:
 
 $$
 \begin{align}
-    \underbrace{\int_{\mathbb{T}^d} [\phi(X, t)] m(X, t) dX}_{\text{terminal integral}} &=
-        \underbrace{\int_{\mathbb{T}^d} \phi(Z_0, 0) m(X, t) dX}_{\text{initial integral}}
+    \underbrace{\int_{\mathbb{R}^d} \phi(X, t) m(X, t) dX}_{\text{terminal integral}} &=
+        \underbrace{\int_{\mathbb{R}^d} \phi(Z_0, 0) m(X, 0) dX}_{\text{initial integral}}
         +
         \underbrace{
-            \int_{\mathbb{T}^d} 
+            \int_{\mathbb{R}^d} 
                 \int_0^t \left[
                     \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
                     \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
@@ -173,8 +170,8 @@ First, directly represent take the expectation of $$\phi$$ wrt. $$X$$ and then i
 
 $$
 \begin{align}
-    \frac{d \mathbb{E}[\phi(X_t)]}{d t} &= \frac{d}{d t} \int_{\mathbb{T}^d} \phi(X_t) m(X_t, t) dX_t & \text{def. of expectation wrt.} X \\
-    &= \int_{\mathbb{T}^d} \phi(X_t) \frac{\partial m(X_t, t)}{\partial t} dX_t & \text{Lebesgue integral rule: bounds don't depend on } t
+    \frac{d \mathbb{E}[\phi(X_t)]}{d t} &= \frac{d}{d t} \int_{\mathbb{R}^d} \phi(X_t) m(X_t, t) dX_t & \text{def. of expectation wrt.} X \\
+    &= \int_{\mathbb{R}^d} \phi(X_t) \frac{\partial m(X_t, t)}{\partial t} dX_t & \text{Lebesgue integral rule: bounds don't depend on } t
 \end{align}
 $$
 
