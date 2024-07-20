@@ -124,7 +124,7 @@ $$
 \end{align}
 $$
 
-Now, take the expectation wrt. $$X$$ on both sides, noting the Brownian integral has [expectation zero](https://math.stackexchange.com/a/2392039).
+Now, take the expectation wrt. $$X$$ on both sides, and removing the Brownian integral which has [expectation zero](https://math.stackexchange.com/a/2392039):
 
 $$
 \begin{align}
@@ -142,22 +142,29 @@ Expand the expectation terms to reveal the probability density of $$X$$:
 
 $$
 \begin{align}
-    \int_{\mathbb{T}^d} [\phi(X, t)] m(X, t) dX &=
-        \int_{\mathbb{T}^d} \phi(Z_0, 0) m(X, t) dX
+    \underbrace{\int_{\mathbb{T}^d} [\phi(X, t)] m(X, t) dX}_{\text{terminal integral}} &=
+        \underbrace{\int_{\mathbb{T}^d} \phi(Z_0, 0) m(X, t) dX}_{\text{initial integral}}
         +
-        \int_{\mathbb{T}^d} 
-            \int_0^t \left[
-                \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
-                \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
-            \right]
-        m(X_s, s) dX ds
+        \underbrace{
+            \int_{\mathbb{T}^d} 
+                \int_0^t \left[
+                    \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
+                    \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
+                \right]
+            m(X_s, s) dX ds
+        }_{\text{running integral}}
 \end{align}
 $$
 
-At this point it is considered to be a "weak solution" already to Fokker-Planck. The idea is that since this equality holds over all possible values of $$X$$ and at any $$t$$ (recall the definition of $$\phi$$), the integrands are equal and this equality is called the Fokker-Planck equation. Let's finish this up to reveal the original Fokker-Planck equation.
+Hence we have an expression for the dynamics of the probability density $$\phi(X_t, t)$$ from $$[0, t]$$. This is defined as the *weak solution* to the original Fokker-Planck as above ("Our goal").
 
-Noting the equality
+How do we show this "weak solution" really leads to Fokker-Planck as above? Note still need to obtain the instantaneous expression at $$t$$ (rather than over the range $$[0, t]$$), which will give us our Fokker-Planck equation. The rationale is: since we have shown equality holds for any arbitrary smooth function $$\phi$$, and over all $$X$$ and $$t$$, the integrands are must be equal at any given $$(X, t)$$. This instantaneous equality then yields the Fokker-Planck equation as above.
 
+The first task is to deal with the time integral.
+
+<!--
+1. Use calculus of variations to show equivalence 
+-->
 
 <!-- We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck. -->
 
@@ -220,14 +227,12 @@ $$
 
 You can see here for an accessible derivation of Fokker-Planck: [Appendix: Derivation of the Fokker-Planck Equation (UC Berkeley)](https://sites.me.ucsb.edu/~moehlis/moehlis_papers/appendix.pdf) -->
 
-## Interpretation as mass conservation
+## Interpretation
 
 <!--
 https://math.stackexchange.com/questions/2292544/understanding-the-fokker-planck-equation-for-non-stationary-processes
 https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 -->
-
-## Links to the Kolmogorov Forward/Backward Equations
 
 # References
 
