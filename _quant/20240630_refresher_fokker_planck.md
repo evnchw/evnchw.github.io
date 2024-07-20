@@ -19,7 +19,7 @@ There are various ways to look at Fokker-Planck (see [1] for a relatively recent
 
 In other words, we go backward: we have the the FP equation for how a probability density evolves, and then we want to understand which probability densities can satisfy this. This is important because it tells us what our theoretical (distributional) boundaries are for modeling many-agent behavior in MFG and what is required to take advantage of MFG results.
 
-## In a nutshell: the FP equation is a way to model the evolution of a probability density over time
+## In a nutshell: the FP equation provides a way to model the evolution of a probability density over time
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
@@ -44,30 +44,11 @@ $$
 \end{align}
 $$
 
-### Probability density (transformation) over the states.
+### Our goal: dynamics of the probability density (transformation) over the states.
 
 In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time. The idea is that we have many identical agents and so their distribution of states will evolve in the same way. Of course, this means we just want to use a density function of $$X$$, and so Fokker-Planck will tell us what the dynamics of this $$X$$-transformation will be.
 
-<!--
-TODO:
-- define probability measure on complex unit circle (mathbb T)
-- define the \Delta operator for m
-- https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf
--->
-
-Define the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$.
-
-- That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
-- Note that since this is a probability density over states, (at each time) it must sum up to 1 and so its domain is **not** based on $$\mathbb{R}^d$$ but rather restricted to the $$d$$-dimensional probability simplex $$\mathbb{T}^d$$. (For example, if $$d=2$$, then we can select $$\{x, y \in [0,1]: x + y = 1\}$$.)
-- The component $$L^1$$ means that $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)): informally, the absolute value of $$m$$ is bounded everywhere.
-
-### Evolution of the transformation - the Fokker-Planck equation and a (weak) solution
-
-<!--
-https://math.stackexchange.com/questions/2790010/what-does-the-delta-notation-in-this-formula-mean
--->
-
-We want to see how the above drift-diffusion system satisfies the Fokker-Planck equation:
+Our goal is to see how the above drift-diffusion system satisfies the Fokker-Planck equation:
 
 $$
 \begin{align}
@@ -76,19 +57,60 @@ $$
 \end{align}
 $$
 
+<!--
+TODO:
+- define probability measure on complex unit circle (mathbb T)
+- define the \Delta operator for m
+- https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf
+-->
+
+where we have defined the density of $$X$$ as $$m \in L^1(\mathbb{T}^d \times [0,T])$$. That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
+
+- Note that since this is a probability density over states, (at each time) it must sum up to 1 and so its domain is **not** based on $$\mathbb{R}^d$$ but rather restricted to the $$d$$-dimensional probability simplex $$\mathbb{T}^d$$. (For example, if $$d=2$$, then we can select $$\{x, y \in [0,1]: x + y = 1\}$$.)
+- The component $$L^1$$ means that $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)): informally, the absolute value of $$m$$ is bounded everywhere.
+
+<!--
+https://math.stackexchange.com/questions/2790010/what-does-the-delta-notation-in-this-formula-mean
+-->
+
 Note that $$\Delta m$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator): $$\Delta m = \frac{\partial^2 m}{\partial x^2}$$.
 
+<!--
+This says the density $$m(x,t)$$ starts from some initial distribution $$m_0(x)$$. Then, it follows dynamics such that the instantaneous change in $$m$$ ($$\frac{\partial m}{\partial t}$$) is equal to the change wrt. to a state:
+--> 
 
+## Informal derivation: from the state dynamics to Fokker-Planck
 
-This says the density $$m(x,t)$$ starts from some initial distribution $$m_0(x)$$. Then, it follows dynamics such that the instantaneous change in $$m$$ ($$\frac{\partial m}{\partial t}$$) is equal to the change wrt. to a state 
+*Follows the derivation in [4].*
 
-## How do we show the state dynamics produce a solution of Fokker-Planck?
+Our strategy to obtain the probability density will be indirect. First, we will use Ito's formula ([see my post on HJB](https://evnchw.github.io/quant/20240623_refresher_hjb)) for some arbitrary but well-defined function $$\phi(x)$$. Then, we will take the expectation at a given time to explicitly reveal the density $$m(x,t)$$. Finally, we will draw on the calculus of variations to eliminate the arbitrary test function from our equation, leaving only the dynamics of $$m(x,t)$$.
 
-Our strategy will be to apply Ito's formula ([see my post on HJB](https://evnchw.github.io/quant/20240623_refresher_hjb)) to obtain a solution that satifies Fokker-Planck.
+Our state dynamics are (from above):
 
+$$
+\begin{align}
+    d X_t &= -b (X_t, t) dt + \sqrt{2} dB_t & t \in [0, T] \hspace{0.5cm} \text{state evolution} \\
+    X_0 &= Z_0 & \text{initial state}
+\end{align}
+$$
+
+Consider an arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathcal{R}$$ such that BOUNDEDNESS ETC. (This represents a non-dynamic function of $$X_t$$ at time $$t$$.) We can apply Ito's Lemma to this transformation:
+
+$$
+\begin{align}
+    d \phi &= \left[
+        \frac{\partial \phi}{\partial t}
+        - b(X_t, t) \frac{\partial \phi}{\partial X_t}
+        + \frac{(\sqrt{2})^2}{2} \frac{\partial^2 \phi}{\partial X_t^2}
+    \right] dt +
+    \sqrt{2} \frac{\partial \phi}{\partial X_t} dB_t
+\end{align}
+$$
+
+<!-- 
 ## Derivation of Fokker-Planck
 
-You can see here for an accessible derivation of Fokker-Planck: [Appendix: Derivation of the Fokker-Planck Equation (UC Berkeley)](https://sites.me.ucsb.edu/~moehlis/moehlis_papers/appendix.pdf)
+You can see here for an accessible derivation of Fokker-Planck: [Appendix: Derivation of the Fokker-Planck Equation (UC Berkeley)](https://sites.me.ucsb.edu/~moehlis/moehlis_papers/appendix.pdf) -->
 
 ## Interpretation as mass conservation
 
@@ -107,3 +129,4 @@ https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 
 [3] [Ryzhik (2018)](https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf)
 
+[4] https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf
