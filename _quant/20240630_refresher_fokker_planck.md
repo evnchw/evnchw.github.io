@@ -94,8 +94,9 @@ $$
 \end{align}
 $$
 
-Now, introduce an arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathbb{R}$$ such that BOUNDEDNESS ETC. (This represents a non-dynamic transformation on $$X$$ only). We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck.
+Now, introduce an arbitrary test function $$\phi(X): \mathbb{R}^d \to \mathbb{R}$$ such that BOUNDEDNESS ETC. (This represents a non-dynamic transformation on $$X$$ only). <!-- We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck. -->
 
+<!--
 First, directly represent take the expectation of $$\phi$$ wrt. $$X$$ and then its time derivative:
 
 $$
@@ -104,6 +105,8 @@ $$
     &= \int_{\mathbb{T}^d} \phi(X_t) \frac{\partial m(X_t, t)}{\partial t} dX_t & \text{Lebesgue integral rule: bounds don't depend on } t
 \end{align}
 $$
+
+(Not quite sure about the E[d phi(x)] = d E[phi(x)] part.)
 
 To obtain a second representation of this quantity, apply Ito's lemma to $\phi$:
 
@@ -125,10 +128,27 @@ $$
         \frac{\partial \phi(X_t)}{\partial t}
         - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
         + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
-     \right] dt \right) & \text{expectation of Brownian term is zero}
+     \right] dt \right) & \text{expectation of Brownian term is zero} \\
+    &= \mathbb{E}\left( \left[
+        \frac{\partial \phi(X_t)}{\partial t}
+        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
+        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
+     \right] \right) dt & \text{term $dt$ constant wrt. expectation}
 \end{align}
 $$
 
+Dividing by $$dt$$ we therefore have:
+$$
+\begin{align}
+    \mathbb{E} &= \mathbb{E}\left( \left[
+        \frac{\partial \phi(X_t)}{\partial t}
+        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
+        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
+     \right] \right) dt & \text{term $dt$ constant wrt. expectation}
+\end{align}
+$$
+
+-->
 
 <!-- 
 ## Derivation of Fokker-Planck
