@@ -6,7 +6,7 @@ permalink: /quant/20240714_refresher_fokker_planck
 date: 2024-07-14
 ---
 
-These are my quick refresher notes on Fokker-Planck equation(s) for the evolution of a probability density over time. Like my notes on [Hamilton-Jacobi-Bellman](https://evnchw.github.io/quant/20240623_refresher_hjb), I focus on the main analytical aspects and intuitive understanding rather than the detailed proofs. I follow a similar format as well.
+These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the evolution of a probability density over time. Like my notes on [Hamilton-Jacobi-Bellman](https://evnchw.github.io/quant/20240623_refresher_hjb), I focus on the main analytical aspects and intuitive understanding rather than the detailed proofs. I follow a similar format as well.
 
 - I prioritize intuition/readability linking to references where appropriate.
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
@@ -153,6 +153,10 @@ $$
         m(X_s, s) dX ds
 \end{align}
 $$
+
+At this point it is considered to be a "weak solution" already to Fokker-Planck. The idea is that since this equality holds over all possible values of $$X$$ and at any $$t$$ (recall the definition of $$\phi$$), the integrands are equal and this equality is called the Fokker-Planck equation. Let's finish this up to reveal the original Fokker-Planck equation.
+
+Noting the equality
 
 
 <!-- We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck. -->
