@@ -157,7 +157,7 @@ Hence we have an expression for the dynamics of the probability density $$\phi(X
 
 How do we show this "weak solution" really leads to Fokker-Planck as above? Note still need to obtain the instantaneous expression at $$t$$ (rather than over the range $$[0, t]$$), which will give us our Fokker-Planck equation. The rationale is: since we have shown equality holds for any arbitrary smooth function $$\phi$$, and over all $$X$$ and $$t$$, the integrands are must be equal at any given $$(X, t)$$. This instantaneous equality then yields the Fokker-Planck equation as above.
 
-The first task is to deal with the time integral.
+<!-- The first task is to deal with the time integral. -->
 
 <!--
 1. Use calculus of variations to show equivalence 
