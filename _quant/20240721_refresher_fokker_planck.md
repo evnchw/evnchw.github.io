@@ -93,7 +93,7 @@ $$
 
 In the notes we specifically have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$. (Moreover, $$D\phi$$ indicates the vector of first $$X$$-derivatives, and similarly $$\Delta \phi$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator) and indicates the second derivatives.)
 
-Now, introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi(X): \mathbb{R}^d \times [0, T] \to \mathbb{R}$$. We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
+Now, introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi(X): \mathbb{R}^d \times [0, T) \to \mathbb{R}$$. We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
 
 $$
 \begin{align}
@@ -128,7 +128,7 @@ $$
     \mathbb{E}[\phi(X_t, t)] &= \mathbb{E}[\phi(Z_0, 0)] +
         \mathbb{E}\left(
             \int_0^t \left[
-                \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
+                \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
                 \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
             \right] ds
         \right)
@@ -153,9 +153,32 @@ $$
 \end{align}
 $$
 
-Hence we have an expression for the dynamics of the probability density $$\phi(X_t, t)$$ from $$[0, t]$$. This is defined as the *weak solution* to the original Fokker-Planck as above ("Our goal").
+Hence we have an expression for the dynamics of the probability density $$\phi(X_t, t)$$ from $$[0, t]$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to shift the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics (and therefore the Fokker-Planck equation).
 
-How do we show this "weak solution" really leads to Fokker-Planck as above? Note still need to obtain the instantaneous expression at $$t$$ (rather than over the range $$[0, t]$$), which will give us our Fokker-Planck equation. The rationale is: since we have shown equality holds for any arbitrary smooth function $$\phi$$, and over all $$X$$ and $$t$$, the integrands are must be equal at any given $$(X, t)$$. This instantaneous equality then yields the Fokker-Planck equation as above.
+$$
+\begin{align}
+    \int_{\mathbb{R}^d} 
+                    \int_0^t &\left[
+                        \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
+                        \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
+                    \right] m(X_s, s) dX ds
+        = \\
+        & \underbrace{
+            \int_{\mathbb{R}^d} \int_0^t m \frac{\partial \phi}{\partial s} ds dX
+        }_{\text{Integral }1} +
+          \underbrace{
+            \int_{\mathbb{R}^d} \int_0^t m \mu \frac{\partial \phi}{\partial X} ds dX
+        }_{\text{Integral }2} +
+          \underbrace{
+            \frac{1}{2}
+            \int_{\mathbb{R}^d} \int_0^t m \sigma^2 \frac{\partial^2 \phi}{\partial X^2} ds dX
+        }_{\text{Integral }3}
+\end{align}
+$$
+
+where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$.
+
+
 
 <!-- The first task is to deal with the time integral. -->
 
@@ -233,6 +256,8 @@ https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 
 # References
 
+TODO: organize these
+
 [1] Bogachev, Vladimir I., et al. Fokker–Planck–Kolmogorov Equations. Vol. 207. American Mathematical Society, 2022.
 
 [2] Sharma, Shambhu N., and Hiren G. Patel. "The Fokker-Planck equation." Stochastic Control. Rijeka: IntechOpen, 2010. 1-20.
@@ -244,3 +269,7 @@ https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 [5] https://xl0418.github.io/2018/10/24/2018-10-24-derivingFPequ/
 
 [6] https://www.whoi.edu/cms/files/lecture07_21269.pdf
+
+[7] https://www.frouah.com/finance%20notes/Derivation%20of%20the%20Fokker-Planck%20equation.pdf
+
+[8] https://link.springer.com/chapter/10.1007/978-3-030-59837-2_1
