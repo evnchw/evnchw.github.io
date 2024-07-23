@@ -54,7 +54,7 @@ $$
 
 In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time, as to model the crowd behavior of many (identical) agents. Since $$X$$ evolves stochastically (via the Brownian), we need to focus on the probability density of $$X$$. This is just a transformation of $$X$$, which motivates using Ito's Lemma to model its dynamics, and with more analysis, ultimately the Fokker-Planck forward equation.
 
-Specifically we want to see how the above drift-diffusion system satisfies the Fokker-Planck forward equation below. This general formulation comes from (Ryzhik 2018, 4.2) and more rigorously in (Achdou et al. 2020, 1.3):
+Specifically we want to see how the above drift-diffusion system satisfies the Fokker-Planck forward equation below. This general formulation comes from (Ryzhik 2018, 4.2) and more rigorously in (Achdou et al. 2020, 1.3): it appears quite commonly in the MFG literature and so is very important to understand.
 
 $$
 \begin{align}
