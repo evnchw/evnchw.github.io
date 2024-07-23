@@ -41,10 +41,12 @@ We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a conti
 
 $$
 \begin{align}
-    d X_t &= \mu(X_t, t) dt + \sigma(X_t, t) dB_t & t \in [0, T] \hspace{0.5cm} \text{state evolution} \\
+    d X_t &= - \mu(X_t, t) dt + \sigma(X_t, t) dB_t & t \in [0, T] \hspace{0.5cm} \text{state evolution} \\
     X_0 &= Z_0 & \text{initial state}
 \end{align}
 $$
+
+(Specifically $$-\mu$$ will produce a $$-\text{div}$$ in the final result, for MFG.)
 
 ### Our goal: dynamics of the probability density over the states.
 
@@ -84,7 +86,7 @@ Introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test fu
 $$
 \begin{align}
     d \phi(X_t, t) &= \left[
-        \frac{\partial \phi(X_t, t)}{\partial t} + \mu \frac{\partial \phi(X_t, t)}{\partial X_t} +
+        \frac{\partial \phi(X_t, t)}{\partial t} - \mu \frac{\partial \phi(X_t, t)}{\partial X_t} +
         \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_t, t)}{\partial X_t^2}
     \right] dt + \left[
         \sigma \frac{\partial \phi(X_t, t)}{\partial X_t}
@@ -98,7 +100,7 @@ $$
 \begin{align}
     \phi(X_T, T) &= \phi(Z_0, 0) +
         \int_0^t \left[
-            \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
+            \frac{\partial \phi(X_s, s)}{\partial s} - \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
             \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
         \right] ds +
         \int_0^t \left[
@@ -116,7 +118,7 @@ $$
     \mathbb{E}[\phi(X_T, T)] &= \mathbb{E}[\phi(Z_0, 0)] +
         \mathbb{E}\left(
             \int_0^T \left[
-                \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
+                \frac{\partial \phi(X_s, s)}{\partial s} - \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
                 \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
             \right] ds
         \right)
@@ -133,7 +135,7 @@ $$
         \underbrace{
             \int_{\mathbb{R}^d} 
                 \int_0^T \left[
-                    \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
+                    \frac{\partial \phi(X_s, s)}{\partial s} - \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
                     \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
                 \right]
             m(X_s, s) dX ds
@@ -148,7 +150,7 @@ $$
     0 &= \underbrace{
             \int_{\mathbb{R}^d} 
                 \int_0^T \left[
-                    \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
+                    \frac{\partial \phi(X_s, s)}{\partial s} - \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
                     \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
                 \right]
             m(X_s, s) dX ds
@@ -166,13 +168,13 @@ $$
 \begin{align}
     \int_{\mathbb{R}^d} 
                     \int_0^T &\left[
-                        \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
+                        \frac{\partial \phi(X_s, s)}{\partial s} - \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
                         \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
                     \right] m(X_s, s) dX ds
         = \\
         & \underbrace{
             \int_{\mathbb{R}^d} \int_0^T m \frac{\partial \phi}{\partial s} ds dX
-        }_{\text{Integral }1} +
+        }_{\text{Integral }1} -
           \underbrace{
             \int_{\mathbb{R}^d} \int_0^T m \mu \frac{\partial \phi}{\partial X} ds dX
         }_{\text{Integral }2} +
@@ -252,13 +254,13 @@ Putting it all together, we obtain the expression:
 $$
 \begin{align}
     0 = \underbrace{- \int_{\mathbb{R}^d} \int_0^T \frac{\partial m}{\partial s} \phi ds dX}_{\text{Integral 1}} +
-        \underbrace{- \int_{\mathbb{R}^d} \int_0^T \frac{\partial (m \mu)}{\partial X} \phi ds dX}_{\text{Integral 2}} +
+        \underbrace{\int_{\mathbb{R}^d} \int_0^T \frac{\partial (m \mu)}{\partial X} \phi ds dX}_{\text{Integral 2}} +
         \underbrace{\frac{1}{2} \int_0^T
                 \int_{\mathbb{R}^d} \frac{\partial^2 (m\sigma^2)}{\partial X^2} \phi dX
             ds}_{\text{Integral 3}} \\
     0 = \int_{\mathbb{R}^d} \int_0^T \phi \left[
         - \frac{\partial m}{\partial s}
-        - \frac{\partial (m \mu)}{\partial X} +
+        + \frac{\partial (m \mu)}{\partial X} +
         \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2}
     \right] dX ds
 \end{align}
@@ -270,13 +272,15 @@ Since we have specifed any arbitrary $$\phi$$, this implies the rest of the inte
 
 $$
 \begin{align}
-    \frac{\partial m}{\partial t} &= - \frac{\partial (m \mu)}{\partial X} + \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2} & \text{Fokker-Planck} \\
-    \frac{\partial m(X_t, t)}{\partial t} &= - \frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t} +
+    \frac{\partial m}{\partial t} &= \frac{\partial (m \mu)}{\partial X} + \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2} & \text{Fokker-Planck} \\
+    \frac{\partial m(X_t, t)}{\partial t} &= \frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t} +
         \frac{1}{2} \frac{\partial^2 (m(X_t, t)\sigma(X_t, t)^2)}{\partial X_t^2} & \text{parametrized}
 \end{align}
 $$
 
-This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. Briefly, this says that the probability density of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion. It is important to take a moment to examine each term and importantly its dimensions.
+This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. (Note if we had used $$\mu$$ in the states and not $$-\mu$$, we would have $$-\frac{\partial (m \mu)}{\partial X}$$ on the RHS, as in our references.)
+
+Briefly, this says that the probability density of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion. It is important to take a moment to examine each term and importantly its dimensions.
 
 - Time derivative $$\frac{\partial m(X_t, t)}{\partial t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is a scalar field, since at any given point $$(X_t, t)$$ it assigns a value indicating how it will change with respect to the "time-coordinate" only. ([Directional derivative](https://en.wikipedia.org/wiki/Directional_derivative))
 - Drift term $$\frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is also a scalar field since $$m, \mu$$ are each scalar fields.
@@ -289,7 +293,7 @@ Lastly, we need to tie this back to the mean field game notation in the Achdou/C
 $$
 \begin{align}
     \text{scalar fields } m, \mu, \sigma, b: \mathbb{R}^d \times [0, T] &\to \mathbb{R} \\
-    \frac{\partial m}{\partial t} - \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2} + \frac{\partial (m \mu)}{\partial X} &= 0 & \text{Fokker-Planck density dynamics} \\
+    \frac{\partial m}{\partial t} - \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2} - \frac{\partial (m \mu)}{\partial X} &= 0 & \text{Fokker-Planck density dynamics} \\
     m(X_t, 0) &= Z_0 & \text{Fokker-Planck initial density} \\
     \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 &\text{MFG density dynamics} \\
     m(x,0) &= m_0 (x) & \text{MFG initial density}
