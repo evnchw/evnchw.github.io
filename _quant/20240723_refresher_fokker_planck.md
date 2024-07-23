@@ -75,6 +75,10 @@ We introduce here the probability density of $$d-$$dimensional $$X$$ at time $$t
 
 ## From the state dynamics to Fokker-Planck
 
+State dynamics are as above.
+
+### Test function and Ito calculus
+
 Introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi: \mathbb{R}^d \times (0, T) \to \mathbb{R}$$, with boundary conditions $$\phi(X,T)=\phi(X,0)=0$$. (We assume scalar-valued for simplicity.) We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
 
 $$
@@ -102,6 +106,8 @@ $$
         \right] dB_s
 \end{align}
 $$
+
+### Obtaining the density via the expectation
 
 Now, take the expectation wrt. $$X$$ on both sides, and removing the Brownian integral which has [expectation zero](https://math.stackexchange.com/a/2392039):
 
@@ -150,7 +156,11 @@ $$
 \end{align}
 $$
 
-Hence we have an expression for the dynamics of the probability density $$m(X_t, t)$$ for any time $$t \in (0,T)$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to move the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics and therefore the Fokker-Planck equation. (For brevity we omit the parameters for $$m, \phi$$, and also write $$X$$ instead of $$X_s$$ since $$s$$ is given below.)
+Hence we have an expression for the dynamics of the probability density $$m(X_t, t)$$ for any time $$t \in (0,T)$$.
+
+### Shifting dynamics of test function to the density
+
+To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to move the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics and therefore the Fokker-Planck equation. (For brevity we omit the parameters for $$m, \phi$$, and also write $$X$$ instead of $$X_s$$ since $$s$$ is given below.)
 
 $$
 \begin{align}
@@ -254,6 +264,8 @@ $$
 \end{align}
 $$
 
+### Removing the test function to obtain Fokker-Planck
+
 Since we have specifed any arbitrary $$\phi$$, this implies the rest of the integrand must be zero. Rearranging and adding back notation we obtain for any time $$t$$:
 
 $$
@@ -267,9 +279,22 @@ $$
 This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. Briefly, this says that the probability density of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion. It is important to take a moment to examine each term and importantly its dimensions.
 
 - Time derivative $$\frac{\partial m(X_t, t)}{\partial t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is a scalar field, since at any given point $$(X_t, t)$$ it assigns a value indicating how it will change with respect to the "time-coordinate" only. ([Directional derivative](https://en.wikipedia.org/wiki/Directional_derivative))
-- Drift term $$\frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is also a scalar field.
+- Drift term $$\frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is also a scalar field since $$m, \mu$$ are each scalar fields.
+- Diffusion term $$\frac{1}{2} \frac{\partial^2 (m(X_t, t)\sigma(X_t, t)^2)}{\partial X_t^2}$$: This is also a scalar field since $$m, \sigma$$ are each scalar fields.
 
-Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardaliguet notes (Achdou et al. 2020).
+### Linking back to the MFG notation
+
+Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardaliguet notes (Achdou et al. 2020). That is, we want to show the equivalence between our Fokker-Planck density and the MFG-notated formulation:
+
+$$
+\begin{align}
+    \text{scalar fields } m, \mu, \sigma, b: \mathbb{R}^d \times [0, T] &\to \mathbb{R} \\
+    \frac{\partial m}{\partial t} - \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2} + \frac{\partial (m \mu)}{\partial X} &= 0 & \text{Fokker-Planck density dynamics} \\
+    m(X_t, 0) &= Z_0 & \text{Fokker-Planck initial density} \\
+    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 &\text{MFG density dynamics} \\
+    m(x,0) &= m_0 (x) & \text{MFG initial density}
+\end{align}
+$$
 
 <!--
 https://math.stackexchange.com/questions/2292544/understanding-the-fokker-planck-equation-for-non-stationary-processes
