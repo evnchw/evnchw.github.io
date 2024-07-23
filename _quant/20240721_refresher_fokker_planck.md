@@ -10,9 +10,10 @@ These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the
 
 **Disclaimers**:
 
-- **I prioritize intuition/readability linking to references where appropriate.**
-- **We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.**
-- **There may be imprecisions: all feedback and corrections are welcome.**
+- I prioritize intuition/readability linking to references where appropriate.
+- We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
+- There may be imprecisions: all feedback and corrections are welcome.
+- Long equations may not show up on mobile.
 
 There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games ("MFG") (Achdou et al. 2020, "1.3.1 Heuristic derivation of the MFG system"), and reviewed also in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result with some depth.
 
@@ -58,8 +59,11 @@ $$
 \end{align}
 $$
 
-for some vector field $$b: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$, and where we have defined the density of $$X$$ as $$m: \mathbb{R}^d \times [0,T] \to \mathbb{R}$$. (That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.)
+for some vector field $$b: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$.
 
+We introduce here the probability density of $$d-$$dimensional $$X$$ at time $$t$$ as $$m: \mathbb{R}^d \times [0,T] \to \mathbb{R}$$.
+
+- $$m$$ (and all its derivatives) is a **scalar field**: this means at any point $$(X,t)$$ this assigns a scalar value.
 - This density is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)). Informally, the absolute value of $$m$$ is bounded everywhere.
 - We assume that the probability density vanishes at the boundaries so that $$m^c(\pm\infty)=0$$ for all orders of differentiation $c$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (Orlandin 2024).
 

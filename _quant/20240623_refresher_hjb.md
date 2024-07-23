@@ -12,7 +12,8 @@ The notes and notation here are adapted from [1], with additional notes from [2]
 
 - I prioritize intuition/readability linking to references where appropriate.
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
-- All feedback and corrections are welcome.
+- There may be imprecisions: all feedback and corrections are welcome.
+- Long equations may not show up on mobile.
 
 Lastly, this focuses solely understanding HJB through the dynamic programming perspective. Later topics around the calculus of variations, Euler-Lagrange, viscosity solutions, etc. will be covered in future posts.
 
