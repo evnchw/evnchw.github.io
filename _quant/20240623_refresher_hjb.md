@@ -1,5 +1,5 @@
 ---
-title: "Quick refresher on Hamilton-Jacobi-Bellman"
+title: "Refresher on Hamilton-Jacobi-Bellman"
 collection: quant
 type: "Post"
 permalink: /quant/20240623_refresher_hjb
