@@ -91,7 +91,7 @@ $$
 \end{align}
 $$
 
-In the notes we specifically have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$.
+In the notes we specifically have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$. The probability density of $$X$$ will appear below ($$m$$): assume that it vanishes at the boundaries so that $$m(\pm\infty)=0$$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (SPRINGER).
 <!--
 (Moreover, $$D\phi$$ indicates the vector of first $$X$$-derivatives, and similarly $$\Delta \phi$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator) and indicates the second derivatives.)
 -->
@@ -130,7 +130,7 @@ $$
 \begin{align}
     \mathbb{E}[\phi(X_T, T)] &= \mathbb{E}[\phi(Z_0, 0)] +
         \mathbb{E}\left(
-            \int_0^t \left[
+            \int_0^T \left[
                 \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
                 \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
             \right] ds
@@ -147,7 +147,7 @@ $$
         +
         \underbrace{
             \int_{\mathbb{R}^d} 
-                \int_0^t \left[
+                \int_0^T \left[
                     \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
                     \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
                 \right]
@@ -163,41 +163,63 @@ Hence we have an expression for the dynamics of the probability density $$m(X_t,
 $$
 \begin{align}
     \int_{\mathbb{R}^d} 
-                    \int_0^t &\left[
+                    \int_0^T &\left[
                         \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
                         \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
                     \right] m(X_s, s) dX ds
         = \\
         & \underbrace{
-            \int_{\mathbb{R}^d} \int_0^t m \frac{\partial \phi}{\partial s} ds dX
+            \int_{\mathbb{R}^d} \int_0^T m \frac{\partial \phi}{\partial s} ds dX
         }_{\text{Integral }1} +
           \underbrace{
-            \int_{\mathbb{R}^d} \int_0^t m \mu \frac{\partial \phi}{\partial X} ds dX
+            \int_{\mathbb{R}^d} \int_0^T m \mu \frac{\partial \phi}{\partial X} ds dX
         }_{\text{Integral }2} +
           \underbrace{
             \frac{1}{2}
-            \int_{\mathbb{R}^d} \int_0^t m \sigma^2 \frac{\partial^2 \phi}{\partial X^2} ds dX
+            \int_{\mathbb{R}^d} \int_0^T m \sigma^2 \frac{\partial^2 \phi}{\partial X^2} ds dX
         }_{\text{Integral }3}
 \end{align}
 $$
 
-where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$. To take the integrals, use integration by parts and apply zeroes at the boundaries.
-
-Integral 1:
+where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$. To take the integrals, we will use integration by parts and apply $$\phi(.)=0$$ at the boundaries once more.
 
 $$
 \begin{align}
-    \int_{\mathbb{R}^d} \int_0^t m \frac{\partial \phi}{\partial s} ds dX &= \int_{\mathbb{R}^d} \left[
-        m\phi |^t_0 - \int_0^t \frac{\partial m}{\partial s} \phi ds
-    \right] dX = - \int_{\mathbb{R}^d} \int_0^t \frac{\partial m}{\partial s} \phi ds dX
+    \int_a^b u(x) v'(x) dx &= u(b) v(b) - u(a) v(a) - \int_a^b u'(x) v(x) dx &\text{integration by parts}
 \end{align}
 $$
 
-Integral 2:
+Integral 1, with $$u=m, v'=\frac{\partial \phi}{\partial s}$$:
 
 $$
 \begin{align}
-    \int_{\mathbb{R}^d} \int_0^t m \mu \frac{\partial \phi}{\partial X} ds dX &= 
+    \int_{\mathbb{R}^d} \int_0^T m \frac{\partial \phi}{\partial s} ds dX &= \int_{\mathbb{R}^d} \left[
+        m\phi |^T_0 - \int_0^T \frac{\partial m}{\partial s} \phi ds
+    \right] dX = - \int_{\mathbb{R}^d} \int_0^T \frac{\partial m}{\partial s} \phi ds dX
+\end{align}
+$$
+
+Integral 2, with $$u=m\mu, v'=\frac{\partial \phi}{\partial X}$$ and recalling $$m(\pm \infty)=0$$.
+
+$$
+\begin{align}
+    \int_{\mathbb{R}^d} \int_0^T m \mu \frac{\partial \phi}{\partial X} ds dX &=
+    \int_0^T \int_{\mathbb{R}^d} m \mu \frac{\partial \phi}{\partial X} dX ds & \text{switch integration limits} \\
+    &= \int_0^T \left[
+        (m \mu) \phi |_{\mathbb{R}} - \int_{\mathbb{R}} \frac{\partial m \mu}{\partial X} \phi dX
+    \right] ds & \text{integration by parts} \\
+    &= - \int_0^T \int_{\mathbb{R}} \frac{\partial m \mu}{\partial X} \phi dX ds & \text{apply boundaries for } m(\pm\infty) \\
+    &= - \int_{\mathbb{R}} \int_0^T \frac{\partial m \mu}{\partial X} \phi ds dX & \text{switch integration limits}
+\end{align}
+$$
+
+Integral 3, where we will have to apply integration by parts twice to get $$\frac{\partial^2 \phi}{\partial X^2}$$ into $$\phi$$.
+
+$$
+\begin{align}
+    \frac{1}{2} \int_{\mathbb{R}^d} \int_0^T m \sigma^2 \frac{\partial^2 \phi}{\partial X^2} ds dX &=
+        \frac{1}{2} \int_0^T \int_{\mathbb{R}^d} m \sigma^2 \frac{\partial^2 \phi}{\partial X^2} dX ds & \text{switch integration limits} \\
+        &= 
 \end{align}
 $$
 
