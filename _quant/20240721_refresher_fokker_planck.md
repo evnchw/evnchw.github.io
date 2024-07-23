@@ -59,7 +59,7 @@ $$
 where we have defined the density of $$X$$ as $$m \in L^1(\mathbb{R}^d \times [0,T])$$. That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
 
 - The component $$L^1$$ means that $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)). Informally, the absolute value of $$m$$ is bounded everywhere.
-- We assume that the probability density vanishes at the boundaries so that $$m^c(\pm\infty)=0$$ for all orders of differentiation $c$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (SPRINGER).
+- We assume that the probability density vanishes at the boundaries so that $$m^c(\pm\infty)=0$$ for all orders of differentiation $c$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (Orlandin 2024).
 
 <!-- Note that $$\Delta m$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator): $$\Delta m = \frac{\partial^2 m}{\partial x^2}$$. -->
 <!--
