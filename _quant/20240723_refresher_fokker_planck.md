@@ -44,7 +44,7 @@ We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a conti
 $$
 \begin{align}
     d X_t &= - \mu(X_t, t) dt + \sigma(X_t, t) dB_t & t \in [0, T] \hspace{0.5cm} \text{state evolution} \\
-    X_0 &= Z_0 & \text{initial state}
+    X_0 &= Z_0 & \text{initial state distribution}
 \end{align}
 $$
 
@@ -345,7 +345,7 @@ $$
 \end{align}
 $$
 
-Setting the MFG notation such that $$b := \mu$$ and the initial distribution $$m(x,0)=m_0(x)=m(X_0, 0)$$ finishes the equivalence. $$\square$$
+Setting the MFG notation such that $$b := \mu$$ and the initial distribution $$m(x,0)=m_0(x)=Z_0$$ finishes the equivalence. $$\square$$
 
 ## Appendix: non-simplified expansion of Fokker-Planck
 
