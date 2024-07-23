@@ -142,7 +142,7 @@ Expand the expectation terms to reveal the probability density of $$X$$:
 
 $$
 \begin{align}
-    \underbrace{\int_{\mathbb{R}^d} \phi(X, t) m(X, t) dX}_{\text{terminal integral}} &=
+    \underbrace{\int_{\mathbb{R}^d} \phi(X, T) m(X, T) dX}_{\text{terminal integral}} &=
         \underbrace{\int_{\mathbb{R}^d} \phi(Z_0, 0) m(X, 0) dX}_{\text{initial integral}}
         +
         \underbrace{
@@ -156,7 +156,9 @@ $$
 \end{align}
 $$
 
-Hence we have an expression for the dynamics of the probability density $$m(X_t, t)$$ for any time $$t$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to move the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics (and therefore the Fokker-Planck equation).
+Of course, at the boundaries $$\phi(.)=0$$, so both the terminal and initial integral are zero.
+
+Hence we have an expression for the dynamics of the probability density $$m(X_t, t)$$ for any time $$t \in (0,T)$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to move the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics (and therefore the Fokker-Planck equation).
 
 $$
 \begin{align}
@@ -179,7 +181,9 @@ $$
 \end{align}
 $$
 
-where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$. To take the integrals, use integration by parts, noting at the boundary $$\phi(.,t)=\phi(.,0)=0$$.
+where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$. To take the integrals, use integration by parts and apply zeroes at the boundaries.
+
+Integral 1:
 
 $$
 \begin{align}
@@ -189,6 +193,13 @@ $$
 \end{align}
 $$
 
+Integral 2:
+
+$$
+\begin{align}
+    \int_{\mathbb{R}^d} \int_0^t m \mu \frac{\partial \phi}{\partial X} ds dX &= 
+\end{align}
+$$
 
 
 <!-- The first task is to deal with the time integral. -->
