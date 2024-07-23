@@ -265,7 +265,7 @@ $$
 
 This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. Briefly, this says that the probability density of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion. It is important to take a moment to examine each term and importantly its dimensions.
 
-- $$\frac{\partial m(X_t, t)}{\partial t}$$ is a **scalar field**. This means 
+<!-- - $$\frac{\partial m(X_t, t)}{\partial t}$$ is a **scalar field**. This means  -->
 
 Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardaliguet notes (Achdou et al. 2020).
 
