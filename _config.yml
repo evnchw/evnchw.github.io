@@ -14,10 +14,10 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Evan Chow / Quantitative research & development"
+title                    : "Evan Chow / Quantitative research & data science"
 title_separator          : "-"
 name                     : &name "Evan Chow"
-description              : &description "The research and development site of Evan Chow."
+description              : &description "The personal academic site of Evan Chow."
 url                      : https://evnchw.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "evnchw/evnchw.github.io"
