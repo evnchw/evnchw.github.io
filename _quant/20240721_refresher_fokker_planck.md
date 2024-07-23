@@ -12,7 +12,7 @@ These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
-There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games ("MFG") (Achdou et al. 2020, "1.3.1 Heuristic derivation of the MFG system"), and reviewed also in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result in depth.
+There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games ("MFG") (Achdou et al. 2020, "1.3.1 Heuristic derivation of the MFG system"), and reviewed also in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result with some depth.
 
 Specifically:
 
@@ -68,7 +68,7 @@ where we have defined the density of $$X$$ as $$m \in L^1(\mathbb{R}^d \times [0
 
 ## From the state dynamics to Fokker-Planck
 
-Introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi: \mathbb{R}^d \times (0, T) \to \mathbb{R}$$, with boundary conditions $$\phi(X,T)=\phi(X,0)=0$$. We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
+Introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi: \mathbb{R}^d \times (0, T) \to \mathbb{R}$$, with boundary conditions $$\phi(X,T)=\phi(X,0)=0$$. (We assume scalar-valued for simplicity.) We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
 
 $$
 \begin{align}
@@ -143,7 +143,7 @@ $$
 \end{align}
 $$
 
-Hence we have an expression for the dynamics of the probability density $$m(X_t, t)$$ for any time $$t \in (0,T)$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to move the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics and therefore the Fokker-Planck equation. (For brevity we omit the arguments for $$m, \phi$$, and also write $$X$$ instead of $$X_s$$ since $$s$$ is given below.)
+Hence we have an expression for the dynamics of the probability density $$m(X_t, t)$$ for any time $$t \in (0,T)$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to move the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics and therefore the Fokker-Planck equation. (For brevity we omit the parameters for $$m, \phi$$, and also write $$X$$ instead of $$X_s$$ since $$s$$ is given below.)
 
 $$
 \begin{align}
@@ -247,17 +247,19 @@ $$
 \end{align}
 $$
 
-Since we have specifed any arbitrary $$\phi$$, this implies the rest of the integrand must be zero. Rearranging, we obtain for any time $$t$$:
+Since we have specifed any arbitrary $$\phi$$, this implies the rest of the integrand must be zero. Rearranging and adding back notation we obtain for any time $$t$$:
 
 $$
 \begin{align}
-    \frac{\partial m}{\partial t} = - \frac{\partial (m \mu)}{\partial X} + \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2}
+    \frac{\partial m}{\partial t} &= - \frac{\partial (m \mu)}{\partial X} + \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2} & \text{Fokker-Planck} \\
+    \frac{\partial m(X_t, t)}{\partial t} &= - \frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t} +
+        \frac{1}{2} \frac{\partial^2 (m(X_t, t)\sigma(X_t, t)^2)}{\partial X_t^2} & \text{with parameters}
 \end{align}
 $$
 
-This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. Briefly, this says that the distribution of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion. Intuitively, 
+This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. Briefly, this says that the probability density of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion.
 
-Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardialiguet notes.
+Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardaliguet notes (Achdou et al. 2020).
 
 <!--
 https://math.stackexchange.com/questions/2292544/understanding-the-fokker-planck-equation-for-non-stationary-processes
