@@ -281,7 +281,7 @@ $$
 
 This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. (Note if we had used $$\mu$$ in the states and not $$-\mu$$, we would have $$-\frac{\partial (m \mu)}{\partial X}$$ on the RHS, as in our references.)
 
-Briefly, this says that the probability density of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion. It is important to take a moment to examine each term and importantly its dimensions.
+Briefly, this says that the probability density of $$X$$ evolves stochastically wrt. $$X$$'s drift and diffusion. It is important to take a moment to examine each term and importantly its dimensions.
 
 - Time derivative $$\frac{\partial m(X_t, t)}{\partial t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is a scalar field, since at any given point $$(X_t, t)$$ it assigns a value indicating how it will change with respect to the "time-coordinate" only.
 - Drift term $$\frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is also a scalar field since $$m, \mu$$ are each scalar fields.
