@@ -17,7 +17,7 @@ Like my notes on [Hamilton-Jacobi-Bellman](https://evnchw.github.io/quant/202406
 - There may be imprecisions: all feedback and corrections are welcome.
 - Long equations may not show up on mobile.
 
-There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010). **Here, we will derive the version of Fokker-Planck in the Achdou/Cardialiguet introductory notes on mean field games (Achdou et al. 2020, 1.3.1), and also appearing in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result with some depth.
+There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010). **Here, we will derive the version of Fokker-Planck in the Achdou/Cardialiguet introductory notes on mean field games (Achdou et al. 2020, 1.3.1), and also appearing in (Ryzhik 2018).** This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result with some depth.
 
 Specifically:
 
