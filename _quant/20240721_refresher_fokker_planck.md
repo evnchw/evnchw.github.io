@@ -91,9 +91,12 @@ $$
 \end{align}
 $$
 
-In the notes we specifically have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$. (Moreover, $$D\phi$$ indicates the vector of first $$X$$-derivatives, and similarly $$\Delta \phi$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator) and indicates the second derivatives.)
+In the notes we specifically have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$.
+<!--
+(Moreover, $$D\phi$$ indicates the vector of first $$X$$-derivatives, and similarly $$\Delta \phi$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator) and indicates the second derivatives.)
+-->
 
-Now, introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi(X): \mathbb{R}^d \times [0, T) \to \mathbb{R}$$. We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
+Now, introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi: \mathbb{R}^d \times (0, T) \to \mathbb{R}$$, with boundary conditions $$\phi(X,T)=\phi(X,0)=0$$. We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
 
 $$
 \begin{align}
@@ -110,7 +113,7 @@ This yields the Ito integral:
 
 $$
 \begin{align}
-    \phi(X_t, t) &= \phi(Z_0, 0) +
+    \phi(X_T, T) &= \phi(Z_0, 0) +
         \int_0^t \left[
             \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, )}{\partial X_s} +
             \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
@@ -125,7 +128,7 @@ Now, take the expectation wrt. $$X$$ on both sides, and removing the Brownian in
 
 $$
 \begin{align}
-    \mathbb{E}[\phi(X_t, t)] &= \mathbb{E}[\phi(Z_0, 0)] +
+    \mathbb{E}[\phi(X_T, T)] &= \mathbb{E}[\phi(Z_0, 0)] +
         \mathbb{E}\left(
             \int_0^t \left[
                 \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
@@ -153,7 +156,7 @@ $$
 \end{align}
 $$
 
-Hence we have an expression for the dynamics of the probability density $$\phi(X_t, t)$$ from $$[0, t]$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to shift the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics (and therefore the Fokker-Planck equation).
+Hence we have an expression for the dynamics of the probability density $$m(X_t, t)$$ for any time $$t$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to move the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics (and therefore the Fokker-Planck equation).
 
 $$
 \begin{align}
@@ -176,7 +179,15 @@ $$
 \end{align}
 $$
 
-where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$.
+where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$. To take the integrals, use integration by parts, noting at the boundary $$\phi(.,t)=\phi(.,0)=0$$.
+
+$$
+\begin{align}
+    \int_{\mathbb{R}^d} \int_0^t m \frac{\partial \phi}{\partial s} ds dX &= \int_{\mathbb{R}^d} \left[
+        m\phi |^t_0 - \int_0^t \frac{\partial m}{\partial s} \phi ds
+    \right] dX = - \int_{\mathbb{R}^d} \int_0^t \frac{\partial m}{\partial s} \phi ds dX
+\end{align}
+$$
 
 
 
