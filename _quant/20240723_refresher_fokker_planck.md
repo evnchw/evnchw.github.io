@@ -37,7 +37,7 @@ This is also called the forward Kolmogorov equation.
 
 ### Setup and state dynamics
 
-We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ which is Hölder-continuous in space and continuous in time. The states $$X$$ evolve over time according to the stochastic differential equation (SDE):
+We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$\mu: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ which is Hölder-continuous in space and continuous in time. The states $$X$$ evolve over time according to the stochastic differential equation (SDE):
 
 $$
 \begin{align}
@@ -266,7 +266,8 @@ $$
 
 This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. Briefly, this says that the probability density of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion. It is important to take a moment to examine each term and importantly its dimensions.
 
-<!-- - $$\frac{\partial m(X_t, t)}{\partial t}$$ is a **scalar field**. This means  -->
+- Time derivative $$\frac{\partial m(X_t, t)}{\partial t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is a scalar field, since at any given point $$(X_t, t)$$ it assigns a value indicating how it will change with respect to the "time-coordinate" only. ([Directional derivative](https://en.wikipedia.org/wiki/Directional_derivative))
+- Drift term $$\frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is also a scalar field.
 
 Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardaliguet notes (Achdou et al. 2020).
 
