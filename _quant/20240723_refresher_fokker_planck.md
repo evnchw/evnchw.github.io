@@ -269,7 +269,7 @@ $$
 
 ### Eliminating the test function to obtain Fokker-Planck
 
-Note we have specified this for any smooth arbitrary $$\phi$$, with endpoints fixed at $$\phi(.,0)=\phi(.,T)=0$$. This includes many possible function paths bounded far away from zero, which implies the rest of the integrand (bracketed) must be zero. Rearranging and adding back notation we obtain for any time $$t$$:
+Note we have specified this for any smooth arbitrary $$\phi$$, with endpoints fixed at $$\phi(.,0)=\phi(.,T)=0$$. This includes many possible function paths bounded far away from zero, which implies the rest of the integrand (bracketed) must be zero to always enforce the equality. Rearranging and adding back notation we obtain for any time $$t$$:
 
 $$
 \begin{align}
