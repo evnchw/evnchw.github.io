@@ -278,7 +278,7 @@ https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 
 [4] Ryzhik, Lenya. Notes on Mean Field Games. Stanford University, https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf. Accessed 23 July 2024.
 
-[5] Orlandini, Gianni. Fokker-Planck Equation. University of Padova, https://userswww.pd.infn.it/~orlandin/fisica_sis_comp/fokker_planck.pdf. Accessed 23 July 2024.
+[5] Orlandini, Gianni. "Notes of the course in Statistical Mechanics." University of Padova, https://userswww.pd.infn.it/~orlandin/fisica_sis_comp/fokker_planck.pdf. Accessed 23 July 2024.
 
 [6] Wolschin, Georg. Statistical Mechanics and Stochastic Processes. University of Heidelberg, https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf. Accessed 23 July 2024.
 
