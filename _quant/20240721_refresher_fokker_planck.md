@@ -12,7 +12,7 @@ These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
-There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games ("MFG") (Achdou et al. 2020, "1.3.1 Heuristic derivation of the MFG system"). This is a core ingredient of a standard MFG formulation, and so it is important to understand this result in depth.
+There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games ("MFG") (Achdou et al. 2020, "1.3.1 Heuristic derivation of the MFG system"), and reviewed also in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result in depth.
 
 Specifically:
 
@@ -20,7 +20,7 @@ Specifically:
 2. We derive its forward Fokker-Planck equation that specifies how its probability distribution evolves over tiem.
 3. We tie this back to the MFG formulation in the Achdou/Cardialiguet notes.
 
-This is important because it tells us what our theoretical (distributional) boundaries are for modeling many-agent behavior in MFG and what is required to take advantage of MFG results.
+For (1-2), the Fokker-Planck derivation primarily summarizes general notes on Fokker-Planck (Orlandini 2024; Wolschin 2024; Liang 2024; Brown 2024; Frouah 2024). The main contribution here is to formulate the derivation for the MFG formulation, and also gather/fill in treatments of boundary conditions & time/space integrals in a single place.
 
 ## In a nutshell: the FP equation provides a way to model the evolution of a probability density over time
 
@@ -28,64 +28,13 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation):
 
 > In statistical mechanics and information theory, the Fokker–Planck equation is a partial differential equation that describes the time evolution of the probability density function of the velocity of a particle under the influence of drag forces and random forces, as in Brownian motion. The equation can be generalized to other observables as well. The Fokker-Planck equation has multiple applications in information theory, graph theory, data science, finance, economics etc.
 
+This is also called the forward Kolmogorov equation.
+
 ## The main result we want to show
 
-This is a result in [3] but we present it in a more linear order, from the particular state dynamics to the final Fokker-Planck equation.
+### Setup and state dynamics
 
-### Setup.
-
-We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ which is Hölder-continuous in space and continuous in time.
-
-### State dynamics.
-
-We consider this drift-diffusion stochastic differential equation (SDE) for the time evolution of $$X$$:
-
-$$
-\begin{align}
-    d X_t &= \overbrace{-b (X_t, t) dt}^{\text{drift}} + \overbrace{\sqrt{2} dB_t}^{\text{diffusion}} & t \in [0, T] \hspace{0.5cm} \text{state evolution} \\
-    X_0 &= Z_0 & \text{initial state}
-\end{align}
-$$
-
-### Our goal: dynamics of the probability density (transformation) over the states.
-
-In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time. The idea is that we have many identical agents and so their distribution of states will evolve in the same way. Of course, this means we just want to use a density function of $$X$$, and so Fokker-Planck will tell us what the dynamics of this $$X$$-transformation will be.
-
-Our goal is to see how the above drift-diffusion system satisfies the Fokker-Planck equation:
-
-$$
-\begin{align}
-    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{R}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
-    m(x,0) &= m_0 (x) & \text{initial density}
-\end{align}
-$$
-
-<!--
-TODO:
-- define probability measure on complex unit circle (mathbb T)
-- define the \Delta operator for m
-- https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf
--->
-
-where we have defined the density of $$X$$ as $$m \in L^1(\mathbb{R}^d \times [0,T])$$. That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
-
-- The component $$L^1$$ means that $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)): informally, the absolute value of $$m$$ is bounded everywhere.
-
-<!--
-https://math.stackexchange.com/questions/2790010/what-does-the-delta-notation-in-this-formula-mean
--->
-
-Note that $$\Delta m$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator): $$\Delta m = \frac{\partial^2 m}{\partial x^2}$$.
-
-<!--
-This says the density $$m(x,t)$$ starts from some initial distribution $$m_0(x)$$. Then, it follows dynamics such that the instantaneous change in $$m$$ ($$\frac{\partial m}{\partial t}$$) is equal to the change wrt. to a state:
---> 
-
-## Informal derivation: from the state dynamics to Fokker-Planck
-
-*Follows the derivation in [4].*
-
-Our state dynamics are (from above):
+We have a $$d$$-dimensional vector of states $$X \in \mathbb{R}^d$$, and a continuous but finite timeline $$t \in [0, T]$$. Define a "drift" function $$b: \mathbb{R}^D \times [0, T] \to \mathbb{R}$$ which is Hölder-continuous in space and continuous in time. The states $$X$$ evolve over time according to the stochastic differential equation (SDE):
 
 $$
 \begin{align}
@@ -94,12 +43,32 @@ $$
 \end{align}
 $$
 
-In the notes we specifically have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$. The probability density of $$X$$ will appear below ($$m$$): assume that it vanishes at the boundaries so that $$m^c(\pm\infty)=0$$ for all orders of differentiation $c$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (SPRINGER).
+### Our goal: dynamics of the probability density over the states.
+
+In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time, as to model the crowd behavior of many (identical) agents. Since $$X$$ evolves stochastically (via the Brownian), we need to focus on the probability density of $$X$$. This is just a transformation of $$X$$, which motivates using Ito's Lemma to model its dynamics, and with more analysis, ultimately the Fokker-Planck forward equation.
+
+Specifically we want to see how the above drift-diffusion system satisfies the Fokker-Planck forward equation:
+
+$$
+\begin{align}
+    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{R}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
+    m(x,0) &= m_0 (x) & \text{initial density}
+\end{align}
+$$
+
+where we have defined the density of $$X$$ as $$m \in L^1(\mathbb{R}^d \times [0,T])$$. That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
+
+- The component $$L^1$$ means that $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)). Informally, the absolute value of $$m$$ is bounded everywhere.
+- We assume that the probability density vanishes at the boundaries so that $$m^c(\pm\infty)=0$$ for all orders of differentiation $c$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (SPRINGER).
+
+<!-- Note that $$\Delta m$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator): $$\Delta m = \frac{\partial^2 m}{\partial x^2}$$. -->
 <!--
 (Moreover, $$D\phi$$ indicates the vector of first $$X$$-derivatives, and similarly $$\Delta \phi$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator) and indicates the second derivatives.)
 -->
 
-Now, introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi: \mathbb{R}^d \times (0, T) \to \mathbb{R}$$, with boundary conditions $$\phi(X,T)=\phi(X,0)=0$$. We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
+## From the state dynamics to Fokker-Planck
+
+Introduce a [smooth](https://en.wikipedia.org/wiki/Smoothness) arbitrary test function $$\phi: \mathbb{R}^d \times (0, T) \to \mathbb{R}$$, with boundary conditions $$\phi(X,T)=\phi(X,0)=0$$. We obtain the dynamics of $$\phi(x,t)$$ via Ito's lemma:
 
 $$
 \begin{align}
@@ -286,17 +255,9 @@ $$
 \end{align}
 $$
 
-This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$.
+This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. Briefly, this says that the distribution of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion. Intuitively, 
 
-## Interpretation
-
-
-$$
-\begin{align}
-    \frac{\partial m}{\partial s} = - \frac{\partial m \mu}{\partial X} + \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2}
-\end{align}
-$$
-
+Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardialiguet notes.
 
 <!--
 https://math.stackexchange.com/questions/2292544/understanding-the-fokker-planck-equation-for-non-stationary-processes
@@ -311,14 +272,14 @@ https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 
 [3] Achdou, Yves, et al. "An introduction to mean field game theory." Mean Field Games: Cetraro, Italy 2019 (2020): 1-158.
 
-[3] [Ryzhik (2018)](https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf)
+[4] Ryzhik, Lenya. Notes on Mean Field Games. Stanford University, https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf. Accessed 23 July 2024.
 
-[4] https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf
+[5] Orlandini, Gianni. Fokker-Planck Equation. University of Padova, https://userswww.pd.infn.it/~orlandin/fisica_sis_comp/fokker_planck.pdf. Accessed 23 July 2024.
 
-[5] https://xl0418.github.io/2018/10/24/2018-10-24-derivingFPequ/
+[6] Wolschin, Georg. Statistical Mechanics and Stochastic Processes. University of Heidelberg, https://www.thphys.uni-heidelberg.de/~wolschin/statsem23_6.pdf. Accessed 23 July 2024.
 
-[6] https://www.whoi.edu/cms/files/lecture07_21269.pdf
+[7] Liang, Xiaolong. "Deriving the Fokker-Planck Equation." Xiaolong Liang's Blog, 24 Oct. 2018, https://xl0418.github.io/2018/10/24/2018-10-24-derivingFPequ/. Accessed 23 July 2024.
 
-[7] https://www.frouah.com/finance%20notes/Derivation%20of%20the%20Fokker-Planck%20equation.pdf
+[8] Brown, Kevin. Lecture Notes on the Fokker-Planck Equation. Woods Hole Oceanographic Institution, https://www.whoi.edu/cms/files/lecture07_21269.pdf. Accessed 23 July 2024.
 
-[8] https://link.springer.com/chapter/10.1007/978-3-030-59837-2_1
+[9] Frouah, Rachid. "Derivation of the Fokker-Planck Equation." Finance Notes, https://www.frouah.com/finance%20notes/Derivation%20of%20the%20Fokker-Planck%20equation.pdf. Accessed 23 July 2024.
