@@ -25,7 +25,7 @@ Specifically:
 2. We derive its forward Fokker-Planck equation that specifies how its probability distribution evolves over tiem.
 3. We tie this back to the MFG formulation in the Achdou/Cardialiguet notes.
 
-For (1-2), the Fokker-Planck derivation primarily summarizes general notes on Fokker-Planck (Orlandini 2024; Wolschin 2024; Liang 2024; Brown 2024; Frouah 2024). The main contribution here is to formulate the derivation for the MFG formulation, and also gather/fill in treatments of boundary conditions & time/space integrals in a single place.
+For (1-2), the Fokker-Planck derivation primarily summarizes general notes on Fokker-Planck (Orlandini 2024; Wolschin 2024; Liang 2024; Brown 2024; Frouah 2024). The main contribution here is to formulate the derivation for the MFG formulation, and also gather treatments of boundary conditions & time/space integrals in a single place.
 
 ## In a nutshell: the FP equation provides a way to model the evolution of a probability density over time
 
@@ -63,7 +63,7 @@ $$
 \end{align}
 $$
 
-for some vector field $$b: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$. (Later in a mean field game, this will based on the optimal controls.)
+for some vector field $$b: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$. (Later in a mean field game, this will be based on the optimal controls.)
 
 We introduce here the probability density of $$d-$$dimensional $$X$$ at time $$t$$ as $$m: \mathbb{R}^d \times [0,T] \to \mathbb{R}$$.
 
