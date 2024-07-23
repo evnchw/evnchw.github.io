@@ -15,7 +15,7 @@ These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the
 - There may be imprecisions: all feedback and corrections are welcome.
 - Long equations may not show up on mobile.
 
-There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games ("MFG") (Achdou et al. 2020, "1.3.1 Heuristic derivation of the MFG system"), and reviewed also in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result with some depth.
+There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games (Achdou et al. 2020, 1.3.1), and reviewed also in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result with some depth.
 
 Specifically:
 
@@ -52,7 +52,7 @@ $$
 
 In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time, as to model the crowd behavior of many (identical) agents. Since $$X$$ evolves stochastically (via the Brownian), we need to focus on the probability density of $$X$$. This is just a transformation of $$X$$, which motivates using Ito's Lemma to model its dynamics, and with more analysis, ultimately the Fokker-Planck forward equation.
 
-Specifically we want to see how the above drift-diffusion system satisfies the Fokker-Planck forward equation:
+Specifically we want to see how the above drift-diffusion system satisfies the Fokker-Planck forward equation (Achdou et al. 2020, 1.3):
 
 $$
 \begin{align}
@@ -65,7 +65,6 @@ for some vector field $$b: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$.
 
 We introduce here the probability density of $$d-$$dimensional $$X$$ at time $$t$$ as $$m: \mathbb{R}^d \times [0,T] \to \mathbb{R}$$.
 
-<!-- - $$m$$ (and all its derivatives) is a **scalar field**: this means at any point $$(X,t)$$ this assigns a scalar value. -->
 - This density is a **scalar field**: at any point $$(X,t)$$ it assigns a scalar value.
 - This density is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)). Informally, the absolute value of $$m$$ is bounded everywhere.
 - We assume that the probability density vanishes at the boundaries so that $$m^c(\pm\infty)=0$$ for all orders of differentiation $c$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (Orlandin 2024).
