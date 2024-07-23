@@ -64,6 +64,7 @@ for some vector field $$b: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$.
 We introduce here the probability density of $$d-$$dimensional $$X$$ at time $$t$$ as $$m: \mathbb{R}^d \times [0,T] \to \mathbb{R}$$.
 
 <!-- - $$m$$ (and all its derivatives) is a **scalar field**: this means at any point $$(X,t)$$ this assigns a scalar value. -->
+- This density is a **scalar field**: at any point $$(X,t)$$ it assigns a scalar value.
 - This density is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)). Informally, the absolute value of $$m$$ is bounded everywhere.
 - We assume that the probability density vanishes at the boundaries so that $$m^c(\pm\infty)=0$$ for all orders of differentiation $c$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (Orlandin 2024).
 
