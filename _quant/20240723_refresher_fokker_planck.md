@@ -305,7 +305,7 @@ $$
 
 **To align this with the simple MFG formulation, we need to introduce a simple functional form for the diffusion coeficient.**
 
-Let $$\sigma(X_t, t)=\sqrt{2 \varepsilon}$$ for some $$\varepsilon > 0$$. (See Appendix). Then this yields:
+Let $$\sigma(X_t, t)=\sqrt{2 \varepsilon}$$ for some $$\varepsilon > 0$$. (See Appendix). Moving this constant out of the diffusion derivative, this yields:
 
 $$
 \begin{align}
