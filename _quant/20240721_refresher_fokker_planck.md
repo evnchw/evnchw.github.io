@@ -91,7 +91,7 @@ $$
 \end{align}
 $$
 
-In the notes we specifically have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$. The probability density of $$X$$ will appear below ($$m$$): assume that it vanishes at the boundaries so that $$m(\pm\infty)=0$$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (SPRINGER).
+In the notes we specifically have $$\mu(X_t, t) = -b (X_t, t)$$ and $$\sigma(X_t, t) = \sqrt{2}$$. The probability density of $$X$$ will appear below ($$m$$): assume that it vanishes at the boundaries so that $$m^c(\pm\infty)=0$$ for all orders of differentiation $c$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (SPRINGER).
 <!--
 (Moreover, $$D\phi$$ indicates the vector of first $$X$$-derivatives, and similarly $$\Delta \phi$$ is the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator) and indicates the second derivatives.)
 -->
@@ -156,9 +156,22 @@ $$
 \end{align}
 $$
 
-Of course, at the boundaries $$\phi(.)=0$$, so both the terminal and initial integral are zero.
+Of course, at the boundaries $$\phi(X,T)=\phi(X,0)=0$$, so both the terminal and initial integral are zero:
 
-Hence we have an expression for the dynamics of the probability density $$m(X_t, t)$$ for any time $$t \in (0,T)$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to move the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics (and therefore the Fokker-Planck equation).
+$$
+\begin{align}
+    0 &= \underbrace{
+            \int_{\mathbb{R}^d} 
+                \int_0^T \left[
+                    \frac{\partial \phi(X_s, s)}{\partial s} + \mu \frac{\partial \phi(X_s, s)}{\partial X_s} +
+                    \frac{1}{2} \sigma^2 \frac{\partial^2 \phi(X_s, s)}{\partial X_s^2}
+                \right]
+            m(X_s, s) dX ds
+        }_{\text{running integral}}
+\end{align}
+$$
+
+Hence we have an expression for the dynamics of the probability density $$m(X_t, t)$$ for any time $$t \in (0,T)$$. To evaluate the running integral, split up the sum into three smaller integrals, which we will handle separately. Our goal is to move the derivatives of $$\phi$$ onto $$m$$ so we can obtain its dynamics and therefore the Fokker-Planck equation. (For brevity we omit the arguments for $$m, \phi$$, and also write $$X$$ instead of $$X_s$$ since $$s$$ is given below.)
 
 $$
 \begin{align}
@@ -181,7 +194,7 @@ $$
 \end{align}
 $$
 
-where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$. To take the integrals, we will use integration by parts and apply $$\phi(.)=0$$ at the boundaries once more.
+where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$. To take the integrals, we will use integration by parts and also our boundary conditions for $$\phi, m$$.
 
 $$
 \begin{align}
@@ -206,92 +219,81 @@ $$
     \int_{\mathbb{R}^d} \int_0^T m \mu \frac{\partial \phi}{\partial X} ds dX &=
     \int_0^T \int_{\mathbb{R}^d} m \mu \frac{\partial \phi}{\partial X} dX ds & \text{switch integration limits} \\
     &= \int_0^T \left[
-        (m \mu) \phi |_{\mathbb{R}} - \int_{\mathbb{R}} \frac{\partial m \mu}{\partial X} \phi dX
+        (m \mu) \phi |_{\mathbb{R}^d} - \int_{\mathbb{R}^d} \frac{\partial (m \mu)}{\partial X} \phi dX
     \right] ds & \text{integration by parts} \\
-    &= - \int_0^T \int_{\mathbb{R}} \frac{\partial m \mu}{\partial X} \phi dX ds & \text{apply boundaries for } m(\pm\infty) \\
-    &= - \int_{\mathbb{R}} \int_0^T \frac{\partial m \mu}{\partial X} \phi ds dX & \text{switch integration limits}
+    &= - \int_0^T \int_{\mathbb{R}^d} \frac{\partial (m \mu)}{\partial X} \phi dX ds & \text{apply boundaries } m^c(\pm\infty)=0 \\
+    &= - \int_{\mathbb{R}^d} \int_0^T \frac{\partial (m \mu)}{\partial X} \phi ds dX & \text{switch integration limits}
 \end{align}
 $$
 
-Integral 3, where we will have to apply integration by parts twice to get $$\frac{\partial^2 \phi}{\partial X^2}$$ into $$\phi$$.
+Integral 3, where we will have to apply integration by parts twice so we get $$\frac{\partial^2 \phi}{\partial X^2} \to \frac{\partial \phi}{\partial X} \to \phi$$ to yield its dynamics.
 
 $$
 \begin{align}
     \frac{1}{2} \int_{\mathbb{R}^d} \int_0^T m \sigma^2 \frac{\partial^2 \phi}{\partial X^2} ds dX &=
         \frac{1}{2} \int_0^T \int_{\mathbb{R}^d} m \sigma^2 \frac{\partial^2 \phi}{\partial X^2} dX ds & \text{switch integration limits} \\
-        &= 
+        &= \frac{1}{2} \int_0^T \left[
+                m \sigma^2 \frac{\partial \phi}{\partial X} |_{\mathbb{R}^d}
+                -
+                \int_{\mathbb{R}^d} \frac{\partial (m \sigma^2)}{\partial X} \frac{\partial \phi}{\partial X} dX
+            \right] ds & \text{by parts, } u=m\sigma^2 \text{ and } v'=\frac{\partial^2 \phi}{\partial X^2} \\
+        &= \frac{1}{2} \int_0^T \left[
+                - \int_{\mathbb{R}^d} \frac{\partial (m \sigma^2)}{\partial X} \frac{\partial \phi}{\partial X} dX
+            \right] ds & \text{apply boundaries } m^c(\pm\infty)=0 \\
+        &= \frac{1}{2} \int_0^T \left[
+                -\frac{\partial (m\sigma^2)}{\partial X} \phi |_{\mathbb{R}^d}
+                +
+                \int_{\mathbb{R}^d} \frac{\partial^2 (m\sigma^2)}{\partial X^2} \phi dX
+            \right] ds & \text{by parts, } u=\frac{\partial (m\sigma^2)}{\partial X} \text{ and } v'=\frac{\partial \phi}{\partial X} \\
+        &= \frac{1}{2} \int_0^T \left[
+                -\left(
+                    \frac{\partial m}{\partial X} \sigma^2 + m \frac{\partial \sigma^2}{\partial X}
+                \right)\phi|_{\mathbb{R}^d}
+                +
+                \int_{\mathbb{R}^d} \frac{\partial^2 (m\sigma^2)}{\partial X^2} \phi dX
+            \right] ds & \text{product rule} \\
+        &= \frac{1}{2} \int_0^T
+                \int_{\mathbb{R}^d} \frac{\partial^2 (m\sigma^2)}{\partial X^2} \phi dX
+            ds & \text{apply boundaries } m^c(\pm\infty)=0
 \end{align}
 $$
 
-
-<!-- The first task is to deal with the time integral. -->
-
-<!--
-1. Use calculus of variations to show equivalence 
--->
-
-<!-- We obtain two representations of the time derivative of $$\mathbb{E}_x[\phi]$$, show they are equal, and then equality of the integrands will reveal Fokker Planck. -->
-
-<!--
-First, directly represent take the expectation of $$\phi$$ wrt. $$X$$ and then its time derivative:
+Putting it all together, we obtain the expression:
 
 $$
 \begin{align}
-    \frac{d \mathbb{E}[\phi(X_t)]}{d t} &= \frac{d}{d t} \int_{\mathbb{R}^d} \phi(X_t) m(X_t, t) dX_t & \text{def. of expectation wrt.} X \\
-    &= \int_{\mathbb{R}^d} \phi(X_t) \frac{\partial m(X_t, t)}{\partial t} dX_t & \text{Lebesgue integral rule: bounds don't depend on } t
+    0 = \underbrace{- \int_{\mathbb{R}^d} \int_0^T \frac{\partial m}{\partial s} \phi ds dX}_{\text{Integral 1}} +
+        \underbrace{- \int_{\mathbb{R}^d} \int_0^T \frac{\partial (m \mu)}{\partial X} \phi ds dX}_{\text{Integral 2}} +
+        \underbrace{\frac{1}{2} \int_0^T
+                \int_{\mathbb{R}^d} \frac{\partial^2 (m\sigma^2)}{\partial X^2} \phi dX
+            ds}_{\text{Integral 3}} \\
+    0 = \int_{\mathbb{R}^d} \int_0^T \phi \left[
+        - \frac{\partial m}{\partial s}
+        - \frac{\partial (m \mu)}{\partial X} +
+        \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2}
+    \right] dX ds
 \end{align}
 $$
 
-(Not quite sure about the E[d phi(x)] = d E[phi(x)] part.)
-
-To obtain a second representation of this quantity, apply Ito's lemma to $\phi$:
+Since we have specifed any arbitrary $$\phi$$, this implies the rest of the integrand must be zero. Rearranging, we obtain for any time $$t$$:
 
 $$
 \begin{align}
-    d \phi(X_t) &= \left[
-        \frac{\partial \phi(X_t)}{\partial t}
-        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
-        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
-    \right] dt +
-    \sqrt{2} \frac{\partial \phi(X_t)}{\partial X_t} dB_t & \text{diffusion coefficient $\sqrt{2}$ cancels out} \\
-    \mathbb{E}[d \phi (X_t)] &= \mathbb{E}\left( \left[
-        \frac{\partial \phi(X_t)}{\partial t}
-        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
-        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
-     \right] dt \right) +
-    \mathbb{E} \left(\sqrt{2} \frac{\partial \phi(X_t)}{\partial X_t} dB_t \right) & \\
-    &= \mathbb{E}\left( \left[
-        \frac{\partial \phi(X_t)}{\partial t}
-        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
-        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
-     \right] dt \right) & \text{expectation of Brownian term is zero} \\
-    &= \mathbb{E}\left( \left[
-        \frac{\partial \phi(X_t)}{\partial t}
-        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
-        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
-     \right] \right) dt & \text{term $dt$ constant wrt. expectation}
+    \frac{\partial m}{\partial t} = - \frac{\partial (m \mu)}{\partial X} + \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2}
 \end{align}
 $$
 
-Dividing by $$dt$$ we therefore have:
-$$
-\begin{align}
-    \mathbb{E} &= \mathbb{E}\left( \left[
-        \frac{\partial \phi(X_t)}{\partial t}
-        - b(X_t, t) \frac{\partial \phi(X_t)}{\partial X_t}
-        + \frac{\partial^2 \phi(X_t)}{\partial X_t^2}
-     \right] \right) dt & \text{term $dt$ constant wrt. expectation}
-\end{align}
-$$
-
--->
-
-<!-- 
-## Derivation of Fokker-Planck
-
-You can see here for an accessible derivation of Fokker-Planck: [Appendix: Derivation of the Fokker-Planck Equation (UC Berkeley)](https://sites.me.ucsb.edu/~moehlis/moehlis_papers/appendix.pdf) -->
+This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$.
 
 ## Interpretation
+
+
+$$
+\begin{align}
+    \frac{\partial m}{\partial s} = - \frac{\partial m \mu}{\partial X} + \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2}
+\end{align}
+$$
+
 
 <!--
 https://math.stackexchange.com/questions/2292544/understanding-the-fokker-planck-equation-for-non-stationary-processes
@@ -299,8 +301,6 @@ https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 -->
 
 # References
-
-TODO: organize these
 
 [1] Bogachev, Vladimir I., et al. Fokker–Planck–Kolmogorov Equations. Vol. 207. American Mathematical Society, 2022.
 
