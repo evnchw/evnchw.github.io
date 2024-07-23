@@ -58,7 +58,7 @@ $$
 \end{align}
 $$
 
-where we have defined the density of $$X$$ as $$m: \mathbb{R}^d \times [0,T] \to \mathbb{R}$$. That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.
+for some vector field $$b: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$, and where we have defined the density of $$X$$ as $$m: \mathbb{R}^d \times [0,T] \to \mathbb{R}$$. (That is, $$m(x, t)$$ will be the density of $$x$$ at time $$t$$.)
 
 - $$m$$ is a member of the Lebesgue space $$L^1$$ ([StackExchange](https://math.stackexchange.com/questions/745894/what-does-it-mean-to-be-an-l1-function)). Informally, the absolute value of $$m$$ is bounded everywhere.
 - We assume that the probability density vanishes at the boundaries so that $$m^c(\pm\infty)=0$$ for all orders of differentiation $c$. This additional regularity condition corresponds to the "natural boundary" condition referenced in (Orlandin 2024).
