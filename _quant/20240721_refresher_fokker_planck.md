@@ -168,7 +168,7 @@ $$
 \end{align}
 $$
 
-where $$\m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$. To take the integrals, we will use integration by parts and also our boundary conditions for $$\phi, m$$.
+where $$m, \phi, \mu, \sigma$$ are all functions of $$(X_s, s)$$. To take the integrals, we will use integration by parts and also our boundary conditions for $$\phi, m$$.
 
 $$
 \begin{align}
@@ -255,11 +255,13 @@ $$
 \begin{align}
     \frac{\partial m}{\partial t} &= - \frac{\partial (m \mu)}{\partial X} + \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2} & \text{Fokker-Planck} \\
     \frac{\partial m(X_t, t)}{\partial t} &= - \frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t} +
-        \frac{1}{2} \frac{\partial^2 (m(X_t, t)\sigma(X_t, t)^2)}{\partial X_t^2} & \text{with parameters}
+        \frac{1}{2} \frac{\partial^2 (m(X_t, t)\sigma(X_t, t)^2)}{\partial X_t^2} & \text{parametrized}
 \end{align}
 $$
 
-This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. Briefly, this says that the probability density of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion.
+This is the Fokker-Planck (forward Kolmogorov) equation, specifying the dynamics of $$X$$'s probability density $$m(X, t)$$ over $$t \in (0, T)$$. Briefly, this says that the probability density of $$X$$ evolves stochastically, negatively wrt. $$X$$'s drift and positively wrt. $$X$$'s diffusion. It is important to take a moment to examine each term and importantly its dimensions.
+
+- $$\frac{\partial m(X_t, t)}{\partial t}$$ is a **scalar field**. This means 
 
 Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardaliguet notes (Achdou et al. 2020).
 
