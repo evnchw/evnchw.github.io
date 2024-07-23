@@ -6,7 +6,7 @@ permalink: /quant/20240723_refresher_fokker_planck
 date: 2024-07-23
 ---
 
-These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the evolution of a probability density over time, and how it appears in mean field game theory.
+**These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the evolution of a probability density over time, and how this appears in mean field game theory.**
 
 Like my notes on [Hamilton-Jacobi-Bellman](https://evnchw.github.io/quant/20240623_refresher_hjb), I focus on the main analytical aspects and intuitive understanding rather than the detailed proofs. I follow a similar format as well.
 
@@ -17,7 +17,7 @@ Like my notes on [Hamilton-Jacobi-Bellman](https://evnchw.github.io/quant/202406
 - There may be imprecisions: all feedback and corrections are welcome.
 - Long equations may not show up on mobile.
 
-There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games (Achdou et al. 2020, 1.3.1), and reviewed also in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result with some depth.
+There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010). **Here, we will derive the version of Fokker-Planck in the Achdou/Cardialiguet introductory notes on mean field games (Achdou et al. 2020, 1.3.1), and also appearing in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result with some depth.
 
 Specifically:
 
