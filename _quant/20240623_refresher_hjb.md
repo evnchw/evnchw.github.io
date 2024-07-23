@@ -1,5 +1,5 @@
 ---
-title: "Refresher on Hamilton-Jacobi-Bellman"
+title: "Refresher on Hamilton-Jacobi-Bellman and dynamic programming"
 collection: quant
 type: "Post"
 permalink: /quant/20240623_refresher_hjb
