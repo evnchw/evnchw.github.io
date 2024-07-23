@@ -347,6 +347,17 @@ $$
 
 Setting the MFG notation such that $$b := \mu$$ and the initial distribution $$m(x,0)=m_0(x)=Z_0$$ finishes the equivalence. $$\square$$
 
+## Summary
+
+In this article we:
+
+- discussed briefly how the probability density of states plays a role in mean field games
+- started with states that follow a drift-diffusion stochastic differential equation
+- obtained the dynamics of the state distribution (probability density), yielding the Fokker-Planck equation
+- showed equivalence to the common $$\varepsilon$$-formulation of Fokker-Planck in the mean field game literature
+
+All feedback and suggestions are welcome.
+
 ## Appendix: non-simplified expansion of Fokker-Planck
 
 If we keep $$\sigma(X_t, t)$$, then we obtain for the diffusion derivative term where it appears:
