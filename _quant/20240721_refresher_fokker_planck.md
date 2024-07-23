@@ -10,7 +10,7 @@ These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the
 
 - I prioritize intuition/readability linking to references where appropriate.
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
-- All feedback and corrections are welcome.
+- There may be imprecisions: all feedback and corrections are welcome.
 
 There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games ("MFG") (Achdou et al. 2020, "1.3.1 Heuristic derivation of the MFG system"), and reviewed also in (Ryzhik 2018). This is a core ingredient of a standard MFG formulation, namely specifying how the distribution of many agents evolves over time, and so it is important to understand this result with some depth.
 
