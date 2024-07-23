@@ -6,7 +6,9 @@ permalink: /quant/20240723_refresher_fokker_planck
 date: 2024-07-23
 ---
 
-These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the evolution of a probability density over time. Like my notes on [Hamilton-Jacobi-Bellman](https://evnchw.github.io/quant/20240623_refresher_hjb), I focus on the main analytical aspects and intuitive understanding rather than the detailed proofs. I follow a similar format as well.
+These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the evolution of a probability density over time, and how it appears in mean field game theory.
+
+Like my notes on [Hamilton-Jacobi-Bellman](https://evnchw.github.io/quant/20240623_refresher_hjb), I focus on the main analytical aspects and intuitive understanding rather than the detailed proofs. I follow a similar format as well.
 
 **Disclaimers**:
 
@@ -52,16 +54,16 @@ $$
 
 In the MFG world, we are interested in how the *distribution* of $$X$$ evolves over time, as to model the crowd behavior of many (identical) agents. Since $$X$$ evolves stochastically (via the Brownian), we need to focus on the probability density of $$X$$. This is just a transformation of $$X$$, which motivates using Ito's Lemma to model its dynamics, and with more analysis, ultimately the Fokker-Planck forward equation.
 
-Specifically we want to see how the above drift-diffusion system satisfies the Fokker-Planck forward equation (Achdou et al. 2020, 1.3):
+Specifically we want to see how the above drift-diffusion system satisfies the Fokker-Planck forward equation below. This general formulation comes from (Ryzhik 2018, 4.2) and more rigorously in (Achdou et al. 2020, 1.3):
 
 $$
 \begin{align}
-    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{R}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
+    \frac{\partial m}{\partial t} - \varepsilon \Delta m - \text{div} (mb) &= 0 & \text{in } \mathbb{R}^d \times (0,T) & \hspace{0.5cm} \text{density evolution} \\
     m(x,0) &= m_0 (x) & \text{initial density}
 \end{align}
 $$
 
-for some vector field $$b: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$.
+for some vector field $$b: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$. (Later in a mean field game, this will based on the optimal controls.)
 
 We introduce here the probability density of $$d-$$dimensional $$X$$ at time $$t$$ as $$m: \mathbb{R}^d \times [0,T] \to \mathbb{R}$$.
 
@@ -265,9 +267,9 @@ $$
 \end{align}
 $$
 
-### Removing the test function to obtain Fokker-Planck
+### Eliminating the test function to obtain Fokker-Planck
 
-Since we have specifed any arbitrary $$\phi$$, this implies the rest of the integrand must be zero. Rearranging and adding back notation we obtain for any time $$t$$:
+Note we have specified this for any smooth arbitrary $$\phi$$, with endpoints fixed at $$\phi(.,0)=\phi(.,T)=0$$. This includes many possible function paths bounded far away from zero, which implies the rest of the integrand (bracketed) must be zero. Rearranging and adding back notation we obtain for any time $$t$$:
 
 $$
 \begin{align}
@@ -285,24 +287,81 @@ Briefly, this says that the probability density of $$X$$ evolves stochastically,
 - Drift term $$\frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t}: \mathbb{R}^d \times [0, T] \to \mathbb{R}$$: This is also a scalar field since $$m, \mu$$ are each scalar fields.
 - Diffusion term $$\frac{1}{2} \frac{\partial^2 (m(X_t, t)\sigma(X_t, t)^2)}{\partial X_t^2}$$: This is also a scalar field since $$m, \sigma$$ are each scalar fields.
 
-### Linking back to the MFG notation
+### Linking back to MFG, summary and simplification
 
-Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardaliguet notes (Achdou et al. 2020). That is, we want to show the equivalence between our Fokker-Planck density and the MFG-notated formulation:
+Lastly, we need to tie this back to the mean field game notation in the Achdou/Cardaliguet notes (Achdou et al. 2020). Summarizing, we want to show equivalence between the Fokker-Planck density dynamics and the MFG density dynamics.
 
 $$
 \begin{align}
-    \text{scalar fields } m, \mu, \sigma, b: \mathbb{R}^d \times [0, T] &\to \mathbb{R} \\
-    \frac{\partial m}{\partial t} - \frac{1}{2} \frac{\partial^2 (m\sigma^2)}{\partial X^2} - \frac{\partial (m \mu)}{\partial X} &= 0 & \text{Fokker-Planck density dynamics} \\
+    d X_t = - \mu(X_t, t) dt + \sigma(X_t, t) dB_t & &\text{state dynamics} \\
+    X_0 = Z_0 & & \text{initial state} \\
+    m, \mu, \sigma, b: \mathbb{R}^d \times [0, T] &\to \mathbb{R} & \text{scalar fields} \\
+    \underbrace{\frac{\partial m(X_t, t)}{\partial t}}_{\text{time derivative}} - \underbrace{\frac{1}{2} \frac{\partial^2 (m(X_t, t)\sigma(X_t, t)^2)}{\partial X_t^2}}_{\text{diffusion derivative}} - \underbrace{\frac{\partial \left(m(X_t, t) \mu(X_t, t)\right)}{\partial X_t}}_{\text{divergence derivative}} &= 0 & \text{Fokker-Planck density dynamics} \\
     m(X_t, 0) &= Z_0 & \text{Fokker-Planck initial density} \\
-    \frac{\partial m}{\partial t} - \Delta m - \text{div} (mb) &= 0 &\text{MFG density dynamics} \\
+    \frac{\partial m}{\partial t} - \varepsilon \Delta m - \text{div} (mb) &= 0 &\text{MFG density dynamics} \\
     m(x,0) &= m_0 (x) & \text{MFG initial density}
 \end{align}
 $$
 
-<!--
-https://math.stackexchange.com/questions/2292544/understanding-the-fokker-planck-equation-for-non-stationary-processes
-https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
--->
+**To align this with the simple MFG formulation, we need to introduce a simple functional form for the diffusion coeficient.**
+
+Let $$\sigma(X_t, t)=\sqrt{2 \varepsilon}$$ for some $$\varepsilon > 0$$. (See Appendix). Then this yields:
+
+$$
+\begin{align}
+    d X_t = - \mu(X_t, t) dt + \sigma(X_t, t) dB_t & &\text{state dynamics} \\
+    X_0 = Z_0 & & \text{initial state} \\
+    m, \mu, \sigma, b: \mathbb{R}^d \times [0, T] &\to \mathbb{R} & \text{scalar fields} \\
+    \underbrace{\frac{\partial m(X_t, t)}{\partial t}}_{\text{time derivative}} - \varepsilon \underbrace{\frac{\partial^2 (m(X_t, t))}{\partial X_t^2}}_{\text{diffusion derivative}} - \underbrace{\frac{\partial \left(m(X_t, t) \mu(X_t, t)\right)}{\partial X_t}}_{\text{divergence derivative}} &= 0 & \text{Fokker-Planck density dynamics} \\
+    m(X_t, 0) &= Z_0 & \text{Fokker-Planck initial density} \\
+    \frac{\partial m}{\partial t} - \varepsilon \Delta m - \text{div} (mb) &= 0 &\text{MFG density dynamics} \\
+    m(x,0) &= m_0 (x) & \text{MFG initial density}
+\end{align}
+$$
+
+### Linking back to MFG, showing equivalence
+
+We expand the partial derivative terms on the Fokker-Planck side to show equivalence to the corresponding MFG terms. Recall states are a vector $$X_t = (X_t^1, X_t^2, \dots, X_t^d)^T \in \mathbb{R}^d$$. For any given ($$X_t, t$$) we need to evaluate the derivative terms. (Each is also a scalar field and yields a scalar value.)
+
+Before proceeding, recall that the [Laplace operator](https://en.wikipedia.org/wiki/Laplace_operator) is the sum of all the unmixed second partial derivatives, and the [divergence operator](https://en.wikipedia.org/wiki/Divergence) is the sum of all the partial derivatives. Hence it is straightforward to see the equivalence below:
+
+$$
+\begin{align}
+    \frac{\partial m(X_t, t)}{\partial t} &= \frac{\partial m(X_t, t)}{\partial t} +
+        \underbrace{\sum_{i=1}^d \frac{\partial m(X_t, t)}{\partial X_t^i} \frac{\partial X_t^i}{\partial t}}_{\text{chain rule}} = \frac{\partial m}{\partial t} & \text{time derivative} \\
+    
+    \frac{\partial^2 (m(X_t, t))}{\partial X_t^2} &= \underbrace{\sum_{i=1}^d \frac{\partial^2 m(X_t, t)}{\partial (X_t^i)^2}}_{\text{Laplace operator }\Delta} \stackrel{\text{def.}}{=} \Delta m & \text{diffusion derivative} \\
+
+    \frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t} &= \underbrace{\sum_{i=1}^d \frac{\partial (m(X_t, t) \mu(X_t, t))}{\partial X_t^i}}_{\text{Divergence operator}} \stackrel{\text{def.}}{=} \text{div}(m\mu) & \text{divergence derivative}
+\end{align}
+$$
+
+Therefore our Fokker Planck equation becomes:
+
+$$
+\begin{align}
+    \frac{\partial m(X_t, t)}{\partial t} - \varepsilon \frac{\partial^2 (m(X_t, t))}{\partial X_t^2} - \frac{\partial \left(m(X_t, t) \mu(X_t, t)\right)}{\partial X_t} &= 0 & \text{Fokker-Planck from above} \\
+    \frac{\partial m}{\partial t} - \varepsilon \Delta m - \text{div}(m \mu) &= 0 & \text{Fokker-Planck, with MFG notation}
+\end{align}
+$$
+
+Setting the MFG notation such that $$b := \mu$$ and the initial distribution $$m(x,0)=m_0(x)=m(X_0, 0)$$ finishes the equivalence. $$\square$$
+
+## Appendix: non-simplified expansion of Fokker-Planck
+
+If we keep $$\sigma(X_t, t)$$, then we obtain for the diffusion derivative term where it appears:
+
+$$
+\begin{align}
+    \frac{\partial^2 (m(X_t, t) \sigma(X_t, t)^2)}{\partial X_t^2} &= \sum_{i=1}^d \frac{\partial^2 (m(X_t, t) \sigma(X_t, t)^2)}{\partial (X_t^i)^2} & \text{diffusion derivative} \\
+    &= \sum_{i=1}^d \frac{\partial}{\partial X_t^i} \underbrace{\left[\sigma(X_t, t)^2 \frac{\partial m}{\partial X_t^i} + 2m(X_t, t) \sigma(X_t, t) \frac{\partial \sigma(X_t, t)}{\partial X_t^i}\right]}_{\text{first derivative via product rule}} \\
+    &= \sum_{i=1}^d \left[
+        \sigma(X_t, t)^2 \frac{\partial^2 m}{\partial (X_t^i)^2} + 4 \sigma(X_t, t) \frac{\partial \sigma(X_t, t)}{\partial X_t^i} \frac{\partial m}{\partial X_t^i} + 2m(X_t, t) \left( \frac{\partial \sigma(X_t, t)}{\partial X_t^i} \right)^2 + 2m(X_t, t) \sigma(X_t, t) \frac{\partial^2 \sigma(X_t, t)}{\partial (X_t^i)^2}
+    \right]
+\end{align}
+$$
+
+which makes things much more complex.
 
 # References
 
