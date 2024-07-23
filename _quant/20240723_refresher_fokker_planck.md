@@ -1,5 +1,5 @@
 ---
-title: "[under construction] Refresher on Fokker-Planck for mean field games"
+title: "Refresher on Fokker-Planck for mean field games"
 collection: quant
 type: "Post"
 permalink: /quant/20240723_refresher_fokker_planck
