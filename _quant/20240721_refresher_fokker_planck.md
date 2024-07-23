@@ -12,12 +12,15 @@ These are my quick refresher notes on Fokker-Planck (forward Kolmogorov) for the
 - We will focus on the key equations, not go too deeply into proofs and may skip some parts for brevity.
 - All feedback and corrections are welcome.
 
-There are various ways to look at Fokker-Planck (see [1] for a relatively recent introduction, and [2] for a control-oriented treatment), but we are going to work through the view of Fokker-Planck sketched in [3] in the context of mean field games (MFG). Specifically:
+There are various ways to look at Fokker-Planck (Bogachev 2022; Sharma 2010), but we are going to work through the view sketched briefly in the Achdou/Cardialiguet intro notes on mean field games ("MFG") (Achdou et al. 2020, "1.3.1 Heuristic derivation of the MFG system"). This is a core ingredient of a standard MFG formulation, and so it is important to understand this result in depth.
 
-1. We wish to understand a particular forward Fokker-Planck equation that appears in MFG
-2. We want to understand a particular associated drift-diffusion solution
+Specifically:
 
-In other words, we go backward: we have the the FP equation for how a probability density evolves, and then we want to understand which probability densities can satisfy this. This is important because it tells us what our theoretical (distributional) boundaries are for modeling many-agent behavior in MFG and what is required to take advantage of MFG results.
+1. We take a look at the (standard) drift-diffusion dynamics of the underlying states.
+2. We derive its forward Fokker-Planck equation that specifies how its probability distribution evolves over tiem.
+3. We tie this back to the MFG formulation in the Achdou/Cardialiguet notes.
+
+This is important because it tells us what our theoretical (distributional) boundaries are for modeling many-agent behavior in MFG and what is required to take advantage of MFG results.
 
 ## In a nutshell: the FP equation provides a way to model the evolution of a probability density over time
 
@@ -305,6 +308,8 @@ https://en.wikipedia.org/wiki/Fokker%E2%80%93Planck_equation
 [1] Bogachev, Vladimir I., et al. Fokker–Planck–Kolmogorov Equations. Vol. 207. American Mathematical Society, 2022.
 
 [2] Sharma, Shambhu N., and Hiren G. Patel. "The Fokker-Planck equation." Stochastic Control. Rijeka: IntechOpen, 2010. 1-20.
+
+[3] Achdou, Yves, et al. "An introduction to mean field game theory." Mean Field Games: Cetraro, Italy 2019 (2020): 1-158.
 
 [3] [Ryzhik (2018)](https://math.stanford.edu/~ryzhik/STANFORD/MEAN-FIELD-GAMES/notes-mean-field.pdf)
 
