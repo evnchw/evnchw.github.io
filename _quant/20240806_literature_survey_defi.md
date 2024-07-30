@@ -40,19 +40,21 @@ However, note this includes some noise: papers that were returned by the search 
 
 ## The top 100 papers
 
-For each paper, we present three bullet points.
+For each paper, we present the title/abstract/citation count, followed by three bullet points.
 
-1. Research objective - this covers the main research question(s), the goal of the work, etc.
-2. Key findings - this covers important findings and how they were achieved (methodology, etc.).
-3. Implications & evaluation - this covers the implications of the research and our opinion on the research overall.
+- Research objective - this covers the main research question(s), the goal of the work, etc.
+- Key findings - this covers important findings and how they were achieved (methodology, etc.).
+- Implications & evaluation - this covers the implications of the research and our opinion on the research overall.
 
 
 ### #1. Zetzsche, Dirk A., Douglas W. Arner, and Ross P. Buckley. "Decentralized finance." Journal of Financial Regulation 6.2 (2020): 172-203.
-*Citations: 492*
-  - **Research objective**: 
+
+> DeFi (‘decentralized finance’) has joined FinTech (‘financial technology’), RegTech (‘regulatory technology’), cryptocurrencies, and digital assets as one of the most discussed emerging technological evolutions in global finance. Yet little is really understood about its meaning, legal implications, and policy consequences. In this article we introduce DeFi, put DeFi in the context of the traditional financial economy, connect DeFi to open banking, and end with some policy considerations. We suggest that decentralization has the potential to undermine traditional forms of accountability and erode the effectiveness of traditional financial regulation and enforcement. At the same time, we find that where parts of the financial services value chain are decentralized, there will be a reconcentration in a different (but possibly less regulated, less visible, and less transparent) part of the value chain. DeFi regulation could, and should, focus on this reconcentrated portion of the value chain to ensure effective oversight and risk control. Rather than eliminating the need for regulation, in fact DeFi requires regulation in order to achieve its core objective of decentralization. Furthermore, DeFi potentially offers an opportunity for the development of an entirely new way to design regulation: the idea of ‘embedded regulation’. Regulatory approaches could be built into the design of DeFi, thus potentially decentralizing both finance and its regulation, in the ultimate expression of RegTech.
+
+  - **Citations**: 492
+  - **Research objective**: To discuss the role of financial regulation in DeFi, the relationship to traditional financial regulation, and recommendations for regulating DeFi.
   - **Key findings**: 
   - **Implications & evaluation**: 
-
 
 <!-- placeholder -->
 ### #X. PLACEHOLDER
