@@ -6,7 +6,7 @@ permalink: /quant/20240623_refresher_hjb
 date: 2024-06-23
 ---
 
-**This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Bellman ("HJB") in optimal control, including dynamic programming for both deterministic and stochastic formulations.**
+This is a quick refresher on the basic formulation and ideas of Hamilton-Jacobi-Bellman ("HJB") in optimal control, including dynamic programming for both deterministic and stochastic formulations.
 
 The notes and notation here are adapted from [1], with additional notes from [2] and [3]. (We keep mean field game theory in mind for down the road.) I go into much more detail to understand each aspect.
 
