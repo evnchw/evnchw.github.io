@@ -38,6 +38,29 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Decentralized_finance):
 
 However, note this includes some noise: papers that were returned by the search query but not related to DeFi.
 
+## The top 100 papers
+
+For each paper, we present three bullet points.
+
+1. Research objective - this covers the main research question(s), the goal of the work, etc.
+2. Key findings - this covers important findings and how they were achieved (methodology, etc.).
+3. Implications & evaluation - this covers the implications of the research and our opinion on the research overall.
+
+
+### #1. Zetzsche, Dirk A., Douglas W. Arner, and Ross P. Buckley. "Decentralized finance." Journal of Financial Regulation 6.2 (2020): 172-203.
+*Citations: 492*
+  - **Research objective**: 
+  - **Key findings**: 
+  - **Implications & evaluation**: 
+
+
+<!-- placeholder -->
+### #X. PLACEHOLDER
+*Citations: N*
+  - **Research objective**: 
+  - **Key findings**: 
+  - **Implications & evaluation**:
+
 
 
 
