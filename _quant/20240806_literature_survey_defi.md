@@ -58,10 +58,10 @@ For each paper, we present the title/abstract/citation count, followed by three 
 
 <!-- placeholder -->
 ### #X. PLACEHOLDER
-*Citations: N*
-  - **Research objective**: 
-  - **Key findings**: 
-  - **Implications & evaluation**:
+  - **Citations**: A
+  - **Research objective**: B
+  - **Key findings**: C
+  - **Implications & evaluation**: D
 
 
 
