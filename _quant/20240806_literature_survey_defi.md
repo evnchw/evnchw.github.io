@@ -17,16 +17,18 @@ In this post I attempt to get up to speed quickly on DeFi. Why academic papers a
 To obtain this list, I used the tool [Publish or Perish](https://harzing.com/resources/publish-or-perish) to search for the most cited papers in DeFi.
 
 - First, I obtain the first 500 papers for DeFi that show up on Google Scholar.
+  - **This list was fetched on August 3, 2024.**
   - **This is roughly Google's "top 500 papers," which I will filter down further.
-  - Search query: "defi AND decentralized finance", and only 2013 onward (when Ethereum was released). Omits citation records and patents.
-  - 500 is the max request limit. I could probably find more, but Google Scholar already returns more influential papers first, and I don't need a perfect list.
-  - This list was fetched on July 30, 2024.
+  - Search query: "defi AND decentralized finance"
+  - Only 2013 onward (when Ethereum was released); this will push down the citation counts in the tool a little.
+  - Omits citation records and patents. I also skip full books for obvious reasons.
+  - I could find more than 500 papers but Google Scholar already returns more influential papers first, and I only survey the top 100 anyway.
 - Then I simply sort by decreasing citation count, since my goal is simply to read the most cited papers in the field, from most influential to least influential.
   - [Yes, pure citation count is not perfect by any means](https://academia.stackexchange.com/questions/37021/why-is-it-bad-to-judge-a-paper-by-citation-count)
 - I give some summary statistics on this universe of 500 papers.
 - Out of those, I pick **top 100** to read and summarize for this blog post.
 
-**Here are my rough notes.** Let's go!
+**Here are my very rough notes.** Let's go!
 
 ## What is decentralized finance?
 
@@ -36,21 +38,23 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Decentralized_finance):
 
 ## Summary of Google's top 500 papers on DeFi
 
-HoIver, note this includes some noise: papers that Ire returned by the search query but not related to DeFi.
+HoIver, note this includes some noise: papers that are returned by the search query but not related to DeFi.
 
 ## The top 100 papers
 
-For each paper, I present the title/abstract/citation count, folloId by three bullet points.
+For each paper, I present the title/abstract/citation count, followed by three bullet points.
 
 - Research objective - this covers the main research question(s), the goal of the work, etc.
-- Key findings - this covers important findings and how they Ire achieved (methodology, etc.).
+- Key findings - this covers important findings and how they are achieved (methodology, etc.).
 - Implications & evaluation - this covers the implications of the research and our opinion on the research overall.
 
-### #1. Zetzsche, Dirk A., Douglas W. Arner, and Ross P. Buckley. "Decentralized finance." Journal of Financial Regulation 6.2 (2020): 172-203.
+### #1. 
+
+### #3. Zetzsche, Dirk A., Douglas W. Arner, and Ross P. Buckley. "Decentralized finance." Journal of Financial Regulation 6.2 (2020): 172-203.
 
 > DeFi (‘decentralized finance’) has joined FinTech (‘financial technology’), RegTech (‘regulatory technology’), cryptocurrencies, and digital assets as one of the most discussed emerging technological evolutions in global finance. Yet little is really understood about its meaning, legal implications, and policy consequences. In this article I introduce DeFi, put DeFi in the context of the traditional financial economy, connect DeFi to open banking, and end with some policy considerations. I suggest that decentralization has the potential to undermine traditional forms of accountability and erode the effectiveness of traditional financial regulation and enforcement. At the same time, I find that where parts of the financial services value chain are decentralized, there will be a reconcentration in a different (but possibly less regulated, less visible, and less transparent) part of the value chain. DeFi regulation could, and should, focus on this reconcentrated portion of the value chain to ensure effective oversight and risk control. Rather than eliminating the need for regulation, in fact DeFi requires regulation in order to achieve its core objective of decentralization. Furthermore, DeFi potentially offers an opportunity for the development of an entirely new way to design regulation: the idea of ‘embedded regulation’. Regulatory approaches could be built into the design of DeFi, thus potentially decentralizing both finance and its regulation, in the ultimate expression of RegTech.
 
-  - **Citations**: 492
+  - **Citations**: 494
   - **Research objective**: To discuss the role of financial regulation in DeFi, the relationship to traditional financial regulation, and recommendations for regulating DeFi.
   - **Key notes**:
     - defi: a key advantage of providing multiple "hubs" for financial services and (de)regulation
