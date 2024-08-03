@@ -2,8 +2,8 @@
 title: "DeFi, top 100 papers (August 2024)"
 collection: quant
 type: "Post"
-permalink: /quant/20240806_literature_survey_defi
-date: 2024-08-06
+permalink: /quant/20240810_literature_survey_defi
+date: 2024-08-10
 ---
 
 This is a whirlwind survey of the top 100 recent papers in decentralized finance, based on Google Scholar citation data.
