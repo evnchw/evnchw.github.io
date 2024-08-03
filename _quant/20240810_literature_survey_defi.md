@@ -165,7 +165,11 @@ Decentralized finance (DeFi) is a blockchain-based financial infrastructure that
             - 1. flash loans / atomic transactions: within the same transaction, you borrow, execute and repay back. If the funds are not paid by the transaction execution cycle (e.g. somehow slip in before the repayment), the transaction will be cancelled and reverted.
             - 2. collateral (for loans)
               - A. collateralized debt: you lock up an (overcollateralized) amout of another cryptoasset to issue yourself a collateralized loan token that lets you withdraw an amount up to the equivalent amount of your (over-)collateral. To close the loan, you need to repay the amount plus interest rate set by protocol governance token holders.
-            - 
+              - B. collateralized debt markets: instead of locking up your collateral in that way, you find a counterparty directly to borrow (lend) from. This can be done in two ways:
+                - direct peer-to-peer lending, with fixed interest rate, if there is a match
+                - pooled lending: borrower funds all combined into a pool of liquidity, with dynamic interest rates set by supply and demand for those funds
+        - Decentralized derivatives
+          - 
   - **Overall impression**:
 
 ### #3. Zetzsche, Dirk A., Douglas W. Arner, and Ross P. Buckley. "Decentralized finance." Journal of Financial Regulation 6.2 (2020): 172-203.
