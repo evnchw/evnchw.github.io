@@ -64,11 +64,109 @@ reshape the structure of modern finance and create a new landscape for entrepren
 innovation, showcasing the promises and challenges of decentralized business models.
 ```
 
-  - **Citations**: ...
-  - **Research objective**: ...
-  - **Key notes**: ...
+  - **Citations**: 711
+  - **Research objective**: Survey the benefits, challenges, and limits of blockchain-based decentralized finance.
+  - **Key notes**:
+    - This is a business school study.
+    - decentralized finance (as of 2020) is not fully interoperable, i.e. integration across protocols (blockchains): 87% of publicly funded DeFi projects were on Ethereum
+    - what are the major business models in DeFi?
+      - decentralized currencies (Bitcoin, etc.)
+      - decentralized payment networks (Libra, Bitcoin, Ripple, etc.)
+      - decentralized fundraising
+        - initial coin offering: project offers investors stake in token
+        - initial exchange offering: project lists on an existing crypto exchange
+      - decentralized contracting
+        - smart contracts: auto-execute contract when conditions reached
+    - risks
+      - susceptible to fraud / bugs / risk
+      - underlying often has volatility
+      - technology push > pull: trap of building tech first, then hoping people will join
+    - what are the fundamental limits of defi?
+      - cost of distributed trust: inherently costly by distributing info to everyone?
+      - user privacy: some protocols (Monero, Zcash) do this but not sure
+      - decentralized consensus: may slow major upgrades and innovations
+      - accountability: who should be accountable for major issues that come up?
+      - not holistic: financial aspects that cannot be recorded objective transactions on the ledger (my thought: credit ratings may be tough)
+      - lack of human judgment: may inhibit progress broadly
   - **Overall impression**:
+    - Just a quick, readable survey paper of decentralized finance, its business use cases, risks, and limits. Breadth over depth for this one. (Probably things have changed a lot since 2020.)
 
+### #2. Schar, Fabian. "Decentralized Finance: On Blockchain and Smart Contract-Based Financial Markets." Federal Reserve Bank of St. Louis Review, Second Quarter 2021, 103(2), pp. 153-74.
+
+```
+Decentralized finance (DeFi) is a blockchain-based financial infrastructure that has recently gained a lot of traction. The term generally refers to an open, permissionless, and highly interoperable protocol stack built on public smart contract platforms, such as the Ethereum blockchain (see Buterin, 2013). It replicates existing financial services in a more open and transparent way. In particular, DeFi does not rely on intermediaries and centralized institutions. Instead, it is based on open protocols and decentralized applications (DApps). Agreements are enforced by code, transactions are executed in a secure and verifiable way, and legitimate state changes persist on a public blockchain. Thus, this architecture can create an immutable and highly interoperable financial system with unprecedented transparency, equal access rights, and little need for custodians, central clearing houses, or escrow services, as most of these roles can be assumed by “smart contracts.” The term decentralized finance (DeFi) refers to an alternative financial infrastructure built on top of the Ethereum blockchain. DeFi uses smart contracts to create protocols that replicate existing financial services in a more open, interoperable, and transparent way. This article highlights opportunities and potential risks of the DeFi ecosystem. I propose a multi-layered framework to analyze the implicit architecture and the various DeFi building blocks, including token standards, decentralized exchanges, decentralized debt markets, blockchain derivatives, and on-chain asset management protocols. I con- clude that DeFi still is a niche market with certain risks but that it also has interesting properties in terms of efficiency, transparency, accessibility, and composability. As such, DeFi may potentially contribute to a more robust and transparent financial infrastructure. (JEL G15, G23, E59)
+```
+
+  - **Citations**: 692
+  - **Research objective**: This is a Fed paper that proposes a framework for evaluating and assessing risks across the DeFi ecosystem (protocols, markets, financial functionality, technology, etc.).
+  - **Key notes**:
+    - At the time of writing, stablecoins (USD) were already in circulation, and about $10B in DeFi.
+    - The backbone of DeFi are smart contracts, on the public ledger for verification by every participant.
+      - My thought is that this is verification at the level of the technology logic, not verification at the sense of financial standards and regulation (of course).
+    - Original idea of a smart contract comes from Szabo (1994): the idea that transactions could be embedded in technology in such a way to make breach of contract expensive. (I suppose this idea later made its way to Bitcoin.)
+    - What are the building blocks of DeFi? **Framework: SAPAA**
+      - Architecture: hierarchical layer format (each layer depends on layer below.)
+      - Five general layers, from deepest to the surface.
+        - Settlements (layer 1): Underlying blockchain with smart contract functionality + its native token.
+          - Authoritative transaction history, handles settlements & dispute resolution etc.
+          - (Example: Ethereum, with native ETH token.)
+          - Mechanics:
+            - underlying blockchain. adding additional tokens = "tokenization" and gets recorded on the ledger
+            - ex: Ethereum issues tokens via the "ERC-20" token standard (as a primary one).
+        - Assets (layer 2): Assets on top of this underlying blockchain.
+          - Includes native token + other tokens (fungible/non-fungible) that are also on top of the blockchain.
+          - For instance this includes the fungible token DAI which is implemented via underlying smart contract logic on the Ethereum blockchain.
+          - My understanding is this also includes non-fungible tokens (NFTs) as well.
+        - Protocols (layer 3): Specific use cases built on top of the Settlement and Assets layer.
+          - Example: debt, lending, derivatives, on-chain asset management, etc.
+          - Implemented as set of smart contracts, all interoperable.
+        - Applications (layer 4): user-specific applications, say web interfaces, user-oriented software etc.
+        - Aggregations (layer 5): aggregation across user-specific applications
+          - compare protocols, summarize information in a clear manner, etc.
+      - Summarizing all this with a new user use case at the protocol layer (layers 1-3)
+        - Say you want to send DAI (a kind of token)
+        - I set up a crypto wallet via some wallet platform like MetaMask.
+        - On a crypto exchange (say Coinbase) I use USD to buy ETH.
+        - Then on a decentralized exchange (say Uniswap) I use that ETH to buy DAI, paying a little ETH in gas fees.
+          - DAI is implemented via smart contract functionality on the Ethereum blockchain, and the most common & standard smart contract logic is the ERC-20 standard.
+            - ERC-20: a set of functions and events (transfer, transferFrom, etc.) that all tokens must implement in their smart contract functionality. Interoperable with everything that usees ERC-20.
+          - Note I need ETH to participate (pay gas fees) on this blockchain.
+        - So now I have used USD to buy DAI, and can send it to my friend's wallet.
+      - For assets backed in tokens (such as DAI), which are themselves implemented in Defi protocols, how are those backed in real value? (collateralized)
+      - Three ways of collateralization.
+        - 1. Off-chain collateral: proffer as collateral tokens that are backed by real assets, most common being USDT and USDC for the dollar and DGX for gold. However, these require off-chain audits, may require being collateralized in commercial banks and other traditional financial solutions, and so may lose some transparency and decentralization that the blockchain offers.
+        - 2. On-chain collateral: proffer as collateral tokens the native token of the underlying settlement layer (for Ethereum, ETH). Fast and transparent.
+          - However, may experience price fluctuations. ETH is not pegged to the dollar, and so the ETH/USD is a floating rate.
+          - To deal with this: require you to overcollateralize (say 150% of what you want to deal with in DAI) and if the collateral (ETH) drops below some threshold due to the floating rate (ETH/USD), it will start to auction off the collateral returning the principal to the owners and cancelling the debt. Because it is overcollateralized, the loan holder has a disincentive to default.
+      - Decentralized exchange protocols
+        - early ones: less transparent, no shared liquidity between exchanges (walled garden), very illiquid ecosystem in general
+        - open exchange protocols: transparent market making process
+        - decentralized order book exchanges
+          - on-chain order book
+            - completely decentralized, but expensive because placing a limit order (intent to trade) / cancellation must also be recorded as a transaction, so slow and costly
+          - off-chain order book (e.g. 0x)
+            - can treat the blockchain just for settlement ("executed trades")
+            - centralized 3rd-parties (relayers) store and release info on the order book but do not execute/match anything themselves, just provide ordered list with quotes
+          - constant function automated market maker
+            - e.g. Uniswap
+            - between two tokens x and y, and a constant k, maintain y*x=k
+            - trade corresponds to movement on convex curve. ("when the token supply of either one of the two tokens approaches zero, its relative price rises infinitely as a result.")
+            - liquidity provider provides tokens to the pool, earns pool share tokens --> increases k
+            - market price stabilized via public arbitrage
+          - smart-contract reserve aggregation
+            - various liquidity providers offer quotes for tokens (X, Y)
+            - smart contracts automatically find the user the best quote across those and execute
+          - peer-to-peer protocols
+            - look for party to negotiate trade bilaterally with
+            - executed via smart contract. advantage is avoiding front-running
+        - Decentralized lending platforms
+          - advantage: completely anonymous and permissionless, anyone can participate
+          - how is default risk managed?
+            - 1. flash loans / atomic transactions: within the same transaction, you borrow, execute and repay back. If the funds are not paid by the transaction execution cycle (e.g. somehow slip in before the repayment), the transaction will be cancelled and reverted.
+            - 2. collateral (for loans)
+              - A. collateralized debt: you lock up an (overcollateralized) amout of another cryptoasset to issue yourself a collateralized loan token that lets you withdraw an amount up to the equivalent amount of your (over-)collateral. To close the loan, you need to repay the amount plus interest rate set by protocol governance token holders.
+            - 
+  - **Overall impression**:
 
 ### #3. Zetzsche, Dirk A., Douglas W. Arner, and Ross P. Buckley. "Decentralized finance." Journal of Financial Regulation 6.2 (2020): 172-203.
 
@@ -116,8 +214,6 @@ DeFi (‘decentralized finance’) has joined FinTech (‘financial technology�
       - tragedy of the commons: where do incentives to develop the core come from, with increasing decentralization?
       - DeFi will have to recentralize *somewhere* in the value chain (whether it is the core technology development, the regulation, etc.) - big opportunity for embedded regulation
   - **Overall impression**: A useful discussion that opens various questions about DeFi's real ability to decentralize, where the burdens and incentives fall, how risk and reserves are managed, and how it can exist in a regulated financial ecosystem. Embedded regulation is a very interesting idea.
-
-### #2. 
 
 <!-- placeholder -->
 ### #X. TEMPLATE
