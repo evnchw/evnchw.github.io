@@ -379,9 +379,16 @@ Credit allows a lender to loan out surplus capital to a borrower. In the traditi
 This paper is the first to explore the implication of transaction atomicity and flash loans for the nascent decentralized finance (DeFi) ecosystem. We show quantitatively how transaction atomicity increases the arbitrage revenue. We moreover analyze two existing attacks with ROIs beyond 500k%. We formulate finding the attack parameters as an optimization problem over the state of the underlying Ethereum blockchain and the state of the DeFi ecosystem. We show how malicious adversaries can efficiently maximize an attack profit and hence damage the DeFi ecosystem further. Specifically, we present how two previously executed attacks can be “boosted” to result in a profit of  829.5k USD and 1.1M USD, respectively, which is a boost of 2.37 and 1.73, respectively.
 ```
 
-  - **Citations**: ...
-  - **Research objective**: ...
-  - **Key notes**: ...
+  - **Citations**: 238
+  - **Research objective**: Survey and investigate the properties of flash loans.
+  - **Key notes**:
+    - flash loans:
+      - executed (borrow and repaid) within a single transaction
+      - do not require any collateral because no risk of default
+      - can borrow any amount in the liquidity pool (largest: $1B), because instantly repaid
+    - in that sense, anyone can have instant access to massive capital
+    - useful for instantly executing arbitrage
+      - borrow, trade, repay back
   - **Overall impression**:
 
 
