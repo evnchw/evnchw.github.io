@@ -12,9 +12,10 @@ main:
 
   - title: "Music"
     url: /music/
-  
-  - title: "Notes"
-    url: /notes/
+
+  ### OMIT MY INFORMAL NOTES FOR NOW
+  # - title: "Notes"
+  #   url: /notes/
 
   - title: "Other"
     url: /other/
