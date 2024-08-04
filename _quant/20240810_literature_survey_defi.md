@@ -246,7 +246,7 @@ DeFi (‘decentralized finance’) has joined FinTech (‘financial technology�
       - DeFi will have to recentralize *somewhere* in the value chain (whether it is the core technology development, the regulation, etc.) - big opportunity for embedded regulation
   - **Overall impression**: A useful discussion that opens various questions about DeFi's real ability to decentralize, where the burdens and incentives fall, how risk and reserves are managed, and how it can exist in a regulated financial ecosystem. Embedded regulation is a very interesting idea.
 
-### #4. 
+### #4. Werner, Sam, et al. "Sok: Decentralized finance (defi)." Proceedings of the 4th ACM Conference on Advances in Financial Technologies. 2022.
 
 ```
 Decentralized Finance (DeFi), a blockchain powered peer-to-peer financial system, is mushrooming. Two years ago the total value locked in DeFi systems was approximately 700m USD, now, as of April 2022, it stands at around 150bn USD. The frenetic evolution of the ecosystem has created challenges in understanding the basic principles of these systems and their security risks. In this Systematization of Knowledge (SoK) we delineate the DeFi ecosystem along the following axes: its primitives, its operational protocol types and its security. We provide a distinction between technical security, which has a healthy literature, and economic security, which is largely unexplored, connecting the latter with new models and thereby synthesizing insights from computer science, economics and finance. Finally, we outline the open research challenges in the ecosystem across these security types.
@@ -370,6 +370,19 @@ Decentralized Finance (DeFi), a blockchain powered peer-to-peer financial system
         - How do we analyze programs and protocols for technical correctness, formally?
   - **Overall impression**:
     - A useful survey of technical and economic risks in DeFi protocols.
+
+### #5. Qin, Kaihua, et al. "Attacking the defi ecosystem with flash loans for fun and profit." International conference on financial cryptography and data security. Springer, Berlin, Heidelberg, 2021.
+
+```
+Credit allows a lender to loan out surplus capital to a borrower. In the traditional economy, credit bears the risk that the borrower may default on its debt, the lender hence requires upfront collateral from the borrower, plus interest fee payments. Due to the atomicity of blockchain transactions, lenders can offer flash loans, i.e., loans that are only valid within one transaction and must be repaid by the end of that transaction. This concept has lead to a number of interesting attack possibilities, some of which were exploited in February 2020.
+
+This paper is the first to explore the implication of transaction atomicity and flash loans for the nascent decentralized finance (DeFi) ecosystem. We show quantitatively how transaction atomicity increases the arbitrage revenue. We moreover analyze two existing attacks with ROIs beyond 500k%. We formulate finding the attack parameters as an optimization problem over the state of the underlying Ethereum blockchain and the state of the DeFi ecosystem. We show how malicious adversaries can efficiently maximize an attack profit and hence damage the DeFi ecosystem further. Specifically, we present how two previously executed attacks can be “boosted” to result in a profit of  829.5k USD and 1.1M USD, respectively, which is a boost of 2.37 and 1.73, respectively.
+```
+
+  - **Citations**: ...
+  - **Research objective**: ...
+  - **Key notes**: ...
+  - **Overall impression**:
 
 
 <!-- placeholder -->
