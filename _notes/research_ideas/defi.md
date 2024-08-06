@@ -29,5 +29,8 @@
   - other ideas: failed transactions with price drift -> test sensitivity
 - plausible counterfactuals for incentive programs
 - incorporating factor exposure (macro, equity, commodities, fixed income etc.) for protocols
-  - example for August 6: EVERYTHING except USDT/Tether is trending downward
+  - example for August 6: EVERYTHING except USDT/Tether is trending downward, with a little bounce yesterday
   - serious systemic risk
+- for crypto risk management
+  - how do you deal with systemic risk?
+  - how do you deal with endogenous risk? (smart contract bugs, panic/sell-offs triggered by overcollateralization, etc.)
