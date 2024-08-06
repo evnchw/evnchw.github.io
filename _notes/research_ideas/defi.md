@@ -27,3 +27,7 @@
   - can go the reduced-form route: examine shocks, say occurrences of FED raising interest rates (causing demand for crypto to slow) and observe the impulse-response before/after of supply and demand and try to estimate the curve.
   - if we build an agent model, say a stochastic control style model, we can do this via simulations
   - other ideas: failed transactions with price drift -> test sensitivity
+- plausible counterfactuals for incentive programs
+- incorporating factor exposure (macro, equity, commodities, fixed income etc.) for protocols
+  - example for August 6: EVERYTHING except USDT/Tether is trending downward
+  - serious systemic risk
