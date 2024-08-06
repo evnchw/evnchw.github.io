@@ -12,13 +12,18 @@
     - in this sense this is a "nested double-sided market":
       - market for liquidity (traders vs. liquidity providers)
       - market on either side of the trade
-  - other microstructural measures
-    - can we construct some idea of non-executed demand and supply? toward the idea of limit-order books for these protocols
-      - could be proxied by traders testing via very small orders etc
-      - or can proxy with centralized crypto exchange (CEXs) order book data (say Coinbase for ETH), assuming there is sufficient arbitrage between those CEXs and DEXs (such as Uniswap)
-      - important because can predict the market movements of prices and also detect toxicity (say massive sell-off pressure)
-        - I presume toxic order flow in the CEXs would manifest at a later time in the protocols, similar to Karim (2022), so this could be a leading indicator
-      - estimating the implied supply and demand:
-        - "price elasticity of order flow" (Kyle's lambda) --> we know this perfectly in the constant-product AMM because you know exactly how the price will change if you trade an amount X for Y.
-    - can go the reduced-form route: examine shocks, say occurrences of FED raising interest rates (causing demand for crypto to slow) and observe the impulse-response before/after of supply and demand and try to estimate the curve.
-      - if we build an agent model, say a stochastic control style model, we can do this via simulations
+- other microstructural measures
+  - can we construct some idea of non-executed demand and supply? toward the idea of limit-order books for these protocols
+    - proxies:
+      - mempool transactions: those that are sitting there but not executed yet
+        - will reflect supply and demand with some small lag
+      - traders testing via very small orders
+      - centralized crypto exchange (CEXs) order book data (say Coinbase for ETH), assuming there is sufficient arbitrage between those CEXs and DEXs (such as Uniswap)
+    - important because can predict the market movements of prices and also detect toxicity (say massive sell-off pressure)
+      - I presume toxic order flow in the CEXs would manifest at a later time in the protocols, similar to Karim (2022), so this could be a leading indicator
+    - estimating the implied supply and demand:
+      - "price elasticity of order flow" (Kyle's lambda) --> we know this perfectly in the constant-product AMM because you know exactly how the price will change if you trade an amount X for Y.
+- estimating supply and demand curves
+  - can go the reduced-form route: examine shocks, say occurrences of FED raising interest rates (causing demand for crypto to slow) and observe the impulse-response before/after of supply and demand and try to estimate the curve.
+  - if we build an agent model, say a stochastic control style model, we can do this via simulations
+  - other ideas: failed transactions with price drift -> test sensitivity
