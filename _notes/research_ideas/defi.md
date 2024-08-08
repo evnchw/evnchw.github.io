@@ -34,3 +34,9 @@
 - for crypto risk management
   - how do you deal with systemic risk?
   - how do you deal with endogenous risk? (smart contract bugs, panic/sell-offs triggered by overcollateralization, etc.)
+- suggested improvement:
+  - incorporate alternative data (macro announcement calendars, etc.) to inform systemic and endogenous risk
+  - this can help not only in your simulations but also check performance during incentive programs
+  - example: US job reports last friday much much worse than expected, crypto tanking this week (nowhere to hide)
+- running strategies to invest collateral
+  - hedge against inflation, negative movements (very important for overleverage)
