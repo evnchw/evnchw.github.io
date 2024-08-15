@@ -10,9 +10,11 @@ This is a quick post to concisely survey optimal trading models that make use of
 
 The format we will follow is:
 
-- Motivation
+- Quick motivation
 - Model specification
-- Solutions to the model (analytical, numerical)
+- Model results
+  - Solutions (analytical, numerical)
+  - Other findings
 
 ## Cardaliguet and Lehalle (2017), *Mean field game of controls and an application to trade crowding*
 
@@ -41,7 +43,7 @@ $$
 
 where $\kappa \nu_t^a$ is the *temporary price impact* and represents the adverse change in price induced by more trading $\nu_t^a$. Initial conditions are given by $X_0^a=0$ for all traders, and $Q_0^a>0$ for all sellers (aiming for $\nu_t^a>0$) and $Q_0^a<0$ for all buyers similarly, hence within this single distribution of $Q_0^a$ we have two kinds of traders.
 
-Finally, the trader wants to maximize a payoff that is the sum of the terminal cash, the terminal value of inventory minus terminal market impact, minus the running cost of trading at each time. This running cost is quadratic in the inventory and parameterized by $\phi^a$, and is interpretable as *risk aversion*. Written as a value function at time $t$ to terminum $T$:
+Finally, the trader wants to maximize a payoff that is the sum of the terminal cash, the terminal value of inventory minus terminal market impact, minus the running cost of trading at each time. This running cost is quadratic in the inventory and parameterized by $\phi^a$, and is interpretable as *risk aversion*. Written as a value function at time $t$ to terminum $T$, for some $A^a \in \mathbb{R}$:
 
 $$
 \begin{align}
@@ -102,3 +104,5 @@ $$
     v^a(T, q; \mu) &= -A^a q^2 &\text{initial backward condition, $t=T$}
 \end{align}
 $$
+
+### Model results
