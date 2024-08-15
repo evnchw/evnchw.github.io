@@ -1,5 +1,5 @@
 ---
-title: "[in progress] Quick paper notes: Cardaliguet and Lehalle (2017)"
+title: "[in progress] Paper notes: Cardaliguet and Lehalle (2017)"
 collection: quant
 type: "Post"
 permalink: /quant/20240817_cardaliguet_and_lehalle_2017
