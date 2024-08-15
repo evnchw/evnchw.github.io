@@ -65,12 +65,12 @@ $$
 \end{align}
 $$
 
-Note that $s$ is now part of $\partial_q v^a$. Moreover, note that we have via the ersatz $\nu^a(t, q; \mu)$, so that the control now depends on the net trading flow. Using the ersatz and the optimal feedback we obtain, by substituting out the supremum wrt. $\nu$:
+Note that $s$ is now part of $\partial_q v^a$. Moreover, note that we have via the ersatz $\nu^a(t, q; \mu)$, so that the control now depends on the net trading flow $\mu$. (Note that this impacts the market price $S_t$ via the *permanent market impact* term $\alpha$.) Using the ersatz and the optimal feedback we obtain, by substituting out the supremum wrt. $\nu$:
 
 $$
 \begin{align}
     -\alpha \mu q &= \partial_t v^a - \phi^a q^2 + \sup_\nu [\nu \partial_q v^a - \kappa \nu^2] &\text{HJB with ersatz} \\
-    \therefore -\alpha \mu q &= \partial_t v^a - \phi^a q^2 + \frac{(\partial_q v^a)^2}{4\kappa} &\text{HJB, use optimal feedback} \\
+    \therefore -\alpha \mu q &= \partial_t v^a - \phi^a q^2 + \frac{(\partial_q v^a)^2}{4\kappa} &\text{HJB, use optimal feedback to eliminate $\nu$} \\
 \end{align}
 $$
 
@@ -97,7 +97,7 @@ Hence, we obtain an extended mean field game system with *three equations* plus 
 
 $$
 \begin{align}
-    -a q \mu_t &= \partial_t \nu^a - \phi^a q^2 + \frac{(\partial_q v^a)^2}{4 \kappa} &\text{backward HJB} \\
+    -a q \mu_t &= \partial_t v^a - \phi^a q^2 + \frac{(\partial_q v^a)^2}{4 \kappa} &\text{backward HJB} \\
     0 &= \partial_t m + \partial_q \left( m \frac{\partial_q v^a}{2\kappa} \right) &\text{forward transport equation (FP)} \\
     \mu_t &= \int_{(q,a)} \frac{\partial_q v^a (t, q)}{2 \kappa} m(t, dq, da) &\text{mean field in the controls} \\
     m(0, dq, da) &= m_0(dq, da) &\text{initial forward condition, $t=0$} \\
