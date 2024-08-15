@@ -22,7 +22,7 @@ The format I follow is:
 
 The goal of this paper is to formulate the classic problem of optimal trading (optimal liquidation) within a mean field framework. Classically, the problem is for a large trader to liquidate a large order over time, in a way that minimizes impact to the market price (Almgren & Chriss 2000). In other frameworks there is a distribution of "noise traders" that represents atomic randomness by other market participants, that must also be accounted for (Kyle 1985). Hence to model the agent's optimal trading problem against the large population's distribution of trading behavior, it is natural to formulate this via a *mean-field game.*
 
-This is an *extended mean field game* since the mean field aspect enters through the controls (as well as the states). In other words, agents take into account the circumstances (states) as well as the behavior (controls) of other agents. We will see how this works.
+This is an *extended mean field game* since the mean field aspect enters through the controls (as well as the states). In other words, agents take into account the circumstances (states) as well as the behavior (controls) of other agents. This will lead to one additional equation for the mean field controls in the MFG system, hence, the extension.
 
 ### Model specification
 
