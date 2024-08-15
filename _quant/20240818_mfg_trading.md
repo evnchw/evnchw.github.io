@@ -1,22 +1,24 @@
 ---
-title: "[in progress] Survey of mean field models for optimal trading"
+title: "[in progress] Quick paper notes: Cardaliguet and Lehalle (2017)"
 collection: quant
 type: "Post"
 permalink: /quant/20240818_mfg_trading
 date: 2024-08-18
 ---
 
-This is a quick post to concisely survey optimal trading models that make use of [mean field game theory](https://en.wikipedia.org/wiki/Mean-field_game_theory). Although I try to survey as many as I can, this is not exhaustive, and notice of any omissions will be appreciated.
+This is a quick post to summarize the motivation, model, and findings of Cardaliguet and Lehalle (2017): *Mean field game of controls and an application to trade crowding*.
 
-The format we will follow is:
+Categorically, this goes under optimal trading models that make use of [mean field game theory](https://en.wikipedia.org/wiki/Mean-field_game_theory).
 
-- Quick motivation
+The format I follow is:
+
+- Motivation
 - Model specification
-- Model results
+- Model findings
   - Solutions (analytical, numerical)
   - Other findings
 
-## Cardaliguet and Lehalle (2017), *Mean field game of controls and an application to trade crowding*
+## Motivation
 
 The goal of this paper is to formulate the classic problem of optimal trading (optimal liquidation) within a mean field framework. Classically, the problem is for a large trader to liquidate a large order over time, in a way that minimizes impact to the market price (Almgren & Chriss 2000). In other frameworks there is a distribution of "noise traders" that represents atomic randomness by other market participants, that must also be accounted for (Kyle 1985). Hence to model the agent's optimal trading problem against the large population's distribution of trading behavior, it is natural to formulate this via a *mean-field game.*
 
