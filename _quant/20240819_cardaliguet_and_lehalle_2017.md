@@ -2,8 +2,8 @@
 title: "[in progress] Quick paper notes: Cardaliguet and Lehalle (2017)"
 collection: quant
 type: "Post"
-permalink: /quant/20240818_mfg_trading
-date: 2024-08-18
+permalink: /quant/20240819_cardaliguet_and_lehalle_2017
+date: 2024-08-19
 ---
 
 This is a quick post to summarize the motivation, model, and findings of Cardaliguet and Lehalle (2017): *Mean field game of controls and an application to trade crowding*.
