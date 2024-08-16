@@ -13,9 +13,9 @@ Categorically, this goes under optimal trading models that make use of [mean fie
 The format I follow is:
 
 - Motivation
-- Model specification
-- Model findings
-  - Solutions (analytical, numerical)
+- Model
+- Findings
+  - Model solutions (analytical, numerical)
   - Other findings
 
 ## Motivation
@@ -24,7 +24,7 @@ The goal of this paper is to formulate the classic problem of optimal trading (o
 
 This is an *extended mean field game* since the mean field aspect enters through the controls (as well as the states). In other words, agents take into account the circumstances (states) as well as the behavior (controls) of other agents. This will lead to one additional equation for the mean field controls in the MFG system, hence, the extension.
 
-### Model specification
+### Model
 
 There is a distribution of atomic identical traders, each of whom is indexed by a parameter $a$, and a finite time horizon $\mathcal{T}=1 \dots T$. The market price moves according a drift-diffusion where the drift is the net trade flow $\mu_t$ of all traders.
 
@@ -107,4 +107,5 @@ $$
 \end{align}
 $$
 
-### Model results
+### Findings
+
