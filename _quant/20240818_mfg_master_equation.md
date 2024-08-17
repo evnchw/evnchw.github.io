@@ -149,4 +149,4 @@ Assume that existence and uniqueness of a solution hold for this system. **Our g
 
 ## The first step: combining the coupled equations
 
-TODO
+Noting that 
