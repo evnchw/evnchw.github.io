@@ -81,7 +81,7 @@ $$
 \end{align}
 $$
 
-Intuitively, suppose we are at $$(x,t)$$. If we know the optimal running cost $$\int_t^\tau L(x_s, a_s) ds$$ of moving from $$(x,t) \to (x_\tau, \tau)$$, and the subsequent optimal cost (value function) thereafter $$u(x_\tau, \tau)$$, the *sum* of these give us our optimal cost $$u(x_t,t)$$ that can be achieved at $$(x,t)$$. Hence, the value function can be efficiently computed backward-in-time: given $$u(x_\tau, \tau)$$, we proceed backward to $$(x_\tau, \tau)$$ to compute the running cost from $$(x,t) \to (x_\tau, \tau)$$, and this yields $$u(x, t)$$.
+Intuitively, suppose we are at $$(x,t)$$. If we know the optimal running cost $$\int_t^\tau L(x_s, a_s) ds$$ of moving from $$(x,t) \to (x_\tau, \tau)$$, and the subsequent optimal cost (value function) thereafter $$u(x_\tau, \tau)$$, the *sum* of these give us our optimal cost $$u(x_t,t)$$ that can be achieved at $$(x,t)$$. Hence, the value function can be efficiently computed backward-in-time: given $$u(x_\tau, \tau)$$, we proceed backward to $$(x_\tau, \tau)$$ to compute the running cost from $$(x,t) \to (x_\tau, \tau)$$, and this yields $$u(x, t)$$. (In addition to this, we will still have the terminal condition $$u(x, T)=G(.)$$.)
 
 So, if we choose the optimal path at any $$(x,t)$$, we will stay on the optimal path.
 
