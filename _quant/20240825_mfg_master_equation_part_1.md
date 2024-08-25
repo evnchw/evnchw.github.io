@@ -8,7 +8,7 @@ date: 2024-08-25
 
 These are my informal notes on the master equation in mean field game theory, closely following the accessible sketch in [Delarue (2021)](https://www.ams.org/meetings/shortcourse/Delarue_AMS.pdf) with the same notation and supplemented when necessary.
 
-See the reference for full details. All errors are mine.
+See the reference for full details.
 
 ## What is the master equation?
 

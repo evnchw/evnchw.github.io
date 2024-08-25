@@ -8,7 +8,7 @@ date: 2024-09-01
 
 This is Part 2 of my notes of the master equation in mean field game theory, closely following the accessible sketch in [Delarue (2021)](https://www.ams.org/meetings/shortcourse/Delarue_AMS.pdf).
 
-See the reference for full details. All errors are mine.
+See the reference for full details.
 
 ## Part 2: differentiation on the space of probability measures
 
