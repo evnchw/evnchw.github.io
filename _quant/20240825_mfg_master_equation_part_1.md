@@ -1,22 +1,22 @@
 ---
-title: "[in progress] Notes on the master equation in mean field games (Delarue 2021)"
+title: "The master equation in mean field games, part 1 (via Delarue 2021)"
 collection: quant
 type: "Post"
-permalink: /quant/20240818_mfg_master_equation
-date: 2024-08-18
+permalink: /quant/20240825_mfg_master_equation_part_1
+date: 2024-08-25
 ---
 
 These are my informal notes on the master equation in mean field game theory, closely following the accessible sketch in [Delarue (2021)](https://www.ams.org/meetings/shortcourse/Delarue_AMS.pdf) with the same notation and supplemented when necessary.
 
 See the reference for full details. All errors are mine.
 
-## What is a master equation?
+## What is the master equation?
 
-From physics: the idea is to have a unified equation to model the evolution of a system over time and (probabilistic) states. [(Wiki)](https://en.wikipedia.org/wiki/Master_equation)
+Originally from physics, the idea of a *master equation* is to have a unified equation to model the evolution of a system over time and (probabilistic) states. [(Wiki)](https://en.wikipedia.org/wiki/Master_equation)
 
 > When the probabilities of the elementary processes are known, one can write down a continuity equation for W, from which all other equations can be derived and which we will call therefore the "master” equation.
 
-Hence, the **master equation** is a unified equation that describes succintly a mean field game system: the "backward" equation for agent optimization, and the "forward" equation for population dynamics, as well as the initial conditions.
+Hence, the **master equation in field game theory** is a unified equation that describes succintly a mean field game system: the "backward" equation for agent optimization, and the "forward" equation for population dynamics, as well as the initial conditions.
 
 ## Part 1: setting up the mean field game
 
@@ -149,7 +149,7 @@ $$
 
 Assume that existence and uniqueness of a solution hold for this system. **Our goal is to obtain the master equation which unifies both the backward and forward dynamics.**
 
-### Unifying the forward-backward dynamics
+### Unifying the forward-backward dynamics and the key challenge
 
 Suppose we already have existence and uniqueness to the above MFG system, so that we have an initial flow $\mu^\circ$ and an equilibrium flow $\{\mu_t\}_t$ over the time range $t \in [t^\circ, T]$. Then the state dynamics, the HJB equation, and the dynamic programming relation are given as:
 
@@ -169,102 +169,3 @@ $$
 where as a reminder, the running cost comes from plugging in the optimal control into the original cost functional. Since the **generalized value function** $\mathcal{U}$ represents the minimization under the mean field flow, the goal will be to find a suitable expansion by applying a stochastic chain rule to this relation, and therefore obtain an "HJB-style" equation in these now-unified forward-backward dynamics.
 
 The difficulty, however, is that this generalized value function $\mathcal{U}$ depends directly on the mean field flow $\mu$ (as well as indirectly via $u^\mu$), and this $\mu$ is a probability measure. So we need a way to take derivatives on the space of probability measures, where probability measures are the primary objects of interest.
-
-## Part 2: differentiation on the space of probability measures
-
-In this section we review probability spaces and measures, distance between measures, and recap differentiation wrt. probability measures can occur (following the Delarue notes). We also give some preliminaries on necessary concepts from measure theory and other fields when necessary.
-
-### Preliminaries: probability spaces, measures and distributions
-
-A **probability space** is a tuple $(\Omega, \mathcal{F}, P)$.
-
-- The first component $\Omega$ ("sample space") represents the set of all possible outcomes on the space.
-- The second component $\mathcal{F}$ ("sigma-algebra") represents the collection of measurable subsets of $\Omega$.
-  - It includes the entire set of outcomes $\Omega$.
-  - It includes the empty set of no outcomes $\emptyset$.
-  - It is closed under complementation: for $A \in \mathcal{F}$, then the complement is also included ($A^c \in \mathcal{F}$).
-  - It is closed under countable unions: for disjoint events $A_1, A_2, \dots \in \mathcal{F}$, it follows $(A_1 \cup A_2 \cup \dots) \in \mathcal{F}$.
-- The third component $P: \mathcal{F} \to [0,1]$, the **probability measure** is the measure assigned to every element of $\mathcal{F}$
-  - It sums to one over the whole space ($P(\Omega)=1$) and zero over the empty set ($P(\emptyset)=0$).
-  - It is countably additive: for disjoint events $A_1, A_2, \dots \in \mathcal{F}$, it follows $P(A_1 \cup A_2 \cup \dots) = \sum_i P(A_i)$.
-  - Other properties: monotonicity, sub-additivity, etc.
-
-For our application we focus on the reals, hence a random variable $X: \Omega \to \mathbb{R}^d$ represents the numeric realization of an outcome, where the realization is $P$-measurable. See [Wikipedia](https://en.wikipedia.org/wiki/Random_variable):
-
-<img src="../images/20240818_mfg_master_equation_rvs.png" alt="Random variable definition (Wikipedia)" width="50%"/>
-
-In our application we have the probability space $(\Omega, \mathcal{F}, P)$, and a random variable is given by $X: \Omega \to \underbrace{\mathbb{R}^d}_{E}$ with an associated sigma-algebra $\mathcal{E}$ on $E$. Usually this is the Borel sigma-algebra generated by all open sets on $\mathbb{R}^d$, and in practical terms means the smallest set that contains all possible intervals [(Wikipedia)](https://en.wikipedia.org/wiki/Borel_set).
-
-Lastly, we define the **probability law** (probability distribution) as the probability measure on $X$'s space ($\mathbb{R}^d$) that describes the distribution of $X$'s values. Formally it is given by:
-$$
-\begin{align}
-    \forall B \in \mathcal{E}: \mathcal{L}(X)(B) &= P(X^{-1}(B)) &\text{probability law of } X
-\end{align}
-$$
-This says that for any realization of $X$ ($B \in \mathcal{E}$, e.g. some numbers in $\mathbb{R}^d$), it is $P$-measurable according to the original outcome space. Concisely, $\mathcal{L}(X)(B)$ gives the probability that $X$ takes a value in $B \subset E$.
-
-Following the notes, we filter this down to the probability measures on $\mathbb{R}^d$ that have finite second moment. Denote this as the space of probability measures $\mathcal{P}_2(\mathbb{R}^d) := \{ \mu: \mathbb{R}^d \to [0,1], \int_{\mathbb{R}^d} \mu(s)^2 ds < \infty \}$.
-
-### Preliminaries: the distance between probability measures
-
-How do we compare the "distance" between two probability distributions $\mu, \nu: \mathbb{R}^d \to [0,1]$? Note that we must account for both the "transport distance" (domain) as well as the "amount of mass to transport" (range) between these distributions. To measure this distance, we review the **[Wasserstein distance](https://en.wikipedia.org/wiki/Wasserstein_metric)** from optimal transportation.
-$$
-\begin{align}
-    \forall \mu, \nu \in \mathbb{P}_2(\mathbb{R}^d)&: 
-    W_2 (\mu, \nu) = \left[ \inf_{\pi} \int_{\mathbb{R}^d \times \mathbb{R}^d} |x-y|^2 d\pi(x,y) \right]^{1/2}
-    &\text{2-Wasserstein distance}
-\end{align}
-$$
-where the *coupling* $\pi(x,y): \mathbb{R}^d \times \mathbb{R}^d \to [0,1]$ is the joint probability measure between $\mu$ and $\nu$ on their joint image $\mathbb{R}^d \times \mathbb{R}^d$, and yielding the marginals in either factor. That is, for any measurable $A \subset \mathbb{R}^d$, we must have:
-$$
-\begin{align}
-    \int_A \int_{\mathbb{R}^d} \pi(x,y) dy dx &= \mu(A) &\text{marginal } \mu \\
-    \int_A \int_{\mathbb{R}^d} \pi(x,y) dx dy &= \nu(A) &\text{marginal } \nu
-\end{align}
-$$
-For two random variables $X,X'$ with associated probability measures (laws) $\mu,\mu'$, the 2-Wasserstein distance is bounded above by the "root mean square distance" between the variables, according to their laws:
-$$
-\begin{align}
-    W_2 (\mathcal{L}(X), \mathcal{L}(X')) \leq \mathbb{E}[|X - X'|^2]^{1/2}
-\end{align}
-$$
-The exercise is given to show this bound for any two $N$-tuples $(x_1, \dots, x_N)$ and $(x_1', \dots, x_N')$ in $(\mathbb{R}^d)^N$:
-$$
-\begin{align}
-    W_2 \left(
-        \frac{1}{N}\sum_{i=1}^N \delta_{x_i}, 
-        \frac{1}{N}\sum_{i=1}^N \delta_{x_i}'
-    \right) &\leq \left(
-        \frac{1}{N}\sum_{i=1}^N |x_i - x_i'|^2
-    \right)^{1/2}
-\end{align}
-$$
-The hint is to interpret this as two random variables $(x_\theta, x_\theta')$, whose probability laws are uniform measures on $(1 \dots N)$, aka the "empirical measure." To solve this, first connect the laws via the identity coupling $\pi(x,x') = \frac{1}{N}\sum_{i=1}^N \delta_{(x_i, x_i')}(x,x')$, which will have positive equal measure of $(1/N)$ only at the points $(x_i,x_i')_{i=1\dots N}$ and zero for any other $(x,x')$. Set up the transportation cost integral, noting that $(x_i,x_i')$ are not part of the integral:
-$$
-\begin{align}
-    \int_{\mathbb{R}^d \times \mathbb{R}^d} |x-y|^2 d\pi(x,y) &=
-        \int_{\mathbb{R}^d \times \mathbb{R}^d} |x-y|^2 \underbrace{d
-            \left[\frac{1}{N}\sum_{i=1}^N \delta_{(x_i, x_i')}(x,y)\right]
-        }_{\text{probability measure }\pi\text{ at }(x,y)} &\text{substitute the coupling} \\
-        &= 
-        \int_{\mathbb{R}^d \times \mathbb{R}^d} |x-y|^2
-            \left[\frac{1}{N}\sum_{i=1}^N \mathbb{1}\left[(x_i,x_i')=(x,y)\right]\right] &\text{apply Dirac delta definition} \\
-        &=
-        \frac{1}{N} \sum_{i=1}^N |x_i-x_i'|^2 &\text{measure $1/N$ only at points } (x_i,x_i')_i \\
-\end{align}
-$$
-Returning to the problem, let $(X_\theta, X_\theta')$ be two random variables $\Omega \to \mathbb{R}^d$ with the probability laws $(\frac{1}{N}\sum_{i=1}^N \delta_{x_i}, \frac{1}{N}\sum_{i=1}^N \delta_{x_i}')$ respectively. Noting the probability laws are in $\mathcal{P}_2(\mathbb{R}^d)$, it follows:
-$$
-\begin{align}
-    W_2 \left(
-        \underbrace{\frac{1}{N}\sum_{i=1}^N \delta_{x_i}}_{\mathcal{L}(x_\theta)},
-        \underbrace{\frac{1}{N}\sum_{i=1}^N \delta_{x_i}'}_{\mathcal{L}(x_\theta')}
-    \right) &= \left(
-        \inf_\pi \int_{\mathbb{R}^d \times \mathbb{R}^d} |x - x'|^2 d\pi(x,x')
-    \right)^{1/2} &\text{Wasserstein definition} \\
-    &\leq \left( \int_{\mathbb{R}^d \times \mathbb{R}^d} |x - x'|^2 d\pi(x,x') \right)^{1/2} &\text{infimum + apply our specific coupling } \pi \\
-    &= \left( \frac{1}{N} \sum_{i=1}^N |x_i - x_i'|^2 \right)^{1/2} &\text{apply the result}
-\end{align}
-$$
-proving the result. $\square$
-
