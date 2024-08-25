@@ -36,7 +36,7 @@ $i$ faces the cost functional:
 
 $$
 \begin{align}
-    J^i (\bold{\alpha}^1, \dots, \bold{\alpha}^N) &= \mathbb{E}\left[
+    J^i (\textbf{\alpha}^1, \dots, \textbf{\alpha}^N) &= \mathbb{E}\left[
         g(X_T^i, \bar{\mu}_T^N) +
         \int_0^T \left(f(X_t^i, \bar{\mu}_t^N) + \frac{1}{2} |\alpha_t^i|^2\right) dt
     \right] &\text{cost functional} \\
