@@ -16,6 +16,8 @@ From physics: the idea is to have a unified equation to model the evolution of a
 
 > When the probabilities of the elementary processes are known, one can write down a continuity equation for W, from which all other equations can be derived and which we will call therefore the "master” equation.
 
+Hence, the **master equation** is a unified equation that describes succintly a mean field game system: the "backward" equation for agent optimization, and the "forward" equation for population dynamics, as well as the initial conditions.
+
 ## Basic setup
 
 Let players be $i \in \{1 \dots N\}$ and times $t \in \mathcal{T} = \{1 \dots T\}$. Each player $i$ has a dynamic $d$-dimensional state $X^i_t \in \mathbb{R}^d$, which follows the dynamics:
