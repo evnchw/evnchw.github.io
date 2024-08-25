@@ -6,7 +6,7 @@ permalink: /quant/20240818_mfg_master_equation
 date: 2024-08-18
 ---
 
-These are my informal notes on the master equation in mean field game theory, closely following the sketch in [Delarue (2021)](https://www.ams.org/meetings/shortcourse/Delarue_AMS.pdf) and supplemented when necessary.
+These are my informal notes on the master equation in mean field game theory, closely following the accessible sketch in [Delarue (2021)](https://www.ams.org/meetings/shortcourse/Delarue_AMS.pdf) with the same notation and supplemented when necessary.
 
 See the reference for full details. All errors are mine.
 
@@ -147,6 +147,22 @@ $$
 
 Assume that existence and uniqueness of a solution hold for this system. **Our goal is to obtain the master equation which unifies both the backward and forward dynamics.**
 
-## The first step: combining the coupled equations
+## Unifying the forward-backward dynamics
 
-Noting that 
+Suppose we already have existence and uniqueness to the above MFG system, so that we have an initial flow $\mu^\circ$ and an equilibrium flow $\{\mu_t\}_t$ over the time range $t \in [t^\circ, T]$. Then the state dynamics, the HJB equation, and the dynamic programming relation are given as:
+
+$$
+\begin{align}
+    dX_t &= -\partial_x u^\mu (t, X_t) dt + dW_t &\text{equilibrium state dynamics} \\
+    \partial_t u^\mu (t, x) &= -\frac{1}{2} \Delta u^\mu(t,x) + \frac{1}{2} |\partial_x u^\mu(t,x)|^2 - f(x, \mu_t) &\text{equilibrium HJB} \\
+    u^\mu (T, x) &= g(x, \mu_T) &\text{equilibrium HJB, terminum} \\
+    \mathcal{U}(t^\circ, x^\circ, \mu^\circ) &= \mathbb{E}\left[
+        \int_{t^\circ}^{t^\circ + \varepsilon}
+            \left( f(X_s, \mu_s) + \frac{1}{2}|\partial_x u^\mu(s, X_s)|^2 \right) ds +
+        \mathcal{U}(t^\circ + \varepsilon, X_{t^\circ + \varepsilon}, \mu_{t^\circ + \varepsilon})
+    \right] &\text{equilibrium dynamic programming relation}
+\end{align}
+$$
+
+where as a reminder, the running cost comes from plugging in the optimal control into the original cost functional. Since the **generalized value function** $\mathcal{U}$ represents the minimization under the mean field flow, the goal will be to find a suitable expansion by applying a stochastic chain rule to this relation, and therefore obtain an "HJB-style" equation in these now-unified forward-backward dynamics.
+
