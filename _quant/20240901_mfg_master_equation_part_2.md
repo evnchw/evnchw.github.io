@@ -6,7 +6,7 @@ permalink: /quant/20240901_mfg_master_equation_part_2
 date: 2024-09-01
 ---
 
-These are my informal notes on the master equation in mean field game theory, closely following the accessible sketch in [Delarue (2021)](https://www.ams.org/meetings/shortcourse/Delarue_AMS.pdf) with the same notation and supplemented when necessary.
+This is Part 2 of my notes of the master equation in mean field game theory, closely following the accessible sketch in [Delarue (2021)](https://www.ams.org/meetings/shortcourse/Delarue_AMS.pdf).
 
 See the reference for full details. All errors are mine.
 
