@@ -136,7 +136,7 @@ It is worth taking some time to understand this scheme.
 
 First, Hilbert spaces are complete vector spaces with inner products. In short, completeness means that (Cauchy) sequences converge within the space; and inner products mean that distances, angles, orthogonality, and linear operations are well defined ([UC Davis](https://www.math.ucdavis.edu/~hunter/book/ch6.pdf)). This linear structure means that taking directional derivatives are well-defined and meaningful.
 
-Second, the [Frechet derivative](https://en.wikipedia.org/wiki/Fr%C3%A9chet_derivative) is the generalization of the derivative to infinite-dimensional normed spaces (spaces with norms, such as Hilbert spaces), and in finite dimensions just reduces to the usual derivative. This is important because we are differentiating with respect to the distribution $\mu$ of infinite agents, and so is infinite-dimensional. That said, in the final master equation describing the dynamics of the generalized value function $\mathcal{U}$, the infinite dimensionality will be integrated out via Ito-like terms.
+Second, the [Frechet derivative](https://en.wikipedia.org/wiki/Fr%C3%A9chet_derivative) is the generalization of the derivative to infinite-dimensional normed spaces (spaces with norms, such as Hilbert spaces), and in finite dimensions just reduces to the usual derivative. This is important because we are differentiating with respect to the distribution $\mu$ of infinite agents, and so is infinite-dimensional. That said, in the final master equation describing the dynamics of the generalized value function $\mathcal{U}$ (a scalar), the infinite dimensionality will be integrated out via Ito-like terms.
 
 
 
