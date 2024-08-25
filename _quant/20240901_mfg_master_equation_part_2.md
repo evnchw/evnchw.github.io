@@ -6,7 +6,7 @@ permalink: /quant/20240901_mfg_master_equation_part_2
 date: 2024-09-01
 ---
 
-This is Part 2 of my notes of the master equation in mean field game theory, closely following the accessible sketch in [Delarue (2021)](https://www.ams.org/meetings/shortcourse/Delarue_AMS.pdf).
+This is Part 2 of my notes on the master equation in mean field game theory, closely following the accessible sketch in [Delarue (2021)](https://www.ams.org/meetings/shortcourse/Delarue_AMS.pdf).
 
 See the reference for full details.
 
@@ -128,15 +128,21 @@ $$
     \mathcal{U}: L^2(\Omega, P) \in X &\mapsto \mathcal{U}(\mathcal{X}) &\text{the idea of Lions}
 \end{align}
 $$
-and if we can show $\mathcal{U}$ is Frechet-differentiable, this implies $\mathcal{U}$ is differentiable.
+and if we can show $\mathcal{U}$ is Frechet-differentiable with respect to $X$, this implies $\mathcal{U}$ is differentiable with respect to the flow $\mu$. That is,
+$$
+\begin{align}
+    D\hat{\mathcal{U}}(X) &= \partial_\mu \mathcal{U}(\mu)(X)
+\end{align}
+$$
+where the LHS is the Frechet derivative as a direct function of $X$ only, and the RHS is the derivative of $\mathcal{U}$ wrt. the mean field flow $\mu$, evaluated at $X$. This is a general result that does not depend on $X$ or choice of lift $\hat{\mathcal{U}}$, and represents the infinite dimensional gradient of $\mathcal{U}$ at the distribution $\mu$.
 
 ### Some intuition on the "lifting" idea
 
-It is worth taking some time to understand this scheme.
+It is worth taking some time to understand this scheme (no formal proofs here), and draw on a little more depth from the Cardaliguet notes as well [2].
 
 First, Hilbert spaces are complete vector spaces with inner products. In short, completeness means that (Cauchy) sequences converge within the space; and inner products mean that distances, angles, orthogonality, and linear operations are well defined ([UC Davis](https://www.math.ucdavis.edu/~hunter/book/ch6.pdf)). This linear structure means that taking directional derivatives are well-defined and meaningful.
 
 Second, the [Frechet derivative](https://en.wikipedia.org/wiki/Fr%C3%A9chet_derivative) is the generalization of the derivative to infinite-dimensional normed spaces (spaces with norms, such as Hilbert spaces), and in finite dimensions just reduces to the usual derivative. This is important because we are differentiating with respect to the distribution $\mu$ of infinite agents, and so is infinite-dimensional. That said, in the final master equation describing the dynamics of the generalized value function $\mathcal{U}$ (a scalar), the infinite dimensionality will be integrated out via Ito-like terms.
 
-
+[2] Cardaliaguet, Pierre. Notes on mean field games. Technical report, 2010.
 
