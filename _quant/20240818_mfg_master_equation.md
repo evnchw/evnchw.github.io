@@ -86,9 +86,7 @@ This specifies a mean field in the (distribution of) states. The scheme is to fi
 
 ### The MFG problem, in standard PDE form
 
-Now we characterize the above problem as a pair of partial differential equations, per the standard MFG setup.
-
-First, note we can define the value function $u(t, x)$ as a minimizer:
+Now we characterize the above problem as a pair of partial differential equations, per the standard MFG setup. First, note we can define the value function $u(t, x)$ as a minimizer:
 
 $$
 \begin{align}
@@ -213,7 +211,7 @@ How do we compare the "distance" between two probability distributions $\mu, \nu
 $$
 \begin{align}
     \forall \mu, \nu \in \mathbb{P}_2(\mathbb{R}^d)&: 
-    W_s (\mu, \nu) = \left[ \inf_{\pi} \int_{\mathbb{R}^d \times \mathbb{R}^d} |x-y|^2 d\pi(x,y) \right]^{1/2}
+    W_2 (\mu, \nu) = \left[ \inf_{\pi} \int_{\mathbb{R}^d \times \mathbb{R}^d} |x-y|^2 d\pi(x,y) \right]^{1/2}
     &\text{2-Wasserstein distance}
 \end{align}
 $$
@@ -227,17 +225,46 @@ $$
 For two random variables $X,X'$ with associated probability measures (laws) $\mu,\mu'$, the 2-Wasserstein distance is bounded above by the "root mean square distance" between the variables, according to their laws:
 $$
 \begin{align}
-    W_s (\mathcal{L}(X), \mathcal{L}(X')) \leq \mathbb{E}[|X - X'|^2]^{1/2}
+    W_2 (\mathcal{L}(X), \mathcal{L}(X')) \leq \mathbb{E}[|X - X'|^2]^{1/2}
 \end{align}
 $$
-The exercise is given to show this bound for two random variables $(x_\theta, x_\theta')$, whose probability laws are uniform measures on $\{1 \dots N\}$:
+The exercise is given to show this bound for any two $N$-tuples $(x_1, \dots, x_N)$ and $(x_1', \dots, x_N')$ in $(\mathbb{R}^d)^N$:
 $$
 \begin{align}
-    W_s (
-        \underbrace{\frac{1}{N}\sum_{i=1}^N \delta_{x_i}}_{\mathcal{L}(x_\theta)},
-        \underbrace{\frac{1}{N}\sum_{i=1}^N \delta_{x_i}'}_{\mathcal{L}(x_\theta')}) &\leq \left(
+    W_2 \left(
+        \frac{1}{N}\sum_{i=1}^N \delta_{x_i}, 
+        \frac{1}{N}\sum_{i=1}^N \delta_{x_i}'
+    \right) &\leq \left(
         \frac{1}{N}\sum_{i=1}^N |x_i - x_i'|^2
     \right)^{1/2}
 \end{align}
 $$
-The trick is to use an 
+The hint is to interpret this as two random variables $(x_\theta, x_\theta')$, whose probability laws are uniform measures on $(1 \dots N)$, aka the "empirical measure." To solve this, first connect the laws via the identity coupling $\pi(x,x') = \frac{1}{N}\sum_{i=1}^N \delta_{(x_i, x_i')}(x,x')$, which will have positive equal measure of $(1/N)$ only at the points $(x_i,x_i')_{i=1\dots N}$ and zero for any other $(x,x')$. Set up the transportation cost integral, noting that $(x_i,x_i')$ are not part of the integral:
+$$
+\begin{align}
+    \int_{\mathbb{R}^d \times \mathbb{R}^d} |x-y|^2 d\pi(x,y) &=
+        \int_{\mathbb{R}^d \times \mathbb{R}^d} |x-y|^2 \underbrace{d
+            \left[\frac{1}{N}\sum_{i=1}^N \delta_{(x_i, x_i')}(x,y)\right]
+        }_{\text{probability measure }\pi\text{ at }(x,y)} &\text{substitute the coupling} \\
+        &= 
+        \int_{\mathbb{R}^d \times \mathbb{R}^d} |x-y|^2
+            \left[\frac{1}{N}\sum_{i=1}^N \mathbb{1}\left[(x_i,x_i')=(x,y)\right]\right] &\text{apply Dirac delta definition} \\
+        &=
+        \frac{1}{N} \sum_{i=1}^N |x_i-x_i'|^2 &\text{measure $1/N$ only at points } (x_i,x_i')_i \\
+\end{align}
+$$
+Returning to the problem, let $(X_\theta, X_\theta')$ be two random variables $\Omega \to \mathbb{R}^d$ with the probability laws $(\frac{1}{N}\sum_{i=1}^N \delta_{x_i}, \frac{1}{N}\sum_{i=1}^N \delta_{x_i}')$ respectively. Noting the probability laws are in $\mathcal{P}_2(\mathbb{R}^d)$, it follows:
+$$
+\begin{align}
+    W_2 \left(
+        \underbrace{\frac{1}{N}\sum_{i=1}^N \delta_{x_i}}_{\mathcal{L}(x_\theta)},
+        \underbrace{\frac{1}{N}\sum_{i=1}^N \delta_{x_i}'}_{\mathcal{L}(x_\theta')}
+    \right) &= \left(
+        \inf_\pi \int_{\mathbb{R}^d \times \mathbb{R}^d} |x - x'|^2 d\pi(x,x')
+    \right)^{1/2} &\text{Wasserstein definition} \\
+    &\leq \left( \int_{\mathbb{R}^d \times \mathbb{R}^d} |x - x'|^2 d\pi(x,x') \right)^{1/2} &\text{infimum + apply our specific coupling } \pi \\
+    &= \left( \frac{1}{N} \sum_{i=1}^N |x_i - x_i'|^2 \right)^{1/2} &\text{apply the result}
+\end{align}
+$$
+proving the result. $\square$
+
