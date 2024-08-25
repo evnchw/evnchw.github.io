@@ -155,14 +155,14 @@ Suppose we already have existence and uniqueness to the above MFG system, so tha
 
 $$
 \begin{align}
-    dX_t &= -\partial_x u^\mu (t, X_t) dt + dW_t &\text{equilibrium state dynamics} \\
-    \partial_t u^\mu (t, x) &= -\frac{1}{2} \Delta u^\mu(t,x) + \frac{1}{2} |\partial_x u^\mu(t,x)|^2 - f(x, \mu_t) &\text{equilibrium HJB} \\
-    u^\mu (T, x) &= g(x, \mu_T) &\text{equilibrium HJB, terminum} \\
+    dX_t &= -\partial_x u^\mu (t, X_t) dt + dW_t &\text{state dynamics} \\
+    \partial_t u^\mu (t, x) &= -\frac{1}{2} \Delta u^\mu(t,x) + \frac{1}{2} |\partial_x u^\mu(t,x)|^2 - f(x, \mu_t) &\text{HJB} \\
+    u^\mu (T, x) &= g(x, \mu_T) &\text{HJB, terminum} \\
     \mathcal{U}(t^\circ, x^\circ, \mu^\circ) &= \mathbb{E}\left[
         \int_{t^\circ}^{t^\circ + \varepsilon}
             \left( f(X_s, \mu_s) + \frac{1}{2}|\partial_x u^\mu(s, X_s)|^2 \right) ds +
         \mathcal{U}(t^\circ + \varepsilon, X_{t^\circ + \varepsilon}, \mu_{t^\circ + \varepsilon})
-    \right] &\text{equilibrium dynamic programming relation}
+    \right] &\text{dynamic programming relation}
 \end{align}
 $$
 
