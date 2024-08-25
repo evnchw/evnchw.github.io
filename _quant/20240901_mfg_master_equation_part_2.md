@@ -122,3 +122,19 @@ $$
     \mathcal{U}&: \mathcal{P}_2(\mathbb{R}^d) \to \mathbb{R}
 \end{align}
 $$
+Differentiating with respect to this non-flat space is difficult. The idea of Lions' mean field game theory is to instead "lift" the generalized value function $\mathcal{U}$ onto an $L^2$ ([Hilbert](https://en.wikipedia.org/wiki/Lp_space)) space above the probability measures (as given in the notes).
+$$
+\begin{align}
+    \mathcal{U}: L^2(\Omega, P) \in X &\mapsto \mathcal{U}(\mathcal{X}) &\text{the idea of Lions}
+\end{align}
+$$
+and if we can show $\mathcal{U}$ is Frechet-differentiable, this implies $\mathcal{U}$ is differentiable.
+
+### On the "lifting" idea
+
+It is worth taking some time to understand this scheme.
+
+First, Hilbert spaces are complete vector spaces with inner products. In short, completeness means that (Cauchy) sequences converge within the space; and inner products mean that distances, angles, orthogonality, and linear operations are well defined ([UC Davis](https://www.math.ucdavis.edu/~hunter/book/ch6.pdf)). This linear structure means that taking directional derivatives are well-defined and meaningful.
+
+
+
