@@ -1,8 +1,8 @@
 ---
-title: "The master equation in mean field games, part 2 (via Delarue 2021)"
+title: "[draft] The master equation in mean field games, part 2 (via Delarue 2021)"
 collection: quant
 type: "Post"
-permalink: /quant/20240825_mfg_master_equation_part_2
+permalink: /quant/20240901_mfg_master_equation_part_2
 date: 2024-09-01
 ---
 
