@@ -36,7 +36,7 @@ $$i$$ faces the cost functional:
 
 $$
 \begin{align}
-    J^i (\textbf{\alpha}^1, \dots, \textbf{\alpha}^N) &= \mathbb{E}\left[
+    J^i (\alpha^1, \dots, \alpha^N) &= \mathbb{E}\left[
         g(X_T^i, \bar{\mu}_T^N) +
         \int_0^T \left(f(X_t^i, \bar{\mu}_t^N) + \frac{1}{2} |\alpha_t^i|^2\right) dt
     \right] &\text{cost functional} \\
@@ -111,7 +111,7 @@ $$
         \frac{1}{2} \Delta_x u + f(x, \mu_t)
     \right] & \text{HJB, pre-optimization} \\
     \alpha_t^{*} &= -\nabla_x u & \text{optimal control via the minimization} \\
-    0 &= \partial_t u + \frac{1}{2} \Delta_x u - \frac{1}{2} | \nabla_x u |^2 + f(x, \mu_t) & \text{HJB, post-optimization (using $$a_t^*$$)}
+    0 &= \partial_t u + \frac{1}{2} \Delta_x u - \frac{1}{2} | \nabla_x u |^2 + f(x, \mu_t) & \text{HJB, post-optimization (using $a_t^*$)}
 \end{align}
 $$
 
