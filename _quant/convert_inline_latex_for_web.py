@@ -32,11 +32,12 @@ def select_markdown_file(markdown_files):
 
 def replace_single_dollar_with_double(content):
     """
-    Replace single $ with $$ and ensure that LaTeX is correctly opened and closed.
+    Replace single $ with $$ and ensure that LaTeX is correctly opened and closed,
+    without modifying existing $$.
     """
-    # Replace single dollar signs around LaTeX expressions
+    # Use a regex to match and replace only single dollar signs
     updated_content = re.sub(r'(?<!\$)\$(?!\$)', r'$$', content)
-
+    
     # Split the updated content by lines
     lines = updated_content.splitlines()
 
