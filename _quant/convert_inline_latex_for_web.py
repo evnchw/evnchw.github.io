@@ -32,21 +32,33 @@ def select_markdown_file(markdown_files):
 
 def replace_single_dollar_with_double(content):
     """
-    Replace single $ with $$ and ensure that LaTeX is correctly opened and closed,
-    without modifying existing $$.
+    Replace single $ with $$, ignoring blocks already enclosed in $$.
     """
-    # Use a regex to match and replace only single dollar signs
-    updated_content = re.sub(r'(?<!\$)\$(?!\$)', r'$$', content)
-    
-    # Split the updated content by lines
-    lines = updated_content.splitlines()
+    lines = content.splitlines()
+    in_block = False
+    updated_lines = []
 
-    for i, line in enumerate(lines):
-        # Ensure that lines with LaTeX start and end with $$
-        if line.count("$$") % 2 != 0:
-            lines[i] = line + "$$"
+    for line in lines:
+        if line.strip().startswith("$$") and line.strip().endswith("$$") and not in_block:
+            # Skip replacing in lines that are already fully enclosed in $$
+            updated_lines.append(line)
+        elif line.strip().startswith("$$") and not in_block:
+            # Start of a $$ block
+            in_block = True
+            updated_lines.append(line)
+        elif line.strip().endswith("$$") and in_block:
+            # End of a $$ block
+            in_block = False
+            updated_lines.append(line)
+        elif in_block:
+            # Inside a $$ block, do not replace
+            updated_lines.append(line)
+        else:
+            # Outside any $$ block, replace single $ with $$
+            updated_line = re.sub(r'(?<!\$)\$(?!\$)', r'$$', line)
+            updated_lines.append(updated_line)
 
-    return "\n".join(lines)
+    return "\n".join(updated_lines)
 
 def check_valid_markdown(content):
     """
