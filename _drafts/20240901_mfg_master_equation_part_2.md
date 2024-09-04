@@ -122,19 +122,25 @@ $$
     \mathcal{U}&: \mathcal{P}_2(\mathbb{R}^d) \to \mathbb{R}
 \end{align}
 $$
-Differentiating with respect to this non-flat space is difficult. The idea of Lions' mean field game theory is to instead "lift" the generalized value function $\mathcal{U}$ onto an $L^2$ ([Hilbert](https://en.wikipedia.org/wiki/Lp_space)) space above the probability measures (as given in the notes).
+Differentiating with respect to probability measures, in this non-flat space, is difficult. The idea of Lions' mean field game theory is to instead "lift" the generalized value function $\mathcal{U}$ onto an $L^2$ ([Hilbert](https://en.wikipedia.org/wiki/Lp_space)) space above the probability measures (as given in the notes).
 $$
 \begin{align}
-    \mathcal{U}: L^2(\Omega, P) \in X &\mapsto \mathcal{U}(\mathcal{X}) &\text{the idea of Lions}
+    \hat{\mathcal{U}}: L^2(\Omega, P) \in X &\mapsto \mathcal{U}(\mathcal{X}) &\text{the idea of Lions}
 \end{align}
 $$
-and if we can show $\mathcal{U}$ is Frechet-differentiable with respect to $X$, this implies $\mathcal{U}$ is differentiable with respect to the flow $\mu$. That is,
+That is, if we can show the following relation:
+$$
+\begin{align}
+    \hat{\mathcal{U}}(X) &= \mathcal{U}(L(X))
+\end{align}
+$$
+and moreover we can take the Frechet derivative of $\hat{\mathcal{U}}(X)$, this yields the (Wasserstein) derivative of $\mathcal{U}$ wrt. the flow $\mu$. That is,
 $$
 \begin{align}
     D\hat{\mathcal{U}}(X) &= \partial_\mu \mathcal{U}(\mu)(X)
 \end{align}
 $$
-where the LHS is the Frechet derivative as a direct function of $X$ only, and the RHS is the derivative of $\mathcal{U}$ wrt. the mean field flow $\mu$, evaluated at $X$. This is a general result that does not depend on $X$ or choice of lift $\hat{\mathcal{U}}$, and represents the infinite dimensional gradient of $\mathcal{U}$ at the distribution $\mu$.
+where the LHS is the Frechet derivative as a direct function of $X$ only (but where $X$ follows the law $L$), and the RHS is the derivative of $\mathcal{U}$ wrt. the mean field flow $\mu$, evaluated at $X$. This is a general result that does not depend on $X$ or choice of lift $\hat{\mathcal{U}}$, and represents the infinite dimensional gradient of $\mathcal{U}$ at the distribution $\mu$, which is what we need.
 
 ### Some intuition on the "lifting" idea
 
@@ -143,6 +149,15 @@ It is worth taking some time to understand this scheme (no formal proofs here), 
 First, Hilbert spaces are complete vector spaces with inner products. In short, completeness means that (Cauchy) sequences converge within the space; and inner products mean that distances, angles, orthogonality, and linear operations are well defined ([UC Davis](https://www.math.ucdavis.edu/~hunter/book/ch6.pdf)). This linear structure means that taking directional derivatives are well-defined and meaningful.
 
 Second, the [Frechet derivative](https://en.wikipedia.org/wiki/Fr%C3%A9chet_derivative) is the generalization of the derivative to infinite-dimensional normed spaces (spaces with norms, such as Hilbert spaces), and in finite dimensions just reduces to the usual derivative. This is important because we are differentiating with respect to the distribution $\mu$ of infinite agents, and so is infinite-dimensional. That said, in the final master equation describing the dynamics of the generalized value function $\mathcal{U}$ (a scalar), the infinite dimensionality will be integrated out via Ito-like terms.
+
+**The lifting idea essentially: instead of considering how $\mathcal{U}$ changes wrt. $X$'s probability distribution $\mu$, consider how $\mathcal{U}$ changes wrt. $X$ that has probability distribution $\mu$.** Since a small change in $\mu$ effects some corresponding change in $X$ and vice-versa, we can switch our perspective to differentiate wrt. $X$ and thereby indirectly differentiate wrt. $\mu$. This is expressed in the following relation between $\mathcal{U}$ and a "lifted" version of it:
+$$
+\begin{align}
+    \hat{\mathcal{U}}(X) &= \mathcal{U}(L(X))
+\end{align}
+$$
+
+
 
 [2] Cardaliaguet, Pierre. Notes on mean field games. Technical report, 2010.
 
