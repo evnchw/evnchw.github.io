@@ -30,9 +30,8 @@ Here you can find my informal explorations into quantitative sciences, music, an
 
 I work as a quantitative researcher at ADIA: this spans the full range from research prototypes to final production pipelines for quantitative investments.
 
-- **Data sourcing**: sourcing datasets, talking to vendors, trialing and evaluating potential investment alpha
-- **Data science**: understanding the information content of datasets, their statistical properties and biases
-- **Signal research**: evaluating useful alternative data, developing useful features and signals
+- **Data science**: sourcing datasets (financial and alternative), evaluating potential investment alpha
+- **Signal development**: statistical analyses on data, developing useful features and signals
 - **Portfolio optimization**: constructing and optimizing investment portfolios
 - **Seminars**: developing, analyzing and presenting strategies to the wider group for feedback
 - **Production**: building and monitoring production data pipelines, monitoring anomalies and investigating outages
