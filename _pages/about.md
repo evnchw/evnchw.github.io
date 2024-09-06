@@ -9,11 +9,11 @@ redirect_from:
 
 It's great to meet you, and thanks for swinging by. I'm Evan.
 
-- quant researcher & data scientist at the [Abu Dhabi Investment Authority (ADIA)](https://www.adia.ae/), previously in tech
+- quantative researcher at the [Abu Dhabi Investment Authority (ADIA)](https://www.adia.ae/), previously in tech
 - lifelong classical & jazz pianist, and amateur producer: [Spotify](https://open.spotify.com/artist/5DJAcFDVsRpCEzH0Nw9j6J)
 - originally from the San Francisco Bay Area, but lived in various places
 
-Here you can find my informal sojournings into quantitative sciences, music, and more. Enjoy!
+Here you can find my informal explorations into quantitative sciences, music, and more. Enjoy!
 
 <p>
   <strong style="font-family: Serif">Warm regards,</strong><br>
@@ -28,12 +28,13 @@ Here you can find my informal sojournings into quantitative sciences, music, and
 
 [Risk.net - Adia wealth fund is building supergroup of quant investing](https://www.risk.net/investing/quant-investing/7929061/adia-wealth-fund-is-building-supergroup-of-quant-investing)
 
-I work as a full-stack quantitative researcher and data scientist. This spans the full range, from research proof-of-concepts, to final production pipelines for investment algorithms and processes.
+I work as a quantitative researcher at ADIA: this spans the full range from research prototypes to final production pipelines for quantitative investments.
 
 - **Data sourcing**: sourcing datasets, talking to vendors, trialing and evaluating potential investment alpha
-- **Data curation**: understanding the information content of datasets, their statistical properties and biases
-- **Data science**: evaluating useful alternative data, constructing useful features and signals
-- **Quantitative research**: developing, analyzing and presenting strategies to the wider group for feedback and robustness
+- **Data science**: understanding the information content of datasets, their statistical properties and biases
+- **Signal research**: evaluating useful alternative data, developing useful features and signals
+- **Portfolio optimization**: constructing and optimizing investment portfolios
+- **Seminars**: developing, analyzing and presenting strategies to the wider group for feedback
 - **Production**: building and monitoring production data pipelines, monitoring anomalies and investigating outages
 
 **Domain.** I focus on industrial economics, transportation, and complex networks. I have also contributed to other systematic/semi-systematic work involving a variety of useful alternative data.
@@ -54,7 +55,7 @@ I studied the [MSc EME](https://www.lse.ac.uk/study-at-lse/Graduate/degree-progr
 
 ## Other
 
-I am a lifelong classically trained musician (classical and jazz pianist) and so you may also find some quant-music explorations here.
+I am a lifelong classically trained musician (classical and jazz pianist) and so you may also find quant-music explorations here.
 
 **Disclaimer**: The views expressed on this personal website are mine and do not necessarily reflect the official policy or position of any institutions I am affiliated with or have been affiliated with.
 {: .notice}
