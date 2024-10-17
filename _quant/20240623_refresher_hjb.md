@@ -211,7 +211,7 @@ $$
 \end{align}
 $$
 
-for $$t < \tau$$ of c
+for $$\tau<T$$.
 
 ### The HJB equation
  
