@@ -14,7 +14,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Evan Chow / Quantitative research and data science"
+title                    : "Evan Chow / Quantitative research"
 title_separator          : "-"
 name                     : &name "Evan Chow"
 description              : &description "The personal academic site of Evan Chow."
